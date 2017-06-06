@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
+  <task-flow-definition id="ipcbalancedue_TF">
+    <default-activity id="__1">ipcbalancedue</default-activity>
+    <managed-bean id="__5">
+      <managed-bean-name id="__3">ipcbalancedue</managed-bean-name>
+      <managed-bean-class id="__4">beans.ipcbalancedue</managed-bean-class>
+      <managed-bean-scope id="__2">request</managed-bean-scope>
+    </managed-bean>
+    <view id="ipcbalancedue">
+      <page>/pagefragments/ipcbalancedue.jsff</page>
+    </view>
+    <use-page-fragments/>
+  </task-flow-definition>
+</adfc-config>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
+  <task-flow-definition id="deductiontxn_TF">
+    <default-activity id="__1">deductiontxn</default-activity>
+    <managed-bean id="__2">
+      <managed-bean-name id="__5">deductiontxn</managed-bean-name>
+      <managed-bean-class id="__3">beans.deductiontxn</managed-bean-class>
+      <managed-bean-scope id="__4">request</managed-bean-scope>
+    </managed-bean>
+    <view id="deductiontxn">
+      <page>/pagefragments/deductiontxn.jsff</page>
+    </view>
+    <use-page-fragments/>
+  </task-flow-definition>
+</adfc-config>

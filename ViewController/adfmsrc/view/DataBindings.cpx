@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Application xmlns="http://xmlns.oracle.com/adfm/application"
+             version="11.1.1.66.73" id="DataBindings" SeparateXMLFiles="false"
+             Package="view" ClientType="Generic">
+  <pageMap>
+    <page path="/pagefragments/deductionsetup.jsff"
+          usageId="view_deductionsetupPageDef"/>
+    <page path="/pagefragments/deductiontxn.jsff"
+          usageId="view_deductiontxnPageDef"/>
+    <page path="/pagefragments/IPC.jsff" usageId="view_IPCPageDef"/>
+    <page path="/pagefragments/ipcbalancedue.jsff"
+          usageId="view_ipcbalanceduePageDef"/>
+    <page path="/pagefragments/ipcreport.jsff" usageId="view_ipcreportPageDef"/>
+    <page path="/pagefragments/ipcsummary.jsff"
+          usageId="view_ipcsummaryPageDef"/>
+    <page path="/pagefragments/PO.jsff" usageId="view_POPageDef"/>
+    <page path="/pages/ipcbalancedue.jspx"
+          usageId="view_ipcbalanceduePageDef1"/>
+    <page path="/pages/ipcsummary.jspx" usageId="view_ipcsummaryPageDef1"/>
+    <page path="/pages/ipcreport.jspx" usageId="view_ipcreportPageDef1"/>
+    <page path="/pages/IPC.jspx" usageId="view_IPCPageDef1"/>
+    <page path="/pages/PO.jspx" usageId="view_POPageDef1"/>
+    <page path="/pages/deductiontxn.jspx" usageId="view_deductiontxnPageDef1"/>
+    <page path="/pages/deductionsetup.jspx"
+          usageId="view_deductionsetupPageDef1"/>
+  </pageMap>
+  <pageDefinitionUsages>
+    <page id="view_deductionsetupPageDef"
+          path="pagefragments.deductionsetupPageDef"/>
+    <page id="view_deductiontxnPageDef"
+          path="pagefragments.deductiontxnPageDef"/>
+    <page id="view_IPCPageDef" path="pagefragments.IPCPageDef"/>
+    <page id="view_ipcbalanceduePageDef"
+          path="pagefragments.ipcbalanceduePageDef"/>
+    <page id="view_ipcreportPageDef" path="pagefragments.ipcreportPageDef"/>
+    <page id="view_ipcsummaryPageDef" path="pagefragments.ipcsummaryPageDef"/>
+    <page id="view_POPageDef" path="pagefragments.POPageDef"/>
+    <page id="view_ipcbalanceduePageDef1" path="pages.ipcbalanceduePageDef"/>
+    <page id="view_ipcsummaryPageDef1" path="pages.ipcsummaryPageDef"/>
+    <page id="view_ipcreportPageDef1" path="pages.ipcreportPageDef"/>
+    <page id="view_IPCPageDef1" path="pages.IPCPageDef"/>
+    <page id="view_POPageDef1" path="pages.POPageDef"/>
+    <page id="view_deductiontxnPageDef1" path="pages.deductiontxnPageDef"/>
+    <page id="view_deductionsetupPageDef1" path="pages.deductionsetupPageDef"/>
+  </pageDefinitionUsages>
+</Application>

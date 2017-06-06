@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1"
+          xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
+  <af:outputText value="outputText1" id="ot1"/>
+  <af:commandButton text="commandButton 1" id="cb1"
+                    actionListener="#{beans.deductionsetup.test}"/>
+</jsp:root>
