@@ -1,6 +1,33 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1"
-          xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
-  <af:commandButton text="commandButton 1" id="cb1"
-                    actionListener="#{deductiontxn.test}"/>
+          xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+          xmlns:f="http://java.sun.com/jsf/core">
+  <af:panelStretchLayout id="psl1" topHeight="200px" bottomHeight="100px"
+                         endWidth="10px" startWidth="100px"
+                         inlineStyle='background-image:url("../images/lightgrey.PNG");'>
+    <f:facet name="bottom">
+      <af:panelGroupLayout id="pgl1"
+                           inlineStyle='background-image:url("../images/black.PNG");'>
+      </af:panelGroupLayout>
+    </f:facet>
+    <f:facet name="center">
+    </f:facet>
+    <f:facet name="start">
+    <af:panelGroupLayout id="pgl4"
+                         inlineStyle='background-image:url("../images/grey.PNG");'>
+    </af:panelGroupLayout>
+    </f:facet>
+    <f:facet name="end">
+    <af:panelGroupLayout id="pgl3"
+                         inlineStyle='background-image:url("../images/grey.PNG");'>
+    </af:panelGroupLayout>
+    </f:facet>
+    <f:facet name="top">
+    <af:panelGroupLayout id="pgl2"
+                         inlineStyle='background-image:url("../images/blue.PNG");'>
+        <af:outputText value="Deduction Transaction" id="ot1"
+                       inlineStyle="font-size:large; color:White;"/>
+      </af:panelGroupLayout>
+    </f:facet>
+  </af:panelStretchLayout>
 </jsp:root>
