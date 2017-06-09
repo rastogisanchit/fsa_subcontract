@@ -4,6 +4,10 @@
   <parameters/>
   <executables>
     <variableIterator id="variables"/>
+    <taskFlow id="purchaseorder_TF1"
+              taskFlowId="/WEB-INF/taskflows/purchaseorder_TF.xml#purchaseorder_TF"
+              activation="deferred"
+              xmlns="http://xmlns.oracle.com/adf/controller/binding"/>
   </executables>
   <bindings/>
 </pageDefinition>

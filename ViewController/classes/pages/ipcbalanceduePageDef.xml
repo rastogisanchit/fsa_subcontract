@@ -5,6 +5,10 @@
   <parameters/>
   <executables>
     <variableIterator id="variables"/>
+    <taskFlow id="ipcbalancedue_TF1"
+              taskFlowId="/WEB-INF/taskflows/ipcbalancedue_TF.xml#ipcbalancedue_TF"
+              activation="deferred"
+              xmlns="http://xmlns.oracle.com/adf/controller/binding"/>
   </executables>
   <bindings/>
 </pageDefinition>

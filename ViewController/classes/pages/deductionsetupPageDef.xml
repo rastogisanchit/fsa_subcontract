@@ -5,6 +5,10 @@
   <parameters/>
   <executables>
     <variableIterator id="variables"/>
+    <taskFlow id="deductionsetup_TF1"
+              taskFlowId="/WEB-INF/taskflows/deductionsetup_TF.xml#deductionsetup_TF"
+              activation="deferred"
+              xmlns="http://xmlns.oracle.com/adf/controller/binding"/>
   </executables>
   <bindings/>
 </pageDefinition>
