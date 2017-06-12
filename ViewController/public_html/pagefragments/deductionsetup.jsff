@@ -51,7 +51,7 @@
             </f:facet>
           </af:panelSplitter>
         </af:showDetailItem>
-        <af:showDetailItem id="EuipmentDeduction" text="Euipment Deduction">
+        <af:showDetailItem id="EuipmentDeduction" text="Equipment Deduction">
          
         </af:showDetailItem>
         <af:showDetailItem id="QualityDeduction" text="Quality Deduction">

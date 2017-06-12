@@ -15,7 +15,8 @@
         <f:facet name="first">
           <af:panelSplitter id="ps3" splitterPosition="450">
             <f:facet name="first">
-              <af:panelBox text="Contract Header" id="ph1">
+              <af:panelBox  id="ph1">
+             
                 <af:panelGroupLayout id="pgl5" layout="horizontal">
                   <af:panelFormLayout id="pfl8">
                     <af:inputText label="Subcontract No." id="it1"/>
@@ -34,26 +35,31 @@
                   
                   </af:panelFormLayout>
                 </af:panelGroupLayout>
+              
               </af:panelBox>
             </f:facet>
             <f:facet name="second">
               <af:panelSplitter id="ps4" splitterPosition="250">
                 <f:facet name="first">
-                 <af:panelBox text="Subcontractor" id="ph2">
+                 <af:panelBox  id="ph2">
+                 
                     <af:panelFormLayout id="pfl1">
                       <af:inputText label="Number" id="it10"/>
                       <af:inputText label="Name" id="it11"/>
                       <af:inputText label="Location" id="it12"/>
                     </af:panelFormLayout>
+                   
                   </af:panelBox>
                 </f:facet>
                 <f:facet name="second">
-                 <af:panelBox text="Prepayment Invoice" id="ph3">
+                 <af:panelBox id="ph3">
+                
                     <af:panelFormLayout id="pfl2">
                       <af:inputText label="Number" id="it13"/>
                       <af:inputText label="Amount" id="it14"/>
                       <af:inputText label="Status" id="it15"/>
                     </af:panelFormLayout>
+                    
                   </af:panelBox>
                 </f:facet>
               </af:panelSplitter>
@@ -65,7 +71,8 @@
             <f:facet name="first">
               <af:panelSplitter id="ps5" splitterPosition="450">
                 <f:facet name="first">
-                  <af:panelBox text="IPC" id="ph4">
+                  <af:panelBox id="ph4">
+                 
                     <af:panelGroupLayout id="pgl6" layout="horizontal">
                       <af:panelFormLayout id="pfl3">
                         <af:inputText label="Number" id="it16"/>
@@ -78,36 +85,42 @@
                         
                       </af:panelFormLayout>
                     </af:panelGroupLayout>
+                 
                   </af:panelBox>
                 </f:facet>
                 <f:facet name="second">
                   <af:panelSplitter id="ps6" splitterPosition="250">
                     <f:facet name="first">
-                      <af:panelBox text="WORK CONFIRMATION" id="ph5">
+                      <af:panelBox  id="ph5">
+                     
                         <af:panelFormLayout id="pfl5">
                           <af:inputText label="Receipt" id="it21"/>
                         </af:panelFormLayout>
+                       
                       </af:panelBox>
                     </f:facet>
                     <f:facet name="second">
                       <af:panelSplitter id="ps7" splitterPosition="250">
                         <f:facet name="first">
-                        <af:panelBox text="STANDARD INVOICE" id="ph6">
+                        <af:panelBox  id="ph6">
+                       
                             <af:panelFormLayout id="pfl6">
                               <af:inputText label="Number" id="it22"/>
                               <af:inputText label="Status" id="it23"/>
                               <af:inputText label="Accounted" id="it24"/>
                             </af:panelFormLayout>
+                        
                           </af:panelBox>
                         </f:facet>
                         <f:facet name="second">
-                          <af:panelBox text="FINANCIAL TERMS" id="pb1">
+                          <af:panelBox  id="pb1">
                             
-                           
+                          
                             <af:panelFormLayout id="pfl7">
                              <af:inputText label="Retention" id="it25"/>
                             <af:inputText label="Prepayment" id="it26"/>
                             </af:panelFormLayout>
+                          
                           </af:panelBox>
                         </f:facet>
                       </af:panelSplitter>
@@ -188,7 +201,7 @@
                          inlineStyle='background-image:url("../images/blue.PNG"); background-repeat:repeat; padding-top:1.0%;'
                          styleClass="AFStretchWidth">
         
-        <af:outputText value="IPC Deduction" id="ot1"
+        <af:outputText value="Interim Payment Certificate" id="ot1"
                        inlineStyle="font-size:x-large; color:White;"/>
       </af:panelGroupLayout>
     </f:facet>

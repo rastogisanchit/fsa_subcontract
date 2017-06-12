@@ -2,8 +2,8 @@
 <jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1"
           xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
           xmlns:f="http://java.sun.com/jsf/core">
-  <af:panelStretchLayout id="psl1" topHeight="200px" bottomHeight="100px"
-                         endWidth="10px" startWidth="100px"
+  <af:panelStretchLayout id="psl1" topHeight="60px" bottomHeight="20px"
+                         endWidth="10px" startWidth="10px"
                          inlineStyle='background-image:url("../images/lightgrey.PNG");'>
     <f:facet name="bottom">
       <af:panelGroupLayout id="pgl1"
@@ -11,6 +11,113 @@
       </af:panelGroupLayout>
     </f:facet>
     <f:facet name="center">
+      <af:panelSplitter id="ps1" orientation="vertical">
+        <f:facet name="first">
+          <af:panelSplitter id="ps3" splitterPosition="450">
+            <f:facet name="first">
+              <af:panelBox text="Subcontract" id="ph1" background="light">
+             
+                  <af:panelFormLayout id="pfl8">
+                    <af:inputText label="Subcontract No." id="it1"/>
+                                        
+                  </af:panelFormLayout>
+                  
+              </af:panelBox>
+            </f:facet>
+            <f:facet name="second">
+              <af:panelSplitter id="ps4" splitterPosition="250">
+                <f:facet name="first">
+                 <af:panelBox text="PO Header" id="ph2" background="medium"
+                              >
+                                             
+                    <af:panelFormLayout id="pfl1">
+                      <af:inputText label="Type" id="it10"/>
+                      <af:inputText label="Supplier" id="it11"/>
+                      <af:inputText label="Supplier Site" id="it12"/>
+                      <af:inputText label="Payment Terms" id="it2"/>
+                    </af:panelFormLayout>
+                  
+                  </af:panelBox>
+                </f:facet>
+                <f:facet name="second">
+                 
+                </f:facet>
+              </af:panelSplitter>
+            </f:facet>
+          </af:panelSplitter>
+        </f:facet>
+        <f:facet name="second">
+         
+            <af:panelBox text="PO Lines" id="pb1" background="medium">
+            
+            <af:panelCollection id="pc1">
+              <f:facet name="menus"/>
+              <f:facet name="toolbar">
+                <af:toolbar id="t2">
+                  <af:commandButton text="Save" id="cb1"/>
+                  <af:commandButton text="Submit" id="cb2"/>
+                  <af:commandButton text="Cancel" id="cb3"/>
+                </af:toolbar>
+              </f:facet>
+              <f:facet name="statusbar"/>
+              <af:table var="row" rowBandingInterval="0" id="t1">
+                <af:column sortable="false" headerText="Line No." id="c2">
+                  <af:outputText value="#{row.col1}" id="ot3"/>
+                </af:column>
+                <af:column sortable="false" headerText="Type" id="c4">
+                  <af:outputText value="#{row.col2}" id="ot7"/>
+                </af:column>
+                <af:column sortable="false" headerText="Item" id="c1">
+                  <af:outputText value="#{row.col3}" id="ot6"/>
+                </af:column>
+                <af:column sortable="false" headerText="Description" id="c8">
+                  <af:outputText value="#{row.col4}" id="ot10"/>
+                </af:column>
+                <af:column sortable="false" headerText="Catgory" id="c10">
+                  <af:outputText value="#{row.col5}" id="ot8"/>
+                </af:column>
+                <af:column sortable="false" headerText="UOM" id="c11">
+                  <af:outputText value="#{row.col6}" id="ot12"/>
+                </af:column>
+                <af:column sortable="false" headerText="Quantity" id="c6">
+                  <af:outputText value="#{row.col7}" id="ot9"/>
+                </af:column>
+                <af:column sortable="false" headerText="Rate" id="c7">
+                  <af:outputText value="#{row.col8}" id="ot11"/>
+                </af:column>
+                <af:column sortable="false" headerText="Price"
+                           id="c9">
+                  <af:outputText value="#{row.col9}" id="ot2"/>
+                </af:column>
+                <af:column sortable="false" headerText="Destination Type" id="c5">
+                  <af:outputText value="#{row.col10}" id="ot5"/>
+                </af:column>
+                <af:column sortable="false" headerText="Need by Date" id="c3">
+                  <af:outputText value="#{row.col11}" id="ot4"/>
+                </af:column>
+                <af:column sortable="false" headerText="Project" id="c12">
+                  <af:outputText value="#{row.col11}" id="ot14"/>
+                </af:column>
+                <af:column sortable="false" headerText="Task" id="c13">
+                  <af:outputText value="#{row.col11}" id="ot15"/>
+                </af:column>
+                <af:column sortable="false" headerText="Expenditure Type" id="c14">
+                  <af:outputText value="#{row.col11}" id="ot16"/>
+                </af:column>
+                <af:column sortable="false" headerText="Expenditure Item Date"
+                           id="c15">
+                  <af:outputText value="#{row.col11}" id="ot17"/>
+                </af:column>
+                <af:column sortable="false" headerText="Expenditure Organization"
+                           id="c16">
+                  <af:outputText value="#{row.col11}" id="ot18"/>
+                </af:column>
+              </af:table>
+            </af:panelCollection>
+          
+            </af:panelBox>
+        </f:facet>
+      </af:panelSplitter>
     </f:facet>
     <f:facet name="start">
     <af:panelGroupLayout id="pgl4"
@@ -24,9 +131,11 @@
     </f:facet>
     <f:facet name="top">
     <af:panelGroupLayout id="pgl2"
-                         inlineStyle='background-image:url("../images/blue.PNG");'>
+                         inlineStyle='background-image:url("../images/blue.PNG"); background-repeat:repeat; padding-top:1.0%;'
+                         styleClass="AFStretchWidth">
+        
         <af:outputText value="Purchase Order" id="ot1"
-                       inlineStyle="font-size:large; color:White;"/>
+                       inlineStyle="font-size:x-large; color:White;"/>
       </af:panelGroupLayout>
     </f:facet>
   </af:panelStretchLayout>

@@ -2,8 +2,8 @@
 <jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1"
           xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
           xmlns:f="http://java.sun.com/jsf/core">
-  <af:panelStretchLayout id="psl1" topHeight="200px" bottomHeight="100px"
-                         endWidth="10px" startWidth="100px"
+  <af:panelStretchLayout id="psl1" topHeight="60px" bottomHeight="20px"
+                         endWidth="10px" startWidth="10px"
                          inlineStyle='background-image:url("../images/lightgrey.PNG");'>
     <f:facet name="bottom">
       <af:panelGroupLayout id="pgl1"
@@ -11,6 +11,39 @@
       </af:panelGroupLayout>
     </f:facet>
     <f:facet name="center">
+      
+         
+              <af:panelCollection id="pc1">
+                <f:facet name="menus"/>
+                <f:facet name="toolbar">
+                  <af:toolbar id="t2">
+                   
+                  </af:toolbar>
+                </f:facet>
+                <f:facet name="statusbar"/>
+                <af:table var="row" rowBandingInterval="0" id="t1">
+                  <af:column sortable="false" headerText="IPC"
+                             id="c1">
+                    <af:inputText value="#{row.col1}" id="it6"/>
+                  </af:column>
+                  <af:column sortable="false" headerText="AP INVOICE" id="c3">
+                    <af:inputText value="#{row.col2}" id="it5"/>
+                  </af:column>
+                  <af:column sortable="false" headerText="AMOUNT" id="c2">
+                    <af:inputText value="#{row.col3}" id="it4"/>
+                  </af:column>
+                   <af:column sortable="false" headerText="TYPE" id="c4">
+                    <af:inputText value="#{row.col3}" id="it7"/>
+                  </af:column>
+                  <af:column sortable="false" headerText="STATE" id="c5">
+                    <af:inputText value="#{row.col3}" id="it8"/>
+                  </af:column>
+                  
+                </af:table>
+              </af:panelCollection>
+            
+         
+       
     </f:facet>
     <f:facet name="start">
     <af:panelGroupLayout id="pgl4"
@@ -24,9 +57,11 @@
     </f:facet>
     <f:facet name="top">
     <af:panelGroupLayout id="pgl2"
-                         inlineStyle='background-image:url("../images/blue.PNG");'>
+                         inlineStyle='background-image:url("../images/blue.PNG"); background-repeat:repeat; padding-top:1.0%;'
+                         styleClass="AFStretchWidth">
+        
         <af:outputText value="IPC Balance Due" id="ot1"
-                       inlineStyle="font-size:large; color:White;"/>
+                       inlineStyle="font-size:x-large; color:White;"/>
       </af:panelGroupLayout>
     </f:facet>
   </af:panelStretchLayout>

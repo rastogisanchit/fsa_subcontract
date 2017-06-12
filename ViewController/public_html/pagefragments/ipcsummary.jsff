@@ -2,8 +2,8 @@
 <jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1"
           xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
           xmlns:f="http://java.sun.com/jsf/core">
-  <af:panelStretchLayout id="psl1" topHeight="200px" bottomHeight="100px"
-                         endWidth="10px" startWidth="100px"
+  <af:panelStretchLayout id="psl1" topHeight="60px" bottomHeight="20px"
+                         endWidth="10px" startWidth="10px"
                          inlineStyle='background-image:url("../images/lightgrey.PNG");'>
     <f:facet name="bottom">
       <af:panelGroupLayout id="pgl1"
@@ -11,6 +11,61 @@
       </af:panelGroupLayout>
     </f:facet>
     <f:facet name="center">
+      <af:panelSplitter id="ps1" orientation="vertical">
+        <f:facet name="first">
+          <af:panelBox text="IPC Summary" id="pb1">
+            <af:panelFormLayout id="pfl1">
+              <af:inputText label="Cumulative Work Done:" id="it1"
+                            readOnly="true"/>
+              <af:inputText label="Current Work Done:" id="it2" readOnly="true"/>
+            </af:panelFormLayout>
+          </af:panelBox>
+        </f:facet>
+        <f:facet name="second">
+          <af:panelSplitter id="ps2" orientation="vertical">
+            <f:facet name="first">
+             <af:panelBox text="Current Deductions" id="pb2">
+            <af:panelFormLayout id="pfl2">
+              <af:inputText label="Labor Deduction" id="it3"
+                            readOnly="true"/>
+              <af:inputText label="Equipment Deduction:" id="it4" readOnly="true"/>
+               <af:inputText label="Penalties:" id="it5" readOnly="true"/>
+                <af:inputText label="Performance Bond:" id="it6" readOnly="true"/>
+                 <af:inputText label="Other Deductions:" id="it7" readOnly="true"/>
+                  <af:inputText label="Total:" id="it8" readOnly="true"/>
+            </af:panelFormLayout>
+          </af:panelBox>
+            </f:facet>
+            <f:facet name="second">
+              
+                <af:panelSplitter id="ps3" orientation="vertical">
+                  <f:facet name="first">
+                   <af:panelBox text="Current Contract Deductions" id="pb3">
+                  <af:panelFormLayout id="pfl3">
+                    <af:inputText label="Recoupment:" id="it14" readOnly="true"/>
+                    <af:inputText label="Retention:" id="it9" readOnly="true"/>
+                    <af:inputText label="Penalties:" id="it10" readOnly="true"/>
+                    <af:inputText label="Total:" id="it11" readOnly="true"/>
+                  </af:panelFormLayout>
+                </af:panelBox>
+                  </f:facet>
+                  <f:facet name="second">
+                    <af:panelBox text="Total Deductions" id="pb4">
+            <af:panelFormLayout id="pfl4">
+              <af:inputText label="Total Deductions:" id="it13"
+                            readOnly="true"/>
+              <af:inputText label="Current IPC to be paid:" id="it12" readOnly="true"/>
+             
+            </af:panelFormLayout>
+          </af:panelBox>
+                  </f:facet>
+                </af:panelSplitter>
+               
+           
+            </f:facet>
+          </af:panelSplitter>
+        </f:facet>
+      </af:panelSplitter>
     </f:facet>
     <f:facet name="start">
     <af:panelGroupLayout id="pgl4"
@@ -24,9 +79,11 @@
     </f:facet>
     <f:facet name="top">
     <af:panelGroupLayout id="pgl2"
-                         inlineStyle='background-image:url("../images/blue.PNG");'>
+                         inlineStyle='background-image:url("../images/blue.PNG"); background-repeat:repeat; padding-top:1.0%;'
+                         styleClass="AFStretchWidth">
+        
         <af:outputText value="IPC Summary" id="ot1"
-                       inlineStyle="font-size:large; color:White;"/>
+                       inlineStyle="font-size:x-large; color:White;"/>
       </af:panelGroupLayout>
     </f:facet>
   </af:panelStretchLayout>
