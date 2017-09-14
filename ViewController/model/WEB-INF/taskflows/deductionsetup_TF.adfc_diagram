@@ -17,8 +17,8 @@
       <property
          name="y">177.29883</property>
       <property
-         name="x">361.0</property>
-      <property
          name="pageFragment">true</property>
+      <property
+         name="x">361.0</property>
    </View>
 </SDM>

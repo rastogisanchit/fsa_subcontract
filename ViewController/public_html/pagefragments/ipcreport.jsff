@@ -15,41 +15,77 @@
           <af:panelSplitter id="ps1" orientation="vertical"
                             splitterPosition="80">
            <f:facet name="first">
-              <af:panelFormLayout id="pfl1" styleClass="AFStretchWidth"
-                                  >
-                <af:inputText label="Contract:" id="it1"/>
-                <af:inputText label="Contract Type:" id="it2" readOnly="true"/>
-                <af:inputText label="Project Name:" id="it3" readOnly="true"/>
-              </af:panelFormLayout>
+              <af:panelFormLayout id="pfl1" styleClass="AFStretchWidth">
+              <!--  <af:inputText label="Contract:" id="it1"/> 
+               <af:inputText label="Contract Type:" id="it2" readOnly="true"/>--> 
+                 
+            <af:selectOneChoice value="#{bindings.ContractNumber.inputValue}"
+                                label="#{bindings.ContractNumber.label}"
+                                required="#{bindings.ContractNumber.hints.mandatory}"
+                                shortDesc="#{bindings.ContractNumber.hints.tooltip}"
+                                id="soc1" unselectedLabel="--Select--" autoSubmit="true"
+                                valueChangeListener="#{viewScope.ipcreport.contractNumberIpcValueChangeEvent}">
+              <f:selectItems value="#{bindings.ContractNumber.items}" id="si1"/>
+            </af:selectOneChoice>
+            <af:inputText value="#{bindings.ContractType1.inputValue}"
+                          label="#{bindings.ContractType1.hints.label}"
+                          required="#{bindings.ContractType1.hints.mandatory}"
+                          columns="#{bindings.ContractType1.hints.displayWidth}"
+                          maximumLength="#{bindings.ContractType1.hints.precision}"
+                          shortDesc="#{bindings.ContractType1.hints.tooltip}"
+                          id="it1" partialTriggers="soc1">
+              <f:validator binding="#{bindings.ContractType1.validator}"/>
+            </af:inputText>
+           
+            <af:inputText label="Project Name:" id="it3" readOnly="true"/>
+         </af:panelFormLayout>
             </f:facet>
             <f:facet name="second">
               <af:panelCollection id="pc1">
                 <f:facet name="menus"/>
                 <f:facet name="toolbar">
-                  <af:toolbar id="t2">
-                   
+                   <af:toolbar id="t2">
+                  <af:commandButton text="Add Row" id="cb4"
+                                    actionListener="#{viewScope.ipcreport.addNewRow}"/>
+                    <af:commandButton text="Save" id="cb1"/>
+                    <af:commandButton text="Submit" id="cb2"
+                                      actionListener="#{viewScope.ipcreport.onSubmit}"
+                                      partialTriggers="t1"/>
+                    <af:commandButton text="Cancel" id="cb3"/>   
                   </af:toolbar>
                 </f:facet>
                 <f:facet name="statusbar"/>
-                <af:table var="row" rowBandingInterval="0" id="t1">
+                <af:table var="row" rowBandingInterval="0" id="t1" value="#{viewScope.ipcreport.ipcreportlist}" partialTriggers="::cb4"
+                          varStatus="rowStatus">
                   <af:column sortable="false" headerText="ITEM"
                              id="c1">
-                    <af:inputText value="#{row.col1}" id="it6"/>
+                    <af:inputText value="#{row.item}" id="it6"/>
                   </af:column>
                   <af:column sortable="false" headerText="DESCRIPTION" id="c3">
-                    <af:inputText value="#{row.col2}" id="it5"/>
+                    <af:inputText value="#{row.description}" id="it5"/>
                   </af:column>
                   <af:column sortable="false" headerText="UNIT" id="c2">
-                    <af:inputText value="#{row.col3}" id="it4"/>
+                    <af:inputText value="#{row.unit}" id="it4"/>
                   </af:column>
                    <af:column sortable="false" headerText="ESTIMATED QUANTITY" id="c4">
-                    <af:inputText value="#{row.col3}" id="it7"/>
+                    <af:inputText value="#{row.estimated_quantity}" id="it7"/>
                   </af:column>
                   <af:column sortable="false" headerText="UNIT RATE" id="c5">
-                    <af:inputText value="#{row.col3}" id="it8"/>
+                    <af:inputText value="#{row.unit_rate}" id="it8"/>
                   </af:column>
                   <af:column sortable="false" headerText="TOTAL ESTIMATE PRICE" id="c6">
-                    <af:inputText value="#{row.col3}" id="it9"/>
+                    <af:inputText value="#{row.total_estimate_price}" id="it9"/>
+                  </af:column>
+                  <af:column sortable="false" headerText="" id="c14" width="15"
+                             align="center">
+                    <af:commandImageLink id="cl1" icon="/images/close_icon.jpg"
+                                         partialSubmit="true"
+                                         actionListener="#{viewScope.ipcreport.onRowRemoval}">
+                  
+                    <af:setPropertyListener from="#{rowStatus.index}"
+                                              to="#{viewScope.ipcreport.currentSelectedIndex}"
+                                              type="action"/> 
+                    </af:commandImageLink>
                   </af:column>
                 </af:table>
               </af:panelCollection>

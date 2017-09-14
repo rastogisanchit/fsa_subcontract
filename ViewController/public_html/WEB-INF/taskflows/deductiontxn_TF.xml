@@ -5,7 +5,7 @@
     <managed-bean id="__2">
       <managed-bean-name id="__5">deductiontxn</managed-bean-name>
       <managed-bean-class id="__3">beans.deductiontxn</managed-bean-class>
-      <managed-bean-scope id="__4">request</managed-bean-scope>
+      <managed-bean-scope id="__4">view</managed-bean-scope>
     </managed-bean>
     <view id="deductiontxn">
       <page>/pagefragments/deductiontxn.jsff</page>

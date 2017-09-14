@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE AppModule SYSTEM "jbo_03_01.dtd">
+<!---->
+<AppModule
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="AppModule"
+  Version="11.1.1.66.73"
+  InheritPersonalization="merge"
+  ClearCacheOnRollback="true"
+  ComponentClass="model.AM.AppModuleImpl">
+  <DesignTime>
+    <Attr Name="_deployType" Value="0"/>
+    <Attr Name="_isCodegen" Value="true"/>
+  </DesignTime>
+  <Properties>
+    <SchemaBasedProperties>
+      <LABEL
+        ResId="model.AM.AppModule_LABEL"/>
+    </SchemaBasedProperties>
+  </Properties>
+  <ViewUsage
+    Name="ContractHeaderVO1"
+    ViewObjectName="model.VO.ContractHeaderVO"/>
+  <ViewUsage
+    Name="ContractLineVO1"
+    ViewObjectName="model.VO.ContractLineVO"/>
+  <ViewUsage
+    Name="ContractNumberVO1"
+    ViewObjectName="model.VO.ContractNumberVO"/>
+  <ViewUsage
+    Name="ContractNumberLovRVO1"
+    ViewObjectName="model.VO.ContractNumberLovRVO"/>
+  <ViewUsage
+    Name="DeductionNameVO1"
+    ViewObjectName="model.VO.DeductionNameVO"/>
+  <ViewUsage
+    Name="DeductionNameLovRVO1"
+    ViewObjectName="model.VO.DeductionNameLovRVO"/>
+  <ViewUsage
+    Name="ProjectDetailsPVO1"
+    ViewObjectName="model.VO.ProjectDetailsPVO"/>
+  <ViewUsage
+    Name="JobDeductionNameVO1"
+    ViewObjectName="model.VO.JobDeductionNameVO"/>
+  <ViewUsage
+    Name="NonLaborResourcePVO1"
+    ViewObjectName="model.VO.NonLaborResourcePVO"/>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="model.ModelBundle"/>
+  </ResourceBundle>
+</AppModule>

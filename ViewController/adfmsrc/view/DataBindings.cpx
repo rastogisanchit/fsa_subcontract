@@ -47,5 +47,15 @@
     <page id="view_POPageDef1" path="pages.POPageDef"/>
     <page id="view_deductiontxnPageDef1" path="pages.deductiontxnPageDef"/>
     <page id="view_deductionsetupPageDef1" path="pages.deductionsetupPageDef"/>
+    <page id="view_untitled1PageDef" path="pages.untitled1PageDef"/>
   </pageDefinitionUsages>
+  <dataControlUsages>
+    <BC4JDataControl id="AppModuleDataControl" Package="model.AM"
+                     FactoryClass="oracle.adf.model.bc4j.DataControlFactoryImpl"
+                     SupportsTransactions="true" SupportsFindMode="true"
+                     SupportsRangesize="true" SupportsResetState="true"
+                     SupportsSortCollection="true"
+                     Configuration="AppModuleLocal" syncMode="Immediate"
+                     xmlns="http://xmlns.oracle.com/adfm/datacontrol"/>
+  </dataControlUsages>
 </Application>

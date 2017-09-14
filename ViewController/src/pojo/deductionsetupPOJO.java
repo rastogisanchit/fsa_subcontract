@@ -18,6 +18,19 @@ public class deductionsetupPOJO {
     private String UOM;
     private String Unit_Rate;
 
+    public deductionsetupPOJO(String subcontract_num, String contract_type,
+                              String version, String deduction_type,
+                              String deduction_name, String UOM,
+                              String Unit_Rate) {
+        super();
+        this.subcontract_num = subcontract_num;
+        this.contract_type = contract_type;
+        this.version = version;
+        this.deduction_type = deduction_type;
+        this.deduction_name = deduction_name;
+        this.UOM = UOM;
+        this.Unit_Rate = Unit_Rate;
+    }
 
     public void setSubcontract_num(String subcontract_num) {
         String oldSubcontract_num = this.subcontract_num;

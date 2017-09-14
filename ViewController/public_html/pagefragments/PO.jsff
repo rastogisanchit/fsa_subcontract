@@ -7,98 +7,160 @@
                          inlineStyle='background-image:url("../images/lightgrey.PNG");'>
     <f:facet name="bottom">
       <af:panelGroupLayout id="pgl1"
-                           inlineStyle='background-image:url("../images/black.PNG");'>
+                           inlineStyle='background-image:url("../images/black.PNG");'></af:panelGroupLayout>
+    </f:facet>
+     <f:facet name="start">
+      <af:panelGroupLayout id="pgl4"
+                           inlineStyle='background-image:url("../images/grey.PNG");'></af:panelGroupLayout>
+    </f:facet>
+    <f:facet name="end">
+      <af:panelGroupLayout id="pgl3"
+                           inlineStyle='background-image:url("../images/grey.PNG");'></af:panelGroupLayout>
+    </f:facet>
+    <f:facet name="top">
+      <af:panelGroupLayout id="pgl2"
+                           inlineStyle='background-image:url("../images/blue.PNG"); background-repeat:repeat; padding-top:1.0%;'
+                           styleClass="AFStretchWidth">
+        <af:outputText value="Purchase Order" id="ot1"
+                       inlineStyle="font-size:x-large; color:White;"/>
       </af:panelGroupLayout>
     </f:facet>
     <f:facet name="center">
-      <af:panelSplitter id="ps1" orientation="vertical">
-        <f:facet name="first">
-          <af:panelSplitter id="ps3" splitterPosition="450">
-            <f:facet name="first">
-              <af:panelBox text="Subcontract" id="ph1" background="light">
-             
-                  <af:panelFormLayout id="pfl8">
-                    <af:inputText label="Subcontract No." id="it1"/>
-                                        
-                  </af:panelFormLayout>
-                  
-              </af:panelBox>
-            </f:facet>
-            <f:facet name="second">
-              <af:panelSplitter id="ps4" splitterPosition="250">
-                <f:facet name="first">
-                 <af:panelBox text="PO Header" id="ph2" background="medium"
-                              >
-                                             
-                    <af:panelFormLayout id="pfl1">
-                      <af:inputText label="Type" id="it10"/>
-                      <af:inputText label="Supplier" id="it11"/>
-                      <af:inputText label="Supplier Site" id="it12"/>
-                      <af:inputText label="Payment Terms" id="it2"/>
+    <af:panelBox id="pb1" showDisclosure="false"  inlineStyle="margin:5px;">
+    <af:panelGroupLayout id="pgl6" layout="vertical"
+                           styleClass="AFStretchWidth"
+                           inlineStyle="background-color:White; margin:20px; padding:10.0px;">
+        <af:panelGroupLayout id="pgl7" styleClass="AFStretchWidth"
+                             layout="horizontal">
+        
+            <af:panelGroupLayout id="pgl5" layout="horizontal"
+                                 styleClass="AFStretchWidth">
+                <af:panelBox  id="pb3" showDisclosure="false"
+                       inlineStyle="height:130px;" text="Subcontract">
+                  <f:facet name="toolbar"/>
+                  <af:panelGroupLayout id="pgl10" layout="vertical">
+                    <af:panelFormLayout id="pfl8">
+                      <f:facet name="footer"/>
+                      <af:selectOneChoice value="#{bindings.ContractNumber.inputValue}"
+                                          label="Subcontract No."
+                                          required="#{bindings.ContractNumber.hints.mandatory}"
+                                          shortDesc="#{bindings.ContractNumber.hints.tooltip}"
+                                          id="soc1" unselectedLabel="--Select--"
+                                          valueChangeListener="#{viewScope.PO.contractNumberValueChangeEvent}"
+                                          autoSubmit="true">
+                        <f:selectItems value="#{bindings.ContractNumber.items}"
+                                       id="si1"/>
+                      </af:selectOneChoice>
                     </af:panelFormLayout>
-                  
-                  </af:panelBox>
-                </f:facet>
-                <f:facet name="second">
-                 
-                </f:facet>
-              </af:panelSplitter>
-            </f:facet>
-          </af:panelSplitter>
-        </f:facet>
-        <f:facet name="second">
-         
-            <af:panelBox text="PO Lines" id="pb1" background="medium">
-            
-            <af:panelCollection id="pc1">
+                  </af:panelGroupLayout>
+                </af:panelBox>
+                <af:panelBox text="PO Header" id="pb2" showDisclosure="false"
+                       inlineStyle="height:130px;">
+                  <f:facet name="toolbar"/>
+                  <af:panelGroupLayout id="pgl11" layout="vertical">
+                    <af:panelFormLayout id="pfl2">
+                      <af:inputText label="Contract Type" id="it3"
+                                    disabled="true"
+                                    contentStyle="width:190.0px;"
+                                    partialTriggers="soc1"
+                                    value="#{viewScope.PO.contractype}"/>
+                      <af:inputText label="Supplier" id="it1" disabled="true"
+                                    partialTriggers="soc1"
+                                    contentStyle="width:190.0px;"
+                                    value="#{viewScope.PO.supplier}"/>
+                      <af:inputText label="Supplier Site" id="it4"
+                                    disabled="true" partialTriggers="soc1"
+                                    contentStyle="width:190.0px;"
+                                    value="#{viewScope.PO.suppliersite}"/>
+                      <af:inputText label="Payment Terms" id="it2"
+                                    disabled="true" partialTriggers="soc1"
+                                    contentStyle="width:190.0px;"
+                                    value="#{viewScope.PO.payementterms}"/>
+                    </af:panelFormLayout>
+                  </af:panelGroupLayout>
+                </af:panelBox>
+              </af:panelGroupLayout>
+                
+                </af:panelGroupLayout>
+        <af:panelGroupLayout id="pgl20" layout="horizontal" styleClass="AFStretchWidth">
+          <af:panelBox id="pb5" showDisclosure="false" inlineStyle="height:230.0px;" text="PO Lines" >
+             <af:panelCollection id="pc1" styleClass="AFStretchWidth">
               <f:facet name="menus"/>
               <f:facet name="toolbar">
-                <af:toolbar id="t2">
+              <!--  <af:toolbar id="t2">
                   <af:commandButton text="Save" id="cb1"/>
-                  <af:commandButton text="Submit" id="cb2"/>
-                  <af:commandButton text="Cancel" id="cb3"/>
-                </af:toolbar>
+                  <af:commandButton text="Cancel" id="cb2"/>
+                  <af:commandButton text="Submit" id="cb3"/>
+                </af:toolbar> -->
               </f:facet>
-              <f:facet name="statusbar"/>
-              <af:table var="row" rowBandingInterval="0" id="t1">
-                <af:column sortable="false" headerText="Line No." id="c2">
-                  <af:outputText value="#{row.col1}" id="ot3"/>
+              <f:facet name="statusbar"/> 
+              <af:table value="#{bindings.ContractLineVO1.collectionModel}"
+                        var="row" rows="#{bindings.ContractLineVO1.rangeSize}"
+                        emptyText="#{bindings.ContractLineVO1.viewable ? 'No data to display.' : 'Access Denied.'}"
+                        fetchSize="#{bindings.ContractLineVO1.rangeSize}"
+                        rowBandingInterval="0" id="t1"
+                        partialTriggers=":::soc1"
+                        inlineStyle="height:180px; margin:5.0px;"
+                        styleClass="AFStretchWidth">
+                
+                <af:column sortProperty="#{bindings.ContractLineVO1.hints.BoqNumber.name}"
+                           sortable="false"
+                           headerText="Line No"
+                           id="c8">
+                  <af:outputText value="#{row.BoqNumber}" id="ot9"/>
                 </af:column>
                 <af:column sortable="false" headerText="Type" id="c4">
-                  <af:outputText value="#{row.col2}" id="ot7"/>
+                  <af:outputText value="Goods" id="ot7"/>
                 </af:column>
-                <af:column sortable="false" headerText="Item" id="c1">
-                  <af:outputText value="#{row.col3}" id="ot6"/>
+                <af:column sortable="false" headerText="Item"
+                           id="c9">
+                  <af:outputText value="#{row.col11}" id="ot13"/>
                 </af:column>
-                <af:column sortable="false" headerText="Description" id="c8">
-                  <af:outputText value="#{row.col4}" id="ot10"/>
+                <af:column sortProperty="#{bindings.ContractLineVO1.hints.BoqDescription.name}"
+                           sortable="false"
+                           headerText="Description"
+                           id="c6">
+                  <af:outputText value="#{row.BoqDescription}" id="ot2"/>
                 </af:column>
-                <af:column sortable="false" headerText="Catgory" id="c10">
+                <af:column sortable="false" headerText="Category" id="c10">
                   <af:outputText value="#{row.col5}" id="ot8"/>
                 </af:column>
-                <af:column sortable="false" headerText="UOM" id="c11">
-                  <af:outputText value="#{row.col6}" id="ot12"/>
+                <af:column sortProperty="#{bindings.ContractLineVO1.hints.UnitOfMeasure.name}"
+                           sortable="false"
+                           headerText="UOM"
+                           id="c3">
+                  <af:outputText value="#{row.UnitOfMeasure}" id="ot3"/>
                 </af:column>
-                <af:column sortable="false" headerText="Quantity" id="c6">
-                  <af:outputText value="#{row.col7}" id="ot9"/>
+                <af:column sortProperty="#{bindings.ContractLineVO1.hints.Quantity.name}"
+                           sortable="false"
+                           headerText="#{bindings.ContractLineVO1.hints.Quantity.label}"
+                           id="c1">
+                  <af:outputText value="#{row.Quantity}" id="ot5"/>
                 </af:column>
-                <af:column sortable="false" headerText="Rate" id="c7">
-                  <af:outputText value="#{row.col8}" id="ot11"/>
+                <af:column sortProperty="#{bindings.ContractLineVO1.hints.Rate.name}"
+                           sortable="false"
+                           headerText="#{bindings.ContractLineVO1.hints.Rate.label}"
+                           id="c2">
+                  <af:outputText value="#{row.Rate}" id="ot4"/>
                 </af:column>
-                <af:column sortable="false" headerText="Price"
-                           id="c9">
-                  <af:outputText value="#{row.col9}" id="ot2"/>
+                <af:column sortProperty="#{bindings.ContractLineVO1.hints.Amount.name}"
+                           sortable="false"
+                           headerText="Price"
+                           id="c7">
+                  <af:outputText value="#{row.Amount}" id="ot10"/>
                 </af:column>
-                <af:column sortable="false" headerText="Destination Type" id="c5">
-                  <af:outputText value="#{row.col10}" id="ot5"/>
+                 <af:column sortable="false" headerText="Destination Type" id="c5">
+                  <af:outputText value="Expense" id="ot6"/>
                 </af:column>
-                <af:column sortable="false" headerText="Need by Date" id="c3">
-                  <af:outputText value="#{row.col11}" id="ot4"/>
+                <af:column sortable="false" headerText="Need by Date" id="c11">
+                  <af:outputText value="#{row.col11}" id="ot12"/>
                 </af:column>
                 <af:column sortable="false" headerText="Project" id="c12">
-                  <af:outputText value="#{row.col11}" id="ot14"/>
-                </af:column>
-                <af:column sortable="false" headerText="Task" id="c13">
+                 <!-- <af:outputText value="#{row.col11}" id="ot14"/> -->
+                    <af:outputText value="#{bindings.ProjectNumber.inputValue}"
+                                 id="ot11"/>
+                  </af:column>
+               <af:column sortable="false" headerText="Task" id="c13">
                   <af:outputText value="#{row.col11}" id="ot15"/>
                 </af:column>
                 <af:column sortable="false" headerText="Expenditure Type" id="c14">
@@ -112,31 +174,20 @@
                            id="c16">
                   <af:outputText value="#{row.col11}" id="ot18"/>
                 </af:column>
+                
               </af:table>
-            </af:panelCollection>
+            </af:panelCollection> 
+          </af:panelBox>
+          </af:panelGroupLayout>
+      <af:spacer  height="6" id="s4"/>
+       <af:panelGroupLayout id="pgl8" layout="horizontal" halign="center"
+                             valign="middle">
+                            
+          <af:commandButton text="Save" id="cb1"/>
           
-            </af:panelBox>
-        </f:facet>
-      </af:panelSplitter>
-    </f:facet>
-    <f:facet name="start">
-    <af:panelGroupLayout id="pgl4"
-                         inlineStyle='background-image:url("../images/grey.PNG");'>
-    </af:panelGroupLayout>
-    </f:facet>
-    <f:facet name="end">
-    <af:panelGroupLayout id="pgl3"
-                         inlineStyle='background-image:url("../images/grey.PNG");'>
-    </af:panelGroupLayout>
-    </f:facet>
-    <f:facet name="top">
-    <af:panelGroupLayout id="pgl2"
-                         inlineStyle='background-image:url("../images/blue.PNG"); background-repeat:repeat; padding-top:1.0%;'
-                         styleClass="AFStretchWidth">
-        
-        <af:outputText value="Purchase Order" id="ot1"
-                       inlineStyle="font-size:x-large; color:White;"/>
+        </af:panelGroupLayout>
       </af:panelGroupLayout>
-    </f:facet>
+      </af:panelBox>
+    </f:facet> 
   </af:panelStretchLayout>
 </jsp:root>

@@ -5,6 +5,42 @@
   <parameters/>
   <executables>
     <variableIterator id="variables"/>
+    <iterator Binds="ContractNumberVO1" RangeSize="25"
+              DataControl="AppModuleDataControl"
+              id="ContractNumberVO1Iterator"/>
+    <iterator Binds="ContractHeaderVO1" RangeSize="25"
+              DataControl="AppModuleDataControl"
+              id="ContractHeaderVO1Iterator"/>
+    <iterator Binds="ContractNumberLovRVO1" RangeSize="25"
+              DataControl="AppModuleDataControl"
+              id="ContractNumberLovRVO1Iterator"/>
   </executables>
-  <bindings/>
+  <bindings>
+    <list IterBinding="ContractNumberVO1Iterator" ListOperMode="navigation"
+          ListIter="ContractNumberVO1Iterator" id="ContractNumberVO1"
+          DTSupportsMRU="true" SelectItemValueMode="ListObject">
+      <AttrNames>
+        <Item Value="ContractNumber"/>
+      </AttrNames>
+    </list>
+    <list IterBinding="ContractHeaderVO1Iterator" id="ContractType"
+          DTSupportsMRU="true" SelectItemValueMode="ListObject"
+          StaticList="true">
+      <AttrNames>
+        <Item Value="ContractType"/>
+      </AttrNames>
+      <ValueList>
+        <Item Value="Temporary"/>
+        <Item Value="Permanent"/>
+      </ValueList>
+    </list>
+    <attributeValues IterBinding="ContractHeaderVO1Iterator" id="ContractType1">
+      <AttrNames>
+        <Item Value="ContractType"/>
+      </AttrNames>
+    </attributeValues>
+    <list IterBinding="ContractNumberLovRVO1Iterator" StaticList="false"
+          Uses="LOV_ContractNumber" id="ContractNumber" DTSupportsMRU="true"
+          SelectItemValueMode="ListObject"/>
+  </bindings>
 </pageDefinition>

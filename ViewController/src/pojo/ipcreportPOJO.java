@@ -20,6 +20,35 @@ public class ipcreportPOJO {
     private String unit_rate;
     private String total_estimate_price;
 
+    public ipcreportPOJO(String contract, String contract_type, String project,
+                         String project_name, String item, String description,
+                         String unit, String estimated_quantity,
+                         String unit_rate, String total_estimate_price) {
+        super();
+        this.contract = contract;
+        this.contract_type = contract_type;
+        this.project = project;
+        this.project_name = project_name;
+        this.item = item;
+        this.description = description;
+        this.unit = unit;
+        this.estimated_quantity = estimated_quantity;
+        this.unit_rate = unit_rate;
+        this.total_estimate_price = total_estimate_price;
+    }
+
+    public ipcreportPOJO(String item, String description, String unit,
+                         String estimated_quantity, String unit_rate,
+                         String total_estimate_price) {
+        super();
+        this.item = item;
+        this.description = description;
+        this.unit = unit;
+        this.estimated_quantity = estimated_quantity;
+        this.unit_rate = unit_rate;
+        this.total_estimate_price = total_estimate_price;
+    }
+
     public void setContract(String contract) {
         String oldContract = this.contract;
         this.contract = contract;
@@ -126,5 +155,13 @@ public class ipcreportPOJO {
 
     public String getTotal_estimate_price() {
         return total_estimate_price;
+    }
+
+    public void setPropertyChangeSupport(PropertyChangeSupport propertyChangeSupport) {
+        this.propertyChangeSupport = propertyChangeSupport;
+    }
+
+    public PropertyChangeSupport getPropertyChangeSupport() {
+        return propertyChangeSupport;
     }
 }

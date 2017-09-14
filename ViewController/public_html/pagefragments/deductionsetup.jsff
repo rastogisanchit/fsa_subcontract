@@ -2,82 +2,413 @@
 <jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1"
           xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
           xmlns:f="http://java.sun.com/jsf/core">
-  <af:panelStretchLayout id="psl1" topHeight="60px" bottomHeight="20px"
-                         endWidth="10px" startWidth="10px"
-                         inlineStyle='background-image:url("../images/lightgrey.PNG");'>
+  <af:panelStretchLayout id="psl1" topHeight="50px" bottomHeight="50px"
+                         endWidth="20px" startWidth="20px"
+                         inlineStyle='background-image:url("../images/lightgrey.PNG"); width:984px; height:432px;'>
     <f:facet name="bottom">
-      <af:panelGroupLayout id="pgl1"
-                           inlineStyle='background-image:url("../images/black.PNG");'>
-      </af:panelGroupLayout>
+      <af:panelGroupLayout id="pgl12"
+                           inlineStyle="background-color:rgb(49,49,49);"/>
     </f:facet>
     <f:facet name="center">
-      <af:panelTabbed position="above" id="pt1">
-        <af:showDetailItem id="LabourDeduction" text="Labour Deduction"
-                           stretchChildren="first">
-          <af:panelSplitter id="ps1" orientation="vertical"
-                            splitterPosition="80">
-           <f:facet name="first">
-              <af:panelFormLayout id="pfl1" styleClass="AFStretchWidth"
-                                  >
-                <af:inputText label="Subcontract:" id="it1"/>
-                <af:inputText label="Contract Type:" id="it2" readOnly="true"/>
-                <af:inputText label="Version:" id="it3" readOnly="true"/>
-              </af:panelFormLayout>
-            </f:facet>
-            <f:facet name="second">
-              <af:panelCollection id="pc1">
+      <af:panelGroupLayout layout="vertical"
+                           xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+                           id="pgl6" styleClass="AFStretchWidth"
+                           inlineStyle="height:600px; background-color:White;">
+        <af:panelBox id="pb1" showDisclosure="false" inlineStyle="margin:10px;">
+          <f:facet name="toolbar"/>
+          <af:panelBox id="pb2" inlineStyle="margin:10.0px;"
+                       text="SubContract Header" showDisclosure="false">
+            <f:facet name="toolbar"/>
+            <af:panelGroupLayout id="pgl7" layout="horizontal" valign="top">
+              <af:panelGroupLayout id="pgl2">
+                <af:panelFormLayout id="pfl1" styleClass="AFStretchWidth">
+                  <af:selectOneChoice value="#{bindings.ContractNumber.inputValue}"
+                                      label="Contract Number :"
+                                      required="#{bindings.ContractNumber.hints.mandatory}"
+                                      shortDesc="#{bindings.ContractNumber.hints.tooltip}"
+                                      id="soc1" autoSubmit="true"
+                                      valueChangeListener="#{viewScope.deductionsetup.contractNumberValueChangeEvent}"
+                                      unselectedLabel="-- Select --"
+                                      binding="#{viewScope.deductionsetup.CONTRACTNUMBERLOVBINDVAR}"
+                                      showRequired="true">
+                    <f:selectItems value="#{bindings.ContractNumber.items}"
+                                   id="si1"/>
+                  </af:selectOneChoice>
+                  <af:inputText value="#{viewScope.deductionsetup.deductionenable}"
+                                label="Deduction Enabled :"
+                                required="#{bindings.Deduction.hints.mandatory}"
+                                columns="#{bindings.Deduction.hints.displayWidth}"
+                                maximumLength="#{bindings.Deduction.hints.precision}"
+                                shortDesc="#{bindings.Deduction.hints.tooltip}"
+                                id="it6" partialTriggers="soc1" readOnly="true"
+                                binding="#{viewScope.deductionsetup.deductionenabledbind}"
+                                showRequired="true">
+                    <f:validator binding="#{bindings.Deduction.validator}"/>
+                  </af:inputText>
+                  <af:inputText label="Contract Type :" id="it1" readOnly="true"
+                                value="#{viewScope.deductionsetup.contractype}"
+                                partialTriggers="soc1 cb3 cb2"
+                                binding="#{viewScope.deductionsetup.inputcontracttype}"/>
+                  <af:inputText label="Version :" id="it2" readOnly="true"
+                                value="#{viewScope.deductionsetup.version}"
+                                partialTriggers="soc1 cb3 cb2"
+                                binding="#{viewScope.deductionsetup.inputversion}"/>
+                </af:panelFormLayout>
+              </af:panelGroupLayout>
+              <af:spacer width="20" id="spacer3"/>
+              <af:panelGroupLayout id="pgl17" layout="horizontal">
+                <af:outputLabel value="Period :" id="ol1" showRequired="true"/>
+                <af:selectOneChoice id="soc7" unselectedLabel="-- Month --"
+                                    autoSubmit="true" 
+                                    binding="#{viewScope.deductionsetup.MONTHBINDVAR}"
+                                    valueChangeListener="#{viewScope.deductionsetup.monthValueChangeEvent}">
+                  <f:selectItems value="#{viewScope.deductionsetup.PERIOD_MONTHLIST}"
+                                 id="si7"/>
+                </af:selectOneChoice>
+                <af:selectOneChoice id="soc6" unselectedLabel="-- Year --"
+                                    autoSubmit="true" 
+                                    binding="#{viewScope.deductionsetup.YEARBINDVAR}"
+                                    valueChangeListener="#{viewScope.deductionsetup.yearValueChangeEvent}">
+                  <f:selectItems value="#{viewScope.deductionsetup.PERIOD_YEARLIST}"
+                                 id="si8"/>
+                </af:selectOneChoice>
+              </af:panelGroupLayout>
+            </af:panelGroupLayout>
+            
+          </af:panelBox>
+          <af:panelBox  id="pb3" inlineStyle="margin:10px;">
+            <f:facet name="toolbar"/>
+          
+          <af:panelTabbed position="above" id="pt1" styleClass="AFStretchWidth"
+                                >
+            <af:showDetailItem id="LabourDeduction" text="Labour Deduction"
+                               stretchChildren="first"
+                               binding="#{viewScope.deductionsetup.ldtabbind}">
+              <af:panelCollection id="pc1" inlineStyle="margin:5px;">
                 <f:facet name="menus"/>
                 <f:facet name="toolbar">
                   <af:toolbar id="t2">
-                    <af:commandButton text="Save" id="cb1"/>
-                    <af:commandButton text="Submit" id="cb2"/>
-                    <af:commandButton text="Cancel" id="cb3"/>
+                    <af:commandButton text="Add Row" id="cb4"
+                                      actionListener="#{viewScope.deductionsetup.addNewRow}"
+                                      binding="#{viewScope.deductionsetup.addrowbtnld}"
+                                      partialTriggers="::soc1 ::cb2"/>
                   </af:toolbar>
                 </f:facet>
                 <f:facet name="statusbar"/>
-                <af:table var="row" rowBandingInterval="0" id="t1">
+                <af:table var="row" rowBandingInterval="0" id="t1"
+                          value="#{viewScope.deductionsetup.labourdeductionlist}"
+                          partialTriggers="::cb4 :::soc1 :::soc7 :::soc6"
+                          varStatus="rowStatusld"
+                          binding="#{viewScope.deductionsetup.LABORDEDUCTIONTABLEBIND}">
                   <af:column sortable="false" headerText="Deduction Name"
                              id="c1">
-                    <af:inputText value="#{row.col1}" id="it6"/>
+                    <af:inputText value="#{row.deduction_name}" id="it36"
+                                  readOnly="true"/>
                   </af:column>
                   <af:column sortable="false" headerText="UOM" id="c3">
-                    <af:inputText value="#{row.col2}" id="it5"/>
+                    <af:inputText value="#{row.UOM}" id="it5" readOnly="true"/>
                   </af:column>
                   <af:column sortable="false" headerText="Rate" id="c2">
-                    <af:inputText value="#{row.col3}" id="it4"/>
+                    <af:inputText value="#{row.unit_Rate}" id="it4"
+                                  valueChangeListener="#{viewScope.deductionsetup.unitRateValueChangeEvent}"
+                                  autoSubmit="true">
+                      <af:setPropertyListener from="#{rowStatusld.index}"
+                                              to="#{viewScope.deductionsetup.CURRENTSELECTEDINDEX}"
+                                              type="valueChange"/>
+                    </af:inputText>
+                  </af:column>
+                  <af:column sortable="false" headerText="" id="c14" width="15"
+                             align="center">
+                    <af:commandImageLink id="cl1" icon="/images/close_icon.jpg"
+                                         partialSubmit="true"
+                                         actionListener="#{viewScope.deductionsetup.onRowRemoval}">
+                      <af:setPropertyListener from="#{rowStatusld.index}"
+                                              to="#{viewScope.deductionsetup.currentSelectedIndexld}"
+                                              type="action"/>
+                    </af:commandImageLink>
                   </af:column>
                 </af:table>
               </af:panelCollection>
-            </f:facet>
-          </af:panelSplitter>
-        </af:showDetailItem>
-        <af:showDetailItem id="EuipmentDeduction" text="Equipment Deduction">
+            </af:showDetailItem>
+            <af:showDetailItem id="EquipmentDeduction"
+                               text="Equipment Deduction"
+                               stretchChildren="first"
+                               binding="#{viewScope.deductionsetup.edtabbind}">
+              <af:panelCollection id="pc2" inlineStyle="margin:5px;">
+                <f:facet name="menus"/>
+                <f:facet name="toolbar">
+                  <af:toolbar id="t3">
+                    <af:commandButton text="Add Row" id="cb5"
+                                      actionListener="#{viewScope.deductionsetup.addNewRow}"
+                                      binding="#{viewScope.deductionsetup.addrowbtnEQ}"
+                                      partialTriggers="::soc1 ::cb2"/>
+                  </af:toolbar>
+                </f:facet>
+                <f:facet name="statusbar"/>
+                <af:table var="row" rowBandingInterval="0" id="t4"
+                          value="#{viewScope.deductionsetup.equipmentdeductionlist}"
+                          partialTriggers="::cb5 :::soc1 :::soc7 :::soc6"
+                          varStatus="rowStatused"
+                          binding="#{viewScope.deductionsetup.EQUIPMENTDEDUCTIONTABLEBIND}">
+                  <af:column sortable="false" headerText="Deduction Name"
+                             id="c4">
+                    <af:inputText value="#{row.deduction_name}" id="it16"
+                                  readOnly="true"/>
+                  </af:column>
+                  <af:column sortable="false" headerText="UOM" id="c5">
+                    <af:inputText value="#{row.UOM}" id="it17" readOnly="true"/>
+                  </af:column>
+                  <af:column sortable="false" headerText="Rate" id="c6">
+                    <af:inputText value="#{row.unit_Rate}" id="it18"
+                                  valueChangeListener="#{viewScope.deductionsetup.unitRateValueChangeEvent}"
+                                  autoSubmit="true">
+                      <af:setPropertyListener from="#{rowStatused.index}"
+                                              to="#{viewScope.deductionsetup.CURRENTSELECTEDINDEX}"
+                                              type="valueChange"/>
+                    </af:inputText>
+                  </af:column>
+                  <af:column sortable="false" headerText="" id="c7" width="15"
+                             align="center">
+                    <af:commandImageLink id="cil1" icon="/images/close_icon.jpg"
+                                         partialSubmit="true"
+                                         actionListener="#{viewScope.deductionsetup.onRowRemoval}">
+                      <af:setPropertyListener from="#{rowStatused.index}"
+                                              to="#{viewScope.deductionsetup.currentSelectedIndexed}"
+                                              type="action"/>
+                    </af:commandImageLink>
+                  </af:column>
+                </af:table>
+              </af:panelCollection>
+            </af:showDetailItem>
+            <af:showDetailItem id="QualityDeduction" text="Quality Deduction"
+                               stretchChildren="first"
+                               binding="#{viewScope.deductionsetup.qdtabbind}">
+              <af:panelCollection id="pc3" inlineStyle="margin:5px;">
+                <f:facet name="menus"/>
+                <f:facet name="toolbar">
+                  <af:toolbar id="t5">
+                    <af:commandButton text="Add Row" id="cb9"
+                                      actionListener="#{viewScope.deductionsetup.addNewRow}"
+                                      binding="#{viewScope.deductionsetup.addrowbtnQD}"
+                                      partialTriggers="::soc1 ::cb2"/>
+                  </af:toolbar>
+                </f:facet>
+                <f:facet name="statusbar"/>
+                <af:table var="row" rowBandingInterval="0" id="t6"
+                          value="#{viewScope.deductionsetup.qualitydeductionlist}"
+                          partialTriggers="::cb9 :::soc1 :::soc7 :::soc6"
+                          varStatus="rowStatusqd"
+                          binding="#{viewScope.deductionsetup.QUALITYDEDUCTIONTABLEBIND}">
+                  <af:column sortable="false" headerText="Deduction Name"
+                             id="c8">
+                    <af:inputText value="#{row.deduction_name}" id="it24"
+                                  readOnly="true"/>
+                  </af:column>
+                  <af:column sortable="false" headerText="UOM" id="c9">
+                    <af:inputText value="#{row.UOM}" id="it25" readOnly="true"/>
+                  </af:column>
+                  <af:column sortable="false" headerText="Rate" id="c10">
+                    <af:inputText value="#{row.unit_Rate}" id="it26"
+                                  valueChangeListener="#{viewScope.deductionsetup.unitRateValueChangeEvent}"
+                                  autoSubmit="true">
+                      <af:setPropertyListener from="#{rowStatusqd.index}"
+                                              to="#{viewScope.deductionsetup.CURRENTSELECTEDINDEX}"
+                                              type="valueChange"/>
+                    </af:inputText>
+                  </af:column>
+                  <af:column sortable="false" headerText="" id="c11" width="15"
+                             align="center">
+                    <af:commandImageLink id="cil2" icon="/images/close_icon.jpg"
+                                         partialSubmit="true"
+                                         actionListener="#{viewScope.deductionsetup.onRowRemoval}">
+                      <af:setPropertyListener from="#{rowStatusqd.index}"
+                                              to="#{viewScope.deductionsetup.currentSelectedIndexqd}"
+                                              type="action"/>
+                    </af:commandImageLink>
+                  </af:column>
+                </af:table>
+              </af:panelCollection>
+            </af:showDetailItem>
+            <af:showDetailItem id="OtherDeduction" text="Other Deduction"
+                               stretchChildren="first"
+                               binding="#{viewScope.deductionsetup.odtabbind}">
+              <af:panelCollection id="pc4" inlineStyle="margin:5px;">
+                <f:facet name="menus"/>
+                <f:facet name="toolbar">
+                  <af:toolbar id="t7">
+                    <af:commandButton text="Add Row" id="cb13"
+                                      actionListener="#{viewScope.deductionsetup.addNewRow}"
+                                      partialTriggers="::soc1 ::cb2"
+                                      binding="#{viewScope.deductionsetup.addrowbtnOD}"/>
+                  </af:toolbar>
+                </f:facet>
+                <f:facet name="statusbar"/>
+                <af:table var="row" rowBandingInterval="0" id="t8"
+                          value="#{viewScope.deductionsetup.otherdeductionlist}"
+                          partialTriggers="::cb13 :::soc1 :::soc7 :::soc6"
+                          varStatus="rowStatusod"
+                          binding="#{viewScope.deductionsetup.OTHERDEDUCTIONTABLEBIND}">
+                  <af:column sortable="false" headerText="Deduction Name"
+                             id="c12">
+                    <af:inputText value="#{row.deduction_name}" id="it33"
+                                  readOnly="true"/>
+                  </af:column>
+                  <af:column sortable="false" headerText="UOM" id="c13">
+                    <af:inputText value="#{row.UOM}" id="it34" readOnly="true"/>
+                  </af:column>
+                  <af:column sortable="false" headerText="Rate" id="c15">
+                    <af:inputText value="#{row.unit_Rate}" id="it35"
+                                  valueChangeListener="#{viewScope.deductionsetup.unitRateValueChangeEvent}"
+                                  autoSubmit="true">
+                      <af:setPropertyListener from="#{rowStatusod.index}"
+                                              to="#{viewScope.deductionsetup.CURRENTSELECTEDINDEX}"
+                                              type="valueChange"/>
+                    </af:inputText>
+                  </af:column>
+                  <af:column sortable="false" headerText="" id="c16" width="15"
+                             align="center">
+                    <af:commandImageLink id="cil3" icon="/images/close_icon.jpg"
+                                         partialSubmit="true"
+                                         actionListener="#{viewScope.deductionsetup.onRowRemoval}">
+                      <af:setPropertyListener from="#{rowStatusod.index}"
+                                              to="#{viewScope.deductionsetup.currentSelectedIndexod}"
+                                              type="action"/>
+                    </af:commandImageLink>
+                  </af:column>
+                </af:table>
+              </af:panelCollection>
+            </af:showDetailItem>
+          </af:panelTabbed>
          
-        </af:showDetailItem>
-        <af:showDetailItem id="QualityDeduction" text="Quality Deduction">
-        </af:showDetailItem>
-        <af:showDetailItem id="OtherDeduction" text="Other Deduction">
-        </af:showDetailItem>
-      </af:panelTabbed>
+        
+          <af:panelGroupLayout id="pgl1" layout="horizontal" halign="center">
+            <af:commandButton text="Save" id="cb2"
+                              actionListener="#{viewScope.deductionsetup.onSubmit}"
+                              partialTriggers="pc1:t1 pc2:t4 pc3:t6 pc4:t8"
+                              visible="false"/>
+            <af:spacer width="10" height="10" id="s2"/>
+            <af:commandButton text="Cancel" id="cb3"
+                              partialTriggers="::soc1 ::cb2"
+                              binding="#{viewScope.deductionsetup.cancelbtn}"
+                              actionListener="#{viewScope.deductionsetup.onCancel}"
+                              visible="false"/>
+          </af:panelGroupLayout>
+            </af:panelBox>
+        </af:panelBox>
+      </af:panelGroupLayout>
     </f:facet>
     <f:facet name="start">
-    <af:panelGroupLayout id="pgl4"
-                         inlineStyle='background-image:url("../images/grey.PNG");'>
-    </af:panelGroupLayout>
+      <af:panelGroupLayout id="pgl8" layout="vertical" halign="center"
+                           inlineStyle="background-color:Gray;"/>
     </f:facet>
     <f:facet name="end">
-    <af:panelGroupLayout id="pgl3"
-                         inlineStyle='background-image:url("../images/grey.PNG");'>
-    </af:panelGroupLayout>
+      <af:panelGroupLayout id="panelGroupLayout1"
+                           inlineStyle="background-color:Gray;"
+                           layout="vertical" halign="center"
+                           styleClass="AFStretchWidth"/>
     </f:facet>
     <f:facet name="top">
-    <af:panelGroupLayout id="pgl2"
-                         inlineStyle='background-image:url("../images/blue.PNG"); background-repeat:repeat; padding-top:1.0%;'
-                         styleClass="AFStretchWidth">
-        
-        <af:outputText value="Deduction Setup" id="ot1"
-                       inlineStyle="font-size:x-large; color:White;"/>
+      <af:panelGroupLayout id="pgl11"
+                           inlineStyle="background-color:rgb(4,133,174);"
+                           layout="vertical">
+        <af:panelGroupLayout id="pgl15" layout="horizontal" halign="left"
+                             valign="middle" styleClass="AFStretchWidth"
+                             inlineStyle="margin:10.0px;">
+          <af:outputText value="Deduction Setup" id="ot20"
+                         inlineStyle="color:White; font-size:x-large; font-weight:bold; margin:10px;"/>
+        </af:panelGroupLayout>
       </af:panelGroupLayout>
     </f:facet>
   </af:panelStretchLayout>
+  <af:popup id="p9" binding="#{viewScope.deductionsetup.DATASAVEDPOPUPBINDVAR}">
+    <af:dialog id="d9" title="Records Saved."/>
+  </af:popup>
+  <af:popup id="p2" binding="#{viewScope.deductionsetup.deductionpopupbind}">
+    <af:dialog id="d2" type="ok" title="Deduction not enabled"/>
+  </af:popup>
+  <af:popup id="p1"
+            binding="#{viewScope.deductionsetup.DEDUCTIONEXISTPOPUPBIND}">
+    <af:dialog id="d1" title="Selected deduction name already exist."
+               type="ok"
+               dialogListener="#{viewScope.deductionsetup.refreshtable}"/>
+  </af:popup>
+  <af:popup id="p7"
+            binding="#{viewScope.deductionsetup.ADDNEWROWPROMPTPOPUPBINDVAR}">
+    <af:dialog id="d7" title="Select All Mandatory fields."/>
+  </af:popup>
+  <af:popup id="p8"
+            binding="#{viewScope.deductionsetup.SUBMITPROMPTPOPUPBINDVAR}">
+    <af:dialog id="d8" title=" Nothing to save."/>
+  </af:popup>
+  <af:popup id="p3"
+            binding="#{viewScope.deductionsetup.ADDLABOURDEDUCTIONPOPUPBINDVAR}">
+    <af:dialog id="d3" title="Add Labour Deduction"
+               dialogListener="#{viewScope.deductionsetup.addNewDeductionDialogListener}">
+      <af:panelGroupLayout id="pgl4">
+        <af:panelFormLayout id="pfl5">
+          <af:selectOneChoice id="soc8"
+                              binding="#{viewScope.deductionsetup.lddeductionname}"
+                              label="Deduction Name :">
+            <f:selectItems value="#{viewScope.deductionsetup.lddeductionnamelist}"
+                           id="si6"/>
+          </af:selectOneChoice>
+          <af:inputText label="Unit of Measure :" id="it38" value="Daily"
+                        binding="#{viewScope.deductionsetup.lduomnbind}"/>
+          <af:inputText label="Rate :" id="it37"
+                        binding="#{viewScope.deductionsetup.ldratebind}"/>
+        </af:panelFormLayout>
+      </af:panelGroupLayout>
+    </af:dialog>
+  </af:popup>
+  <af:popup id="p4"
+            binding="#{viewScope.deductionsetup.ADDEQUIPMENTDEDUCTIONPOPUPBINDVAR}">
+    <af:dialog id="d4" title="Add Equipment Deduction"
+               dialogListener="#{viewScope.deductionsetup.addNewDeductionDialogListener}">
+      <af:panelGroupLayout id="pgl5">
+        <af:panelFormLayout id="pfl6">
+          <af:selectOneChoice id="soc5" label="Deduction Name :"
+                              binding="#{viewScope.deductionsetup.eddeductionname}">
+            <f:selectItems value="#{viewScope.deductionsetup.eddeductionnamelist}"
+                           id="si5"/>
+          </af:selectOneChoice>
+          <af:inputText label="Unit of Measure :" id="it39" value="Daily"
+                        binding="#{viewScope.deductionsetup.eduombind}"/>
+          <af:inputText label="Rate :" id="it40"
+                        binding="#{viewScope.deductionsetup.edratebind}"/>
+        </af:panelFormLayout>
+      </af:panelGroupLayout>
+    </af:dialog>
+  </af:popup>
+  <af:popup id="p5"
+            binding="#{viewScope.deductionsetup.ADDQUALITYDEDUCTIONPOPUPBINDVAR}">
+    <af:dialog id="d5" title="Add Quality Deduction"
+               dialogListener="#{viewScope.deductionsetup.addNewDeductionDialogListener}">
+      <af:panelGroupLayout id="pgl9">
+        <af:panelFormLayout id="pfl7">
+          <af:inputText label="Deduction Name :" id="it45"
+                        binding="#{viewScope.deductionsetup.qddeductionname}"/>
+          <af:inputText label="Unit of Measure :" id="it41" value="Lump Sum"
+                        binding="#{viewScope.deductionsetup.qduombind}"/>
+          <af:inputText label="Rate :" id="it42"
+                        binding="#{viewScope.deductionsetup.qdratebind}"/>
+        </af:panelFormLayout>
+      </af:panelGroupLayout>
+    </af:dialog>
+  </af:popup>
+  <af:popup id="p6"
+            binding="#{viewScope.deductionsetup.ADDOTHERDEDUCTIONPOPUPBINDVAR}">
+    <af:dialog id="d6" title="Add Other Deduction"
+               dialogListener="#{viewScope.deductionsetup.addNewDeductionDialogListener}">
+      <af:panelGroupLayout id="pgl10">
+        <af:panelFormLayout id="pfl8">
+          <af:inputText label="Deduction Name :" id="it46"
+                        binding="#{viewScope.deductionsetup.oddeductionname}"/>
+          <af:inputText label="Unit of Measure :" id="it43" value="Daily"
+                        binding="#{viewScope.deductionsetup.oduombind}"/>
+          <af:inputText label="Rate :" id="it44"
+                        binding="#{viewScope.deductionsetup.odratebind}"/>
+        </af:panelFormLayout>
+      </af:panelGroupLayout>
+    </af:dialog>
+  </af:popup>
 </jsp:root>

@@ -5,6 +5,51 @@
   <parameters/>
   <executables>
     <variableIterator id="variables"/>
+    <iterator Binds="ContractNumberLovRVO1" RangeSize="25"
+              DataControl="AppModuleDataControl"
+              id="ContractNumberLovRVO1Iterator"/>
+    <iterator Binds="ContractHeaderVO1" RangeSize="25"
+              DataControl="AppModuleDataControl"
+              id="ContractHeaderVO1Iterator"/>
+    <iterator Binds="ContractNumberVO1" RangeSize="25"
+              DataControl="AppModuleDataControl"
+              id="ContractNumberVO1Iterator"/>
+    <iterator Binds="JobDeductionNameVO1" RangeSize="25"
+              DataControl="AppModuleDataControl"
+              id="JobDeductionNameVO1Iterator"/>
   </executables>
-  <bindings/>
+  <bindings>
+    <list IterBinding="ContractNumberLovRVO1Iterator" StaticList="false"
+          Uses="LOV_ContractNumber" id="ContractNumber" DTSupportsMRU="true"
+          SelectItemValueMode="ListObject"/>
+    <attributeValues IterBinding="ContractHeaderVO1Iterator" id="ContractType">
+      <AttrNames>
+        <Item Value="ContractType"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ContractHeaderVO1Iterator" id="Version">
+      <AttrNames>
+        <Item Value="Version"/>
+      </AttrNames>
+    </attributeValues>
+    <list IterBinding="ContractNumberVO1Iterator" ListOperMode="navigation"
+          ListIter="ContractNumberVO1Iterator" id="ContractNumberVO1"
+          DTSupportsMRU="true" SelectItemValueMode="ListObject">
+      <AttrNames>
+        <Item Value="ContractNumber"/>
+      </AttrNames>
+    </list>
+    <list IterBinding="JobDeductionNameVO1Iterator" ListOperMode="navigation"
+          ListIter="JobDeductionNameVO1Iterator" id="JobDeductionNameVO1"
+          DTSupportsMRU="true" SelectItemValueMode="ListObject">
+      <AttrNames>
+        <Item Value="DeductionName"/>
+      </AttrNames>
+    </list>
+    <attributeValues IterBinding="ContractHeaderVO1Iterator" id="Deduction">
+      <AttrNames>
+        <Item Value="Deduction"/>
+      </AttrNames>
+    </attributeValues>
+  </bindings>
 </pageDefinition>

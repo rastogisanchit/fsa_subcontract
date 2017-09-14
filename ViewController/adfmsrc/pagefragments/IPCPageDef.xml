@@ -4,6 +4,137 @@
   <parameters/>
   <executables>
     <variableIterator id="variables"/>
+    <iterator Binds="ContractHeaderVO1" RangeSize="25"
+              DataControl="AppModuleDataControl"
+              id="ContractHeaderVO1Iterator"/>
+    <iterator Binds="ContractNumberLovRVO1" RangeSize="25"
+              DataControl="AppModuleDataControl"
+              id="ContractNumberLovRVO1Iterator"/>
+    <iterator Binds="ContractLineVO1" RangeSize="25"
+              DataControl="AppModuleDataControl" id="ContractLineVO1Iterator"/>
   </executables>
-  <bindings/>
+  <bindings>
+    <list IterBinding="ContractNumberLovRVO1Iterator" StaticList="false"
+          Uses="LOV_ContractNumber" id="ContractNumber" DTSupportsMRU="true"
+          SelectItemValueMode="ListObject"/>
+    <list IterBinding="ContractNumberLovRVO1Iterator" ListOperMode="navigation"
+          ListIter="ContractNumberLovRVO1Iterator" id="ContractNumberLovRVO1"
+          DTSupportsMRU="true" SelectItemValueMode="ListObject">
+      <AttrNames>
+        <Item Value="Dummy"/>
+        <Item Value="ContractNumber"/>
+      </AttrNames>
+    </list>
+    <attributeValues IterBinding="ContractHeaderVO1Iterator" id="ContractType">
+      <AttrNames>
+        <Item Value="ContractType"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ContractHeaderVO1Iterator" id="Version">
+      <AttrNames>
+        <Item Value="Version"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ContractHeaderVO1Iterator" id="ProjectNumber">
+      <AttrNames>
+        <Item Value="ProjectNumber"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ContractHeaderVO1Iterator" id="ProjectName">
+      <AttrNames>
+        <Item Value="ProjectName"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ContractLineVO1Iterator" id="Amount">
+      <AttrNames>
+        <Item Value="Amount"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ContractHeaderVO1Iterator" id="Amount1">
+      <AttrNames>
+        <Item Value="Amount"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ContractHeaderVO1Iterator" id="PartyName">
+      <AttrNames>
+        <Item Value="PartyName"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ContractHeaderVO1Iterator" id="PartyNumber">
+      <AttrNames>
+        <Item Value="PartyNumber"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ContractHeaderVO1Iterator"
+                     id="RetentionPercent">
+      <AttrNames>
+        <Item Value="RetentionPercent"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ContractHeaderVO1Iterator"
+                     id="AdvancePercent">
+      <AttrNames>
+        <Item Value="AdvancePercent"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ContractHeaderVO1Iterator" id="SupplierSite">
+      <AttrNames>
+        <Item Value="SupplierSite"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ContractLineVO1Iterator" id="BoqNumber">
+      <AttrNames>
+        <Item Value="BoqNumber"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ContractLineVO1Iterator" id="UnitOfMeasure">
+      <AttrNames>
+        <Item Value="UnitOfMeasure"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ContractLineVO1Iterator" id="Quantity">
+      <AttrNames>
+        <Item Value="Quantity"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ContractLineVO1Iterator" id="Rate">
+      <AttrNames>
+        <Item Value="Rate"/>
+      </AttrNames>
+    </attributeValues>
+    <tree IterBinding="ContractLineVO1Iterator" id="ContractLineVO1">
+      <nodeDefinition DefName="model.VO.ContractLineVO" Name="ContractLineVO10">
+        <AttrNames>
+          <Item Value="BoqNumber"/>
+          <Item Value="UnitOfMeasure"/>
+          <Item Value="Quantity"/>
+          <Item Value="Rate"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <tree IterBinding="ContractLineVO1Iterator" id="ContractLineVO11">
+      <nodeDefinition DefName="model.VO.ContractLineVO"
+                      Name="ContractLineVO110">
+        <AttrNames>
+          <Item Value="BoqNumber"/>
+          <Item Value="UnitOfMeasure"/>
+          <Item Value="Quantity"/>
+          <Item Value="Rate"/>
+          <Item Value="LineAmount"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <tree IterBinding="ContractLineVO1Iterator" id="ContractLineVO12">
+      <nodeDefinition DefName="model.VO.ContractLineVO"
+                      Name="ContractLineVO120">
+        <AttrNames>
+          <Item Value="BoqNumber"/>
+          <Item Value="UnitOfMeasure"/>
+          <Item Value="Quantity"/>
+          <Item Value="Rate"/>
+          <Item Value="Amount"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+  </bindings>
 </pageDefinition>

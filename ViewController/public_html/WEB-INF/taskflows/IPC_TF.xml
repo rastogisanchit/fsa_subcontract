@@ -5,7 +5,7 @@
     <managed-bean id="__4">
       <managed-bean-name id="__2">ipc</managed-bean-name>
       <managed-bean-class id="__5">beans.ipc</managed-bean-class>
-      <managed-bean-scope id="__3">request</managed-bean-scope>
+      <managed-bean-scope id="__3">view</managed-bean-scope>
     </managed-bean>
     <view id="IPC">
       <page>/pagefragments/IPC.jsff</page>

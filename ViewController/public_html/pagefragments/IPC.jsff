@@ -2,208 +2,296 @@
 <jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1"
           xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
           xmlns:f="http://java.sun.com/jsf/core">
-  <af:panelStretchLayout id="psl1" topHeight="60px" bottomHeight="20px"
-                         endWidth="10px" startWidth="10px"
+  <af:panelStretchLayout id="psl1" startWidth="10px" endWidth="10px"
                          inlineStyle='background-image:url("../images/lightgrey.PNG");'>
-    <f:facet name="bottom">
-      <af:panelGroupLayout id="pgl1"
-                           inlineStyle='background-image:url("../images/black.PNG");'>
-      </af:panelGroupLayout>
-    </f:facet>
-    <f:facet name="center">
-      <af:panelSplitter id="ps1" orientation="vertical">
-        <f:facet name="first">
-          <af:panelSplitter id="ps3" splitterPosition="450">
-            <f:facet name="first">
-              <af:panelBox  id="ph1">
-             
-                <af:panelGroupLayout id="pgl5" layout="horizontal">
-                  <af:panelFormLayout id="pfl8">
-                    <af:inputText label="Subcontract No." id="it1"/>
-                    <af:inputText label="Contract Type" id="it2"/>
-                    <af:inputText label="Nature of Work" id="it3"/>
-                    
-                  </af:panelFormLayout>
-                  <af:panelFormLayout id="pfl9">
-                    <af:inputText label="Project No." id="it5"/>
-                    <af:inputText label="Project Name" id="it6"/>
-                  </af:panelFormLayout>
-                  <af:panelFormLayout id="pfl10">
-                    <af:inputText label="Contract Value" id="it7"/>
-                    <af:inputText label="Contract Version" id="it8"/>
-                    <af:inputText label="PO" id="it9"/>
-                  
-                  </af:panelFormLayout>
-                </af:panelGroupLayout>
-              
-              </af:panelBox>
-            </f:facet>
-            <f:facet name="second">
-              <af:panelSplitter id="ps4" splitterPosition="250">
-                <f:facet name="first">
-                 <af:panelBox  id="ph2">
-                 
-                    <af:panelFormLayout id="pfl1">
-                      <af:inputText label="Number" id="it10"/>
-                      <af:inputText label="Name" id="it11"/>
-                      <af:inputText label="Location" id="it12"/>
-                    </af:panelFormLayout>
-                   
-                  </af:panelBox>
-                </f:facet>
-                <f:facet name="second">
-                 <af:panelBox id="ph3">
-                
-                    <af:panelFormLayout id="pfl2">
-                      <af:inputText label="Number" id="it13"/>
-                      <af:inputText label="Amount" id="it14"/>
-                      <af:inputText label="Status" id="it15"/>
-                    </af:panelFormLayout>
-                    
-                  </af:panelBox>
-                </f:facet>
-              </af:panelSplitter>
-            </f:facet>
-          </af:panelSplitter>
-        </f:facet>
-        <f:facet name="second">
-          <af:panelSplitter id="ps2" orientation="vertical">
-            <f:facet name="first">
-              <af:panelSplitter id="ps5" splitterPosition="450">
-                <f:facet name="first">
-                  <af:panelBox id="ph4">
-                 
-                    <af:panelGroupLayout id="pgl6" layout="horizontal">
-                      <af:panelFormLayout id="pfl3">
-                        <af:inputText label="Number" id="it16"/>
-                        <af:inputText label="Description" id="it17"/>
-                        <af:inputText label="Status" id="it18"/>
-                      </af:panelFormLayout>
-                      <af:panelFormLayout id="pfl4">
-                        <af:inputText label="Date " id="it19"/>
-                        <af:inputText label="Period" id="it20"/>
-                        
-                      </af:panelFormLayout>
-                    </af:panelGroupLayout>
-                 
-                  </af:panelBox>
-                </f:facet>
-                <f:facet name="second">
-                  <af:panelSplitter id="ps6" splitterPosition="250">
-                    <f:facet name="first">
-                      <af:panelBox  id="ph5">
-                     
-                        <af:panelFormLayout id="pfl5">
-                          <af:inputText label="Receipt" id="it21"/>
-                        </af:panelFormLayout>
-                       
-                      </af:panelBox>
-                    </f:facet>
-                    <f:facet name="second">
-                      <af:panelSplitter id="ps7" splitterPosition="250">
-                        <f:facet name="first">
-                        <af:panelBox  id="ph6">
-                       
-                            <af:panelFormLayout id="pfl6">
-                              <af:inputText label="Number" id="it22"/>
-                              <af:inputText label="Status" id="it23"/>
-                              <af:inputText label="Accounted" id="it24"/>
-                            </af:panelFormLayout>
-                        
-                          </af:panelBox>
-                        </f:facet>
-                        <f:facet name="second">
-                          <af:panelBox  id="pb1">
-                            
-                          
-                            <af:panelFormLayout id="pfl7">
-                             <af:inputText label="Retention" id="it25"/>
-                            <af:inputText label="Prepayment" id="it26"/>
-                            </af:panelFormLayout>
-                          
-                          </af:panelBox>
-                        </f:facet>
-                      </af:panelSplitter>
-                    </f:facet>
-                  </af:panelSplitter>
-                </f:facet>
-              </af:panelSplitter>
-            </f:facet>
-            <f:facet name="second">
-              <af:panelCollection id="pc1">
-                <f:facet name="menus"/>
-                <f:facet name="toolbar">
-                 
-                    <af:toolbar id="t2">
-                    <af:outputText value="WORK DONE" id="ot13"
-                                   inlineStyle="font-size:large;"/>
-                  </af:toolbar>
-                    
-                  
-                </f:facet>
-                <f:facet name="statusbar"/>
-                <af:table var="row" rowBandingInterval="0" id="t1">
-                  <af:column sortable="false" headerText="BOQ" id="c2">
-                    <af:outputText value="#{row.col1}" id="ot3"/>
-                  </af:column>
-                  <af:column sortable="false" headerText="UOM" id="c4">
-                    <af:outputText value="#{row.col2}" id="ot7"/>
-                  </af:column>
-                  <af:column sortable="false" headerText="QTY" id="c1">
-                    <af:outputText value="#{row.col3}" id="ot6"/>
-                  </af:column>
-                  <af:column sortable="false" headerText="RATE" id="c8">
-                    <af:outputText value="#{row.col4}" id="ot10"/>
-                  </af:column>
-                  <af:column sortable="false" headerText="TOTAL" id="c10">
-                    <af:outputText value="#{row.col5}" id="ot8"/>
-                  </af:column>
-                  <af:column sortable="false" headerText="PREVIOUS QTY"
-                             id="c11">
-                    <af:outputText value="#{row.col6}" id="ot12"/>
-                  </af:column>
-                  <af:column sortable="false" headerText="CURRENT QTY" id="c6">
-                    <af:outputText value="#{row.col7}" id="ot9"/>
-                  </af:column>
-                  <af:column sortable="false" headerText="TOTAL QTY" id="c7">
-                    <af:outputText value="#{row.col8}" id="ot11"/>
-                  </af:column>
-                  <af:column sortable="false" headerText="PREVIOUS AMOUNT"
-                             id="c9">
-                    <af:outputText value="#{row.col9}" id="ot2"/>
-                  </af:column>
-                  <af:column sortable="false" headerText="CURRENT AMOUNT"
-                             id="c5">
-                    <af:outputText value="#{row.col10}" id="ot5"/>
-                  </af:column>
-                  <af:column sortable="false" headerText="col11" id="c3">
-                    <af:outputText value="#{row.col11}" id="ot4"/>
-                  </af:column>
-                </af:table>
-              </af:panelCollection>
-            </f:facet>
-          </af:panelSplitter>
-        </f:facet>
-      </af:panelSplitter>
-    </f:facet>
-    <f:facet name="start">
-    <af:panelGroupLayout id="pgl4"
-                         inlineStyle='background-image:url("../images/grey.PNG");'>
-    </af:panelGroupLayout>
-    </f:facet>
-    <f:facet name="end">
-    <af:panelGroupLayout id="pgl3"
-                         inlineStyle='background-image:url("../images/grey.PNG");'>
-    </af:panelGroupLayout>
-    </f:facet>
     <f:facet name="top">
-    <af:panelGroupLayout id="pgl2"
-                         inlineStyle='background-image:url("../images/blue.PNG"); background-repeat:repeat; padding-top:1.0%;'
-                         styleClass="AFStretchWidth">
-        
+      <af:panelGroupLayout id="pgl2"
+                           inlineStyle='background-image:url("../images/blue.PNG"); background-repeat:repeat; padding-top:1.0%;'
+                           styleClass="AFStretchWidth">
         <af:outputText value="Interim Payment Certificate" id="ot1"
                        inlineStyle="font-size:x-large; color:White;"/>
       </af:panelGroupLayout>
+    </f:facet>
+    <f:facet name="start">
+      <af:panelGroupLayout id="pgl4"
+                           inlineStyle='background-image:url("../images/grey.PNG");'></af:panelGroupLayout>
+    </f:facet>
+    <f:facet name="end">
+      <af:panelGroupLayout id="pgl3"
+                           inlineStyle='background-image:url("../images/grey.PNG");'></af:panelGroupLayout>
+    </f:facet>
+    <f:facet name="center">
+    <af:panelBox id="pb1" showDisclosure="false"  inlineStyle="margin:5px;">
+      <af:panelGroupLayout id="pgl6" layout="vertical"
+                           styleClass="AFStretchWidth"
+                           inlineStyle="background-color:White; margin:20px; padding:10.0px;">
+        <af:panelGroupLayout id="pgl7" styleClass="AFStretchWidth"
+                             layout="horizontal">
+          <af:panelBox id="pb9" showDisclosure="false"
+                       inlineStyle="height:130px;" text="Contract Header">
+            <f:facet name="toolbar"/>
+            <af:panelGroupLayout id="pgl5" layout="horizontal"
+                                 styleClass="AFStretchWidth">
+              <af:panelGroupLayout id="pgl10" layout="vertical">
+                <af:panelFormLayout id="pfl8">
+                  <f:facet name="footer"/>
+                  <af:selectOneChoice value="#{bindings.ContractNumber.inputValue}"
+                                      label="#{bindings.ContractNumber.label}"
+                                      required="#{bindings.ContractNumber.hints.mandatory}"
+                                      shortDesc="#{bindings.ContractNumber.hints.tooltip}"
+                                      id="soc1" autoSubmit="true"
+                                      valueChangeListener="#{viewScope.ipc.contractNumberValueChangeEvent}"
+                                      unselectedLabel="-- Select --">
+                    <f:selectItems value="#{bindings.ContractNumber.items}"
+                                   id="si1"/>
+                  </af:selectOneChoice>
+                   <af:inputText label="Contract Type" id="it3" disabled="true"
+                                contentStyle="width:190.0px;"
+                                partialTriggers="soc1"
+                                value="#{viewScope.ipc.contractype}"/>
+                  <af:inputText label="Nature of Work" id="it1" disabled="true"
+                                contentStyle="width:190.0px;"/>
+                </af:panelFormLayout>
+              </af:panelGroupLayout>
+              <af:panelGroupLayout id="pgl11" layout="vertical">
+                <af:panelFormLayout id="pfl2">
+                  <f:facet name="footer"/>
+                  <af:inputText label="Project No." id="it5"
+                                value="#{viewScope.ipc.PROJECTNUMBERVALUEBIND}"
+                                partialTriggers="soc1" disabled="true"/>
+                  <af:inputText label="Project Name" id="it6"
+                                value="#{viewScope.ipc.PROJECTNAMEVALUEBIND}"
+                                partialTriggers="soc1" disabled="true"/>
+                </af:panelFormLayout>
+              </af:panelGroupLayout>
+              <af:panelGroupLayout id="pgl8" layout="vertical">
+                <af:panelFormLayout id="pfl9">
+                  <f:facet name="footer"/>
+                 <af:inputText label="Amount" id="it2"
+                                value="#{viewScope.ipc.amountbind}"
+                                partialTriggers="soc1" disabled="true"/>
+                    <af:inputText label="Version" id="it4"
+                                value="#{viewScope.ipc.version}"
+                                partialTriggers="soc1" disabled="true"/>
+                  <af:inputText label="PO" id="it9" disabled="true"/>
+                </af:panelFormLayout>
+              </af:panelGroupLayout>
+            </af:panelGroupLayout>
+          </af:panelBox>
+          <af:panelBox id="pb3" showDisclosure="false"
+                       inlineStyle="height:130px;" text="SubContractor">
+            <f:facet name="toolbar"/>
+            <af:panelGroupLayout id="pgl12" layout="vertical">
+              <af:panelFormLayout id="pfl3">
+                <f:facet name="footer"/>
+                <af:inputText label="Number" id="it30"
+                                value="#{viewScope.ipc.subcontractornumbind}"
+                                partialTriggers="soc1" disabled="true"/>
+               <af:inputText label="Name" id="it7"
+                                value="#{viewScope.ipc.subcontractornamebind}"
+                                partialTriggers="soc1" disabled="true"/>
+                <af:inputText label="Location" id="it8"
+                                value="#{viewScope.ipc.subcontractorlocationbind}"
+                                partialTriggers="soc1" disabled="true"/>
+              </af:panelFormLayout>
+            </af:panelGroupLayout>
+          </af:panelBox>
+          <af:panelBox id="pb8" showDisclosure="false"
+                       inlineStyle="height:130px;" text="Prepayment Invoice">
+            <f:facet name="toolbar"/>
+            <af:panelGroupLayout id="pgl13">
+              <af:panelFormLayout id="pfl4">
+                <f:facet name="footer"/>
+                <af:inputText label="Number" id="it13" disabled="true"/>
+                <af:inputText label="Amount" id="it14" disabled="true"/>
+                <af:inputText label="Status" id="it15" disabled="true"/>
+              </af:panelFormLayout>
+            </af:panelGroupLayout>
+          </af:panelBox>
+        </af:panelGroupLayout>
+        <af:panelGroupLayout id="pgl19" styleClass="AFStretchWidth"
+                             layout="horizontal">
+          <af:panelBox id="pb6" showDisclosure="false"
+                       inlineStyle="height:130.0px;" text="IPC">
+            <f:facet name="toolbar"/>
+            <af:panelGroupLayout id="pgl18" layout="horizontal"
+                                 styleClass="AFStretchWidth">
+              <af:panelGroupLayout id="pgl17" layout="vertical">
+                <af:panelFormLayout id="pfl10">
+                  <f:facet name="footer"/>
+                  <af:inputText label="Number" id="it16" disabled="true"/>
+                  <af:inputText label="Description" id="it17" disabled="true"/>
+                  <af:inputText label="Status" id="it18" disabled="true"/>
+                </af:panelFormLayout>
+              </af:panelGroupLayout>
+              <af:panelGroupLayout id="pgl16" layout="vertical">
+                <af:panelFormLayout id="pfl7">
+                  <f:facet name="footer"/>
+                  <af:inputText label="Date " id="it19" disabled="true"/>
+                  <af:inputText label="Period" id="it20" disabled="true"/>
+                </af:panelFormLayout>
+              </af:panelGroupLayout>
+            </af:panelGroupLayout>
+          </af:panelBox>
+          <af:panelBox id="pb4" showDisclosure="false"
+                       inlineStyle="height:130.0px;" text="Work Conformation">
+            <f:facet name="toolbar"/>
+            <af:panelGroupLayout id="pgl15" layout="vertical">
+              <af:panelFormLayout id="pfl5">
+                <f:facet name="footer"/>
+                <af:inputText label="Receipt" id="it21" disabled="true"/>
+              </af:panelFormLayout>
+            </af:panelGroupLayout>
+          </af:panelBox>
+          <af:panelBox text="Standard Invoice" id="pb2" showDisclosure="false"
+                       inlineStyle="height:130.0px;">
+            <f:facet name="toolbar"/>
+            <af:panelGroupLayout id="pgl9">
+              <af:panelFormLayout id="pfl1">
+                <f:facet name="footer"/>
+                <af:inputText label="Number" id="it22" disabled="true"/>
+                <af:inputText label="Status" id="it23" disabled="true"/>
+                <af:inputText label="Accounted" id="it24" disabled="true"/>
+              </af:panelFormLayout>
+            </af:panelGroupLayout>
+          </af:panelBox>
+          <af:panelBox text="Financial Terms" id="pb7" showDisclosure="false"
+                       inlineStyle="height:130.0px;">
+            <f:facet name="toolbar"/>
+            <af:panelGroupLayout id="pgl14">
+              <af:panelFormLayout id="pfl6">
+                <f:facet name="footer"/>
+               <af:inputText label="RetentionPercent" id="it10" contentStyle="width:140.0px;"
+                                value="#{viewScope.ipc.retentionbind}"
+                                partialTriggers="soc1" disabled="true"/>
+               <af:inputText label="AdvancePercent" id="it11" contentStyle="width:140.0px;"
+                                value="#{viewScope.ipc.prepaymentbind}"
+                                partialTriggers="soc1" disabled="true"/>
+              </af:panelFormLayout>
+            </af:panelGroupLayout>
+          </af:panelBox>
+        </af:panelGroupLayout>
+        <af:panelGroupLayout id="pgl20" layout="horizontal" styleClass="AFStretchWidth">
+          <af:panelBox id="pb5" showDisclosure="false" inlineStyle="height:230.0px;" text="WorkDone" >
+       <!--     <af:panelCollection id="pc1" styleClass="AFStretchWidth"> 
+              <f:facet name="menus"/>
+              <f:facet name="toolbar">
+                <af:toolbar id="t2">
+                  <af:outputText value="WORK DONE" id="ot13"
+                                 inlineStyle="font-size:large;"/>
+                </af:toolbar> 
+              </f:facet>
+              <f:facet name="statusbar"/>-->
+              <af:table value="#{bindings.ContractLineVO12.collectionModel}"
+                        inlineStyle="height:180px; margin:5.0px;"
+                        styleClass="AFStretchWidth" 
+                        var="row" rows="#{bindings.ContractLineVO12.rangeSize}"
+                        emptyText="#{bindings.ContractLineVO12.viewable ? 'No data to display.' : 'Access Denied.'}"
+                        fetchSize="#{bindings.ContractLineVO12.rangeSize}"
+                        rowBandingInterval="0" id="t1" partialTriggers="::soc1">
+                <af:column sortProperty="#{bindings.ContractLineVO12.hints.BoqNumber.name}"
+                           sortable="false" 
+                           headerText="#{bindings.ContractLineVO12.hints.BoqNumber.label}"
+                           id="c2">
+                  <af:inputText value="#{row.bindings.BoqNumber.inputValue}"
+                                label="#{bindings.ContractLineVO12.hints.BoqNumber.label}"
+                                required="#{bindings.ContractLineVO12.hints.BoqNumber.mandatory}"
+                                columns="#{bindings.ContractLineVO12.hints.BoqNumber.displayWidth}"
+                                maximumLength="#{bindings.ContractLineVO12.hints.BoqNumber.precision}"
+                                shortDesc="#{bindings.ContractLineVO12.hints.BoqNumber.tooltip}"
+                                id="it26" readOnly="true">
+                    <f:validator binding="#{row.bindings.BoqNumber.validator}"/>
+                  </af:inputText>
+                </af:column>
+                <af:column sortProperty="#{bindings.ContractLineVO12.hints.UnitOfMeasure.name}"
+                           sortable="false"
+                           headerText="#{bindings.ContractLineVO12.hints.UnitOfMeasure.label}"
+                           id="c4">
+                  <af:inputText value="#{row.bindings.UnitOfMeasure.inputValue}"
+                                label="#{bindings.ContractLineVO12.hints.UnitOfMeasure.label}"
+                                required="#{bindings.ContractLineVO12.hints.UnitOfMeasure.mandatory}"
+                                columns="#{bindings.ContractLineVO12.hints.UnitOfMeasure.displayWidth}"
+                                maximumLength="#{bindings.ContractLineVO12.hints.UnitOfMeasure.precision}"
+                                shortDesc="#{bindings.ContractLineVO12.hints.UnitOfMeasure.tooltip}"
+                                id="it12" readOnly="true">
+                    <f:validator binding="#{row.bindings.UnitOfMeasure.validator}"/>
+                  </af:inputText>
+                </af:column>
+                <af:column sortProperty="#{bindings.ContractLineVO12.hints.Quantity.name}"
+                           sortable="false"
+                           headerText="#{bindings.ContractLineVO12.hints.Quantity.label}"
+                           id="c1">
+                  <af:inputText value="#{row.bindings.Quantity.inputValue}"
+                                label="#{bindings.ContractLineVO12.hints.Quantity.label}"
+                                required="#{bindings.ContractLineVO12.hints.Quantity.mandatory}"
+                                columns="#{bindings.ContractLineVO12.hints.Quantity.displayWidth}"
+                                maximumLength="#{bindings.ContractLineVO12.hints.Quantity.precision}"
+                                shortDesc="#{bindings.ContractLineVO12.hints.Quantity.tooltip}"
+                                id="it29" readOnly="true">
+                    <f:validator binding="#{row.bindings.Quantity.validator}"/>
+                  </af:inputText>
+                </af:column>
+                <af:column sortProperty="#{bindings.ContractLineVO12.hints.Rate.name}"
+                           sortable="false"
+                           headerText="#{bindings.ContractLineVO12.hints.Rate.label}"
+                           id="c3">
+                  <af:inputText value="#{row.bindings.Rate.inputValue}"
+                                label="#{bindings.ContractLineVO12.hints.Rate.label}"
+                                required="#{bindings.ContractLineVO12.hints.Rate.mandatory}"
+                                columns="#{bindings.ContractLineVO12.hints.Rate.displayWidth}"
+                                maximumLength="#{bindings.ContractLineVO12.hints.Rate.precision}"
+                                shortDesc="#{bindings.ContractLineVO12.hints.Rate.tooltip}"
+                                id="it28" readOnly="true">
+                    <f:validator binding="#{row.bindings.Rate.validator}"/>
+                  </af:inputText>
+                </af:column>
+                <af:column sortProperty="#{bindings.ContractLineVO12.hints.Amount.name}"
+                           sortable="false"
+                           headerText="TOTAL"
+                           id="c5">
+                  <af:inputText value="#{row.bindings.Amount.inputValue}"
+                                label="#{bindings.ContractLineVO12.hints.Amount.label}"
+                                required="#{bindings.ContractLineVO12.hints.Amount.mandatory}"
+                                columns="#{bindings.ContractLineVO12.hints.Amount.displayWidth}"
+                                maximumLength="#{bindings.ContractLineVO12.hints.Amount.precision}"
+                                shortDesc="#{bindings.ContractLineVO12.hints.Amount.tooltip}"
+                                id="it27" readOnly="true">
+                    <f:validator binding="#{row.bindings.Amount.validator}"/>
+                  </af:inputText>
+                </af:column>
+                <af:column sortable="false" headerText="PREVIOUS QTY" id="c11">
+                  <af:outputText value="#{row.col6}" id="ot12"/>
+                </af:column>
+                <af:column sortable="false" headerText="CURRENT QTY" id="c6">
+                  <af:outputText value="#{row.col7}" id="ot9"/>
+                </af:column>
+                <af:column sortable="false" headerText="TOTAL QTY" id="c7">
+                  <af:outputText value="#{row.col8}" id="ot11"/>
+                </af:column>
+                <af:column sortable="false" headerText="PREVIOUS AMOUNT"
+                           id="c9">
+                  <af:outputText value="#{row.col9}" id="ot2"/>
+                </af:column>
+                <af:column sortable="false" headerText="CURRENT AMOUNT"
+                           id="c10">
+                  <af:outputText value="#{row.col10}" id="ot5"/>
+                </af:column>
+                <af:column sortable="false" headerText="TOTAL AMOUNT" id="c8">
+                  <af:outputText value="#{row.col11}" id="ot4"/>
+                </af:column>
+              </af:table>
+        <!--   </af:panelCollection>  -->
+          </af:panelBox>
+        </af:panelGroupLayout>
+         <af:spacer  height="6" id="s4"/>
+       <af:panelGroupLayout id="pgl1" layout="horizontal" halign="center"
+                             valign="middle">
+                            
+          <af:commandButton text="Submit" id="cb1"/>
+          
+        </af:panelGroupLayout>
+      </af:panelGroupLayout>
+      </af:panelBox>
     </f:facet>
   </af:panelStretchLayout>
 </jsp:root>
