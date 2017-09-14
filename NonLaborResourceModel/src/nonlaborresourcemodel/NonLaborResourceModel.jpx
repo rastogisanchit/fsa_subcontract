@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE JboProject SYSTEM "jbo_03_01.dtd">
+<!---->
+<JboProject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="NonLaborResourceModel"
+  Version="11.1.1.66.73"
+  SeparateXMLFiles="true"
+  PackageName="nonlaborresourcemodel"
+  ExportIntfPackage="">
+  <DesignTime>
+    <Attr Name="_jprName" Value="../../NonLaborResourceModel.jpr"/>
+    <Attr Name="_NamedConnection" Value="hr"/>
+  </DesignTime>
+</JboProject>

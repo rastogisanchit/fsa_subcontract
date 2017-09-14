@@ -28,18 +28,18 @@
                   <af:panelGroupLayout id="pgl8" layout="vertical"
                                        inlineStyle="margin:10.0px;">
                     <af:panelFormLayout id="pfl1" styleClass="AFStretchWidth">
-                      <af:selectOneChoice value="#{bindings.ContractNumber.inputValue}"
-                                          label="Contract Number :"
-                                          required="#{bindings.ContractNumber.hints.mandatory}"
-                                          shortDesc="#{bindings.ContractNumber.hints.tooltip}"
-                                          id="soc1" unselectedLabel="--Select--"
+                  <af:selectOneChoice value="#{bindings.ContractNumber.inputValue}"
+                                      label="#{bindings.ContractNumber.label}"
+                                      required="#{bindings.ContractNumber.hints.mandatory}"
+                                      shortDesc="#{bindings.ContractNumber.hints.tooltip}"
+                                      id="soc1" unselectedLabel="--Select--"
                                           autoSubmit="true"
                                           valueChangeListener="#{viewScope.deductiontxn.contractnumValueChange}"
                                           binding="#{viewScope.deductiontxn.contractnumBind}">
-                        <f:selectItems value="#{bindings.ContractNumber.items}"
-                                       id="si1"/>
-                      </af:selectOneChoice>
-                      <af:selectOneChoice id="soc2" autoSubmit="true"
+                    <f:selectItems value="#{bindings.ContractNumber.items}"
+                                   id="si1"/>
+                  </af:selectOneChoice>
+                  <af:selectOneChoice id="soc2" autoSubmit="true"
                                           unselectedLabel="--Select--"
                                           binding="#{viewScope.deductiontxn.tabledeductiontypebind}"
                                           valueChangeListener="#{viewScope.deductiontxn.deductiontypeValueChange}"

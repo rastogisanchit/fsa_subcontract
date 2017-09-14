@@ -5,19 +5,16 @@
   <parameters/>
   <executables>
     <variableIterator id="variables"/>
-    <iterator Binds="ContractNumberLovRVO1" RangeSize="25"
-              DataControl="AppModuleDataControl"
-              id="ContractNumberLovRVO1Iterator"/>
     <iterator Binds="DeductionNameVO1" RangeSize="25"
               DataControl="AppModuleDataControl" id="DeductionNameVO1Iterator"/>
     <iterator Binds="DeductionNameLovRVO1" RangeSize="25"
               DataControl="AppModuleDataControl"
               id="DeductionNameLovRVO1Iterator"/>
+    <iterator Binds="ContractNumberLovRVO1" RangeSize="25"
+              DataControl="AppModuleDataControl"
+              id="ContractNumberLovRVO1Iterator"/>
   </executables>
   <bindings>
-    <list IterBinding="ContractNumberLovRVO1Iterator" StaticList="false"
-          Uses="LOV_ContractNumber" id="ContractNumber" DTSupportsMRU="true"
-          SelectItemValueMode="ListObject"/>
     <list IterBinding="DeductionNameVO1Iterator" id="DeductionName"
           DTSupportsMRU="true" SelectItemValueMode="ListObject"
           StaticList="true">
@@ -33,6 +30,9 @@
     </list>
     <list IterBinding="DeductionNameLovRVO1Iterator" StaticList="false"
           Uses="LOV_DeductionName" id="DeductionName1" DTSupportsMRU="true"
+          SelectItemValueMode="ListObject"/>
+    <list IterBinding="ContractNumberLovRVO1Iterator" StaticList="false"
+          Uses="LOV_ContractNumber" id="ContractNumber" DTSupportsMRU="true"
           SelectItemValueMode="ListObject"/>
   </bindings>
 </pageDefinition>

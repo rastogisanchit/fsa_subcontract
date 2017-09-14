@@ -216,7 +216,7 @@ public class deductionsetup {
     public List<SelectItem> getPERIOD_MONTHLIST() {
         if (_PERIOD_MONTHLIST == null) {
             _PERIOD_MONTHLIST = new ArrayList<SelectItem>();
-            _PERIOD_MONTHLIST.add(new SelectItem("08", "August"));
+            _PERIOD_MONTHLIST.add(new SelectItem("09", "September"));
         }
         return _PERIOD_MONTHLIST;
     }
