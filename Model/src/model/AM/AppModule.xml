@@ -54,6 +54,9 @@
   <ViewUsage
     Name="IPCDeductionAmountVO1"
     ViewObjectName="com.fsa.model.vo.IPCDeductionAmountVO"/>
+  <ViewUsage
+    Name="DeductionByTypeVO1"
+    ViewObjectName="com.fsa.model.vo.DeductionByTypeVO"/>
   <ResourceBundle>
     <PropertiesBundle
       PropertiesFile="model.ModelBundle"/>

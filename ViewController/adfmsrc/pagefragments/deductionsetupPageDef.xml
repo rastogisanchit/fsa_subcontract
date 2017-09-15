@@ -17,6 +17,9 @@
     <iterator Binds="ContractNumberLovRVO1" RangeSize="25"
               DataControl="AppModuleDataControl"
               id="ContractNumberLovRVO1Iterator"/>
+    <iterator Binds="DeductionByTypeVO1" RangeSize="25"
+              DataControl="AppModuleDataControl"
+              id="DeductionByTypeVO1Iterator"/>
   </executables>
   <bindings>
     <attributeValues IterBinding="ContractHeaderVO1Iterator" id="ContractType">
@@ -51,5 +54,19 @@
     <list IterBinding="ContractNumberLovRVO1Iterator" StaticList="false"
           Uses="LOV_ContractNumber" id="ContractNumber" DTSupportsMRU="true"
           SelectItemValueMode="ListObject"/>
+    <tree IterBinding="DeductionByTypeVO1Iterator" id="DeductionByTypeVO1">
+      <nodeDefinition DefName="com.fsa.model.vo.DeductionByTypeVO"
+                      Name="DeductionByTypeVO10">
+        <AttrNames>
+          <Item Value="DeductionName"/>
+          <Item Value="DeductionType"/>
+          <Item Value="Period"/>
+          <Item Value="ScId"/>
+          <Item Value="ScNum"/>
+          <Item Value="UnitRate"/>
+          <Item Value="Uom"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
   </bindings>
 </pageDefinition>

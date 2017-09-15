@@ -16,13 +16,14 @@
   </DesignTime>
   <Attribute
     Name="ScId"
-    IsNotNull="true"
     ColumnName="SC_ID"
     SQLType="NUMERIC"
     Type="oracle.jbo.domain.Number"
     ColumnType="NUMBER"
     TableName="XXX_FSA_SC_DEDUCTION_SETUP"
-    PrimaryKey="true">
+    PrimaryKey="true"
+    DefaultValue="0"
+    RetrievedOnInsert="true">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="39"/>
     </DesignTime>
@@ -109,9 +110,7 @@
       <Attr Name="_checkCondition" Value='"SC_ID" IS NOT NULL'/>
       <Attr Name="_isCheck" Value="true"/>
     </DesignTime>
-    <AttrArray Name="Attributes">
-      <Item Value="com.fsa.model.eo.DedutionSetupEO.ScId"/>
-    </AttrArray>
+    <AttrArray Name="Attributes"/>
   </Key>
   <Key
     Name="SysC007000">

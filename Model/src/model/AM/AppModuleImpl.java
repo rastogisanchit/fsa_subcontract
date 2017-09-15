@@ -122,4 +122,12 @@ public class AppModuleImpl extends ApplicationModuleImpl {
     public ViewObjectImpl getIPCDeductionAmountVO1() {
         return (ViewObjectImpl)findViewObject("IPCDeductionAmountVO1");
     }
+
+    /**
+     * Container's getter for DeductionByTypeVO1.
+     * @return DeductionByTypeVO1
+     */
+    public ViewObjectImpl getDeductionByTypeVO1() {
+        return (ViewObjectImpl)findViewObject("DeductionByTypeVO1");
+    }
 }
