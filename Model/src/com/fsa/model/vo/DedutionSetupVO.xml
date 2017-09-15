@@ -12,15 +12,7 @@
        DedutionSetupEO.DEDUCTION_NAME, 
        DedutionSetupEO.UOM, 
        DedutionSetupEO.UNIT_RATE, 
-       DedutionSetupEO.PERIOD, 
-       DedutionSetupEO.CREATION_DATE, 
-       DedutionSetupEO.CREATED_BY, 
-       DedutionSetupEO.LAST_UPDATION_DATE, 
-       DedutionSetupEO.LAST_UPDATED_BY, 
-       DedutionSetupEO.ATTRIBUTE1, 
-       DedutionSetupEO.ATTRIBUTE2, 
-       DedutionSetupEO.ATTRIBUTE3, 
-       DedutionSetupEO.ATTRIBUTE4"
+       DedutionSetupEO.PERIOD"
   FromList="XXX_FSA_SC_DEDUCTION_SETUP DedutionSetupEO"
   BindingStyle="OracleName"
   CustomQuery="false"
@@ -79,52 +71,4 @@
     EntityAttrName="Period"
     EntityUsage="DedutionSetupEO"
     AliasName="PERIOD"/>
-  <ViewAttribute
-    Name="CreationDate"
-    PrecisionRule="true"
-    EntityAttrName="CreationDate"
-    EntityUsage="DedutionSetupEO"
-    AliasName="CREATION_DATE"/>
-  <ViewAttribute
-    Name="CreatedBy"
-    PrecisionRule="true"
-    EntityAttrName="CreatedBy"
-    EntityUsage="DedutionSetupEO"
-    AliasName="CREATED_BY"/>
-  <ViewAttribute
-    Name="LastUpdationDate"
-    PrecisionRule="true"
-    EntityAttrName="LastUpdationDate"
-    EntityUsage="DedutionSetupEO"
-    AliasName="LAST_UPDATION_DATE"/>
-  <ViewAttribute
-    Name="LastUpdatedBy"
-    PrecisionRule="true"
-    EntityAttrName="LastUpdatedBy"
-    EntityUsage="DedutionSetupEO"
-    AliasName="LAST_UPDATED_BY"/>
-  <ViewAttribute
-    Name="Attribute1"
-    PrecisionRule="true"
-    EntityAttrName="Attribute1"
-    EntityUsage="DedutionSetupEO"
-    AliasName="ATTRIBUTE1"/>
-  <ViewAttribute
-    Name="Attribute2"
-    PrecisionRule="true"
-    EntityAttrName="Attribute2"
-    EntityUsage="DedutionSetupEO"
-    AliasName="ATTRIBUTE2"/>
-  <ViewAttribute
-    Name="Attribute3"
-    PrecisionRule="true"
-    EntityAttrName="Attribute3"
-    EntityUsage="DedutionSetupEO"
-    AliasName="ATTRIBUTE3"/>
-  <ViewAttribute
-    Name="Attribute4"
-    PrecisionRule="true"
-    EntityAttrName="Attribute4"
-    EntityUsage="DedutionSetupEO"
-    AliasName="ATTRIBUTE4"/>
 </ViewObject>
