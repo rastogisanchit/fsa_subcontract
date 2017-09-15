@@ -301,17 +301,13 @@ public class ServiceClientImpl {
     }
 
 
-    private String httpPost_GetResponse(String DestinationURL, String Data,
-                                        String AithorizationString) {
+    private String httpPost_GetResponse(String DestinationURL, String Data, String AithorizationString) {
         URL url;
         String response = "";
         try {
             url = new URL(DestinationURL);
-
             HttpURLConnection conn;
-
             conn = (HttpURLConnection)url.openConnection();
-
             if (conn == null) {
                 return null;
             }
@@ -324,22 +320,17 @@ public class ServiceClientImpl {
             conn.setRequestMethod("POST");
 
             byte[] authBytes = AithorizationString.getBytes("UTF-8");
-            String auth =
-                com.sun.org.apache.xml.internal.security.utils.Base64.encode(authBytes);
+            String auth = com.sun.org.apache.xml.internal.security.utils.Base64.encode(authBytes);
             conn.setRequestProperty("Authorization", "Basic " + auth);
-
             OutputStream out = conn.getOutputStream();
             OutputStreamWriter writer = new OutputStreamWriter(out, "UTF-8");
             writer.write(Data);
             writer.close();
             out.close();
-
             InputStream in = conn.getInputStream();
             InputStreamReader iReader = new InputStreamReader(in);
             BufferedReader bReader = new BufferedReader(iReader);
-
             String line;
-
             while ((line = bReader.readLine()) != null) {
                 response += line;
             }
@@ -352,10 +343,8 @@ public class ServiceClientImpl {
         } catch (IOException e) {
             System.out.println("IO Exception : " + e);
         }
-
         return response;
     }
-    //************************************Start**of***LabourDeductionNameDetails**************************************************************************************//
 
     public void getLabourDeductionNameDetails_ResponseParser(String ResponsePayload) {
         _LABOURDEDUCTIONAMELIST.clear();
@@ -1347,13 +1336,10 @@ value_element_child_elements.getElementsByTagName("Name").item(0).getTextContent
         this.importCertificates();
         String response = "";
         try {
-            response =
-                    httpPost_GetResponse(_CONTRACTSERVICE_URL, _FINDCONTRACTS_PAYLOAD,
-                                         _USERNAME + ":" + _PASSWORD);
+            response = httpPost_GetResponse(_CONTRACTSERVICE_URL, _FINDCONTRACTS_PAYLOAD,_USERNAME + ":" + _PASSWORD);
         } catch (Exception e) {
             System.out.println("Exception in getting contract header response");
         }
-        //        System.out.println(response);
         findContracts_ResponseParser(response);
         return _CONTRACTLIST;
     }

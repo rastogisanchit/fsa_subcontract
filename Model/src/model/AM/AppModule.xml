@@ -45,6 +45,9 @@
   <ViewUsage
     Name="NonLaborResourcePVO1"
     ViewObjectName="model.VO.NonLaborResourcePVO"/>
+  <ViewUsage
+    Name="DedutionSetupVO1"
+    ViewObjectName="com.fsa.model.vo.DedutionSetupVO"/>
   <ResourceBundle>
     <PropertiesBundle
       PropertiesFile="model.ModelBundle"/>
