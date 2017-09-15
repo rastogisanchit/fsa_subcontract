@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="IPCDeductionAmountVO"
+  Version="11.1.1.66.73"
+  InheritPersonalization="merge"
+  SelectList="IPCDeductionAmountEO.IPC_DEDUCTION_AMT_ID, 
+       IPCDeductionAmountEO.IPC_DEDUCTION_ID, 
+       IPCDeductionAmountEO.SC_NUMBER, 
+       IPCDeductionAmountEO.PERIOD, 
+       IPCDeductionAmountEO.DEDUCTION_TYPE, 
+       IPCDeductionAmountEO.TOTAL_DEDUCTION_AMOUNT, 
+       IPCDeductionAmountEO.DEBIT_MEMO, 
+       IPCDeductionAmountEO.DEBIT_MEMO_STATUS"
+  FromList="XXX_FSA_SC_IPC_DEDUCTION_AMT IPCDeductionAmountEO"
+  BindingStyle="OracleName"
+  CustomQuery="false"
+  PageIterMode="Full"
+  UseGlueCode="false">
+  <DesignTime>
+    <Attr Name="_codeGenFlag2" Value="VarAccess"/>
+  </DesignTime>
+  <EntityUsage
+    Name="IPCDeductionAmountEO"
+    Entity="com.fsa.model.eo.IPCDeductionAmountEO"/>
+  <ViewAttribute
+    Name="IpcDeductionAmtId"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="IpcDeductionAmtId"
+    EntityUsage="IPCDeductionAmountEO"
+    AliasName="IPC_DEDUCTION_AMT_ID"/>
+  <ViewAttribute
+    Name="IpcDeductionId"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="IpcDeductionId"
+    EntityUsage="IPCDeductionAmountEO"
+    AliasName="IPC_DEDUCTION_ID"/>
+  <ViewAttribute
+    Name="ScNumber"
+    PrecisionRule="true"
+    EntityAttrName="ScNumber"
+    EntityUsage="IPCDeductionAmountEO"
+    AliasName="SC_NUMBER"/>
+  <ViewAttribute
+    Name="Period"
+    PrecisionRule="true"
+    EntityAttrName="Period"
+    EntityUsage="IPCDeductionAmountEO"
+    AliasName="PERIOD"/>
+  <ViewAttribute
+    Name="DeductionType"
+    PrecisionRule="true"
+    EntityAttrName="DeductionType"
+    EntityUsage="IPCDeductionAmountEO"
+    AliasName="DEDUCTION_TYPE"/>
+  <ViewAttribute
+    Name="TotalDeductionAmount"
+    PrecisionRule="true"
+    EntityAttrName="TotalDeductionAmount"
+    EntityUsage="IPCDeductionAmountEO"
+    AliasName="TOTAL_DEDUCTION_AMOUNT"/>
+  <ViewAttribute
+    Name="DebitMemo"
+    PrecisionRule="true"
+    EntityAttrName="DebitMemo"
+    EntityUsage="IPCDeductionAmountEO"
+    AliasName="DEBIT_MEMO"/>
+  <ViewAttribute
+    Name="DebitMemoStatus"
+    PrecisionRule="true"
+    EntityAttrName="DebitMemoStatus"
+    EntityUsage="IPCDeductionAmountEO"
+    AliasName="DEBIT_MEMO_STATUS"/>
+</ViewObject>

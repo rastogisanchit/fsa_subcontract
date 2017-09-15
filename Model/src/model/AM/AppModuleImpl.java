@@ -106,4 +106,20 @@ public class AppModuleImpl extends ApplicationModuleImpl {
     public ViewObjectImpl getDedutionSetupVO1() {
         return (ViewObjectImpl)findViewObject("DedutionSetupVO1");
     }
+
+    /**
+     * Container's getter for IPCDeductionVO1.
+     * @return IPCDeductionVO1
+     */
+    public ViewObjectImpl getIPCDeductionVO1() {
+        return (ViewObjectImpl)findViewObject("IPCDeductionVO1");
+    }
+
+    /**
+     * Container's getter for IPCDeductionAmountVO1.
+     * @return IPCDeductionAmountVO1
+     */
+    public ViewObjectImpl getIPCDeductionAmountVO1() {
+        return (ViewObjectImpl)findViewObject("IPCDeductionAmountVO1");
+    }
 }
