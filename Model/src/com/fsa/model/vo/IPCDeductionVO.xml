@@ -70,7 +70,7 @@
     NullValueId="${adfBundle['oracle.javatools.resourcebundle.SystemBundle']['NULL_VALUE_RESID']}"
     MRUCount="0">
     <AttrArray Name="AttrNames">
-      <Item Value="Month"/>
+      <Item Value="MonthTrans"/>
     </AttrArray>
     <AttrArray Name="ListAttrNames">
       <Item Value="Month"/>
@@ -117,6 +117,21 @@
     </AttrArray>
     <AttrArray Name="ListDisplayAttrNames">
       <Item Value="DeductionName"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_YearTrans"
+    ListVOName="YearsLOV1"
+    ListRangeSize="-1"
+    NullValueFlag="start"
+    NullValueId="${adfBundle['oracle.javatools.resourcebundle.SystemBundle']['NULL_VALUE_RESID']}"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="YearTrans"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="Year"/>
     </AttrArray>
     <DisplayCriteria/>
   </ListBinding>
@@ -205,7 +220,7 @@
     </Properties>
   </ViewAttribute>
   <ViewAttribute
-    Name="Month"
+    Name="MonthTrans"
     IsSelected="false"
     IsPersistent="false"
     PrecisionRule="true"
@@ -222,7 +237,7 @@
     </Properties>
   </ViewAttribute>
   <ViewAttribute
-    Name="Year"
+    Name="YearTrans"
     IsSelected="false"
     IsPersistent="false"
     PrecisionRule="true"
@@ -231,7 +246,7 @@
     AliasName="VIEW_ATTR"
     SQLType="VARCHAR"
     Passivate="true"
-    LOVName="LOV_Year">
+    LOVName="LOV_YearTrans">
     <Properties>
       <SchemaBasedProperties>
         <CONTROLTYPE
