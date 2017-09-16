@@ -32,6 +32,7 @@
     <page path="/WEB-INF/getDeductionsByTypeTF.xml#getDeductionsByTypeTF@ExecuteWithParams"
           usageId="view_getDeductionsByTypeTF_getDeductionsByTypeTF_ExecuteWithParamsPageDef"/>
     <page path="/fragments/deductionSetup.jsff" usageId="view_deductionSetupPageDef"/>
+    <page path="/pages/deduction/setup.jspx" usageId="view_setupPageDef"/>
   </pageMap>
   <pageDefinitionUsages>
     <page id="view_deductionsetupPageDef"
@@ -56,6 +57,7 @@
     <page id="view_getDeductionsByTypeTF_getDeductionsByTypeTF_ExecuteWithParamsPageDef"
           path="view.pageDefs.getDeductionsByTypeTF_getDeductionsByTypeTF_ExecuteWithParamsPageDef"/>
     <page id="view_deductionSetupPageDef" path="fragments.deductionSetupPageDef"/>
+    <page id="view_setupPageDef" path="pages.deduction.setupPageDef"/>
   </pageDefinitionUsages>
   <dataControlUsages>
     <BC4JDataControl id="AppModuleDataControl" Package="model.AM"

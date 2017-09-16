@@ -22,10 +22,13 @@
     Type="oracle.jbo.domain.Number"
     ColumnType="NUMBER"
     TableName="XXX_FSA_SC_IPC_DEDUCTION"
-    PrimaryKey="true">
+    PrimaryKey="true"
+    IsUpdateable="while_insert"
+    RetrievedOnUpdate="true">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="39"/>
     </DesignTime>
+    <TransientExpression><![CDATA[(new oracle.jbo.server.SequenceImpl("XXX_FSA_SC_DEDUCTION_STEU_SEQ",adf.object.getDBTransaction())).getSequenceNumber()]]></TransientExpression>
   </Attribute>
   <Attribute
     Name="ScNumber"

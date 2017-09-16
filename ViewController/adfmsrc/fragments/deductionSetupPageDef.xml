@@ -4,6 +4,12 @@
   <executables>
     <variableIterator id="variables"/>
     <iterator Binds="DedutionSetupVO1" RangeSize="25" DataControl="AppModuleDataControl" id="DedutionSetupVO1Iterator"/>
+    <searchRegion Criteria="DedutionSetupVOCriteria" Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" Binds="DedutionSetupVO1Iterator"
+                  id="DedutionSetupVOCriteriaQuery"/>
+    <searchRegion Criteria="DedutionSetupVOCriteria" Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" Binds="DedutionSetupVO1Iterator"
+                  id="DedutionSetupVOCriteriaQuery1"/>
+    <searchRegion Criteria="DedutionSetupVOCriteria" Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" Binds="DedutionSetupVO1Iterator"
+                  id="DedutionSetupVOCriteriaQuery2"/>
   </executables>
   <bindings>
     <tree IterBinding="DedutionSetupVO1Iterator" id="DedutionSetupVO1">
@@ -16,6 +22,27 @@
           <Item Value="Uom"/>
           <Item Value="UnitRate"/>
           <Item Value="Period"/>
+          <Item Value="Month"/>
+          <Item Value="Year"/>
+          <Item Value="ContractNumber"/>
+          <Item Value="DeductionNameTrans"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <tree IterBinding="DedutionSetupVO1Iterator" id="DedutionSetupVO11">
+      <nodeDefinition DefName="com.fsa.model.vo.DedutionSetupVO" Name="DedutionSetupVO110">
+        <AttrNames>
+          <Item Value="ScId"/>
+          <Item Value="ScNum"/>
+          <Item Value="DeductionType"/>
+          <Item Value="DeductionName"/>
+          <Item Value="Uom"/>
+          <Item Value="UnitRate"/>
+          <Item Value="Period"/>
+          <Item Value="Month"/>
+          <Item Value="Year"/>
+          <Item Value="ContractNumber"/>
+          <Item Value="DeductionNameTrans"/>
         </AttrNames>
       </nodeDefinition>
     </tree>
