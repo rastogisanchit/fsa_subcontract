@@ -13,7 +13,7 @@
         <AttrNames>
           <Item Value="ScId"/>
           <Item Value="ScNum"/>
-          <Item Value="ContactNumberTrans"/>
+          <Item Value="ContractNumberTrans"/>
           <Item Value="DeductionType"/>
           <Item Value="DeductionName"/>
           <Item Value="Uom"/>

@@ -1,0 +1,324 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="DedutionSetupVO"
+  Version="11.1.1.66.73"
+  InheritPersonalization="merge"
+  SelectList="DedutionSetupEO.SC_ID, 
+       DedutionSetupEO.SC_NUM, 
+       DedutionSetupEO.DEDUCTION_TYPE, 
+       DedutionSetupEO.DEDUCTION_NAME, 
+       DedutionSetupEO.UOM, 
+       DedutionSetupEO.UNIT_RATE, 
+       DedutionSetupEO.PERIOD"
+  FromList="XXX_FSA_SC_DEDUCTION_SETUP DedutionSetupEO"
+  BindingStyle="OracleName"
+  CustomQuery="false"
+  PageIterMode="Full"
+  UseGlueCode="false">
+  <DesignTime>
+    <Attr Name="_codeGenFlag2" Value="VarAccess"/>
+  </DesignTime>
+  <Variable
+    Name="Bind_DeductionType"
+    Kind="viewcriteria"
+    Type="java.lang.String"/>
+  <ViewAccessor
+    Name="MonthsLOV1"
+    ViewObjectName="com.fsa.model.vo.MonthsLOV"
+    RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="YearsLOV1"
+    ViewObjectName="com.fsa.model.vo.YearsLOV"
+    RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="ContractNumberVO1"
+    ViewObjectName="model.VO.ContractNumberVO"
+    RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="DeductionTypeLOV1"
+    ViewObjectName="com.fsa.model.vo.DeductionTypeLOV"
+    RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="DeductionNameVO1"
+    ViewObjectName="model.VO.DeductionNameVO"
+    RowLevelBinds="true"/>
+  <ListBinding
+    Name="LOV_Month"
+    ListVOName="MonthsLOV1"
+    ListRangeSize="-1"
+    NullValueFlag="start"
+    NullValueId="${adfBundle['oracle.javatools.resourcebundle.SystemBundle']['NULL_VALUE_RESID']}"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="Month"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="Month"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="Month"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_Year"
+    ListVOName="YearsLOV1"
+    ListRangeSize="-1"
+    NullValueFlag="start"
+    NullValueId="${adfBundle['oracle.javatools.resourcebundle.SystemBundle']['NULL_VALUE_RESID']}"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="Year"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="Year"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="Year"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_ContractNumber"
+    ListVOName="ContractNumberVO1"
+    ListRangeSize="-1"
+    NullValueFlag="start"
+    NullValueId="${adfBundle['oracle.javatools.resourcebundle.SystemBundle']['NULL_VALUE_RESID']}"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="ContractNumber"/>
+    </AttrArray>
+    <AttrArray Name="DerivedAttrNames">
+      <Item Value="ScNum"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="ContractNumber"/>
+      <Item Value="ContractNumber"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="ContractNumber"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_DeductionType"
+    ListVOName="DeductionTypeLOV1"
+    ListRangeSize="-1"
+    NullValueFlag="start"
+    NullValueId="${adfBundle['oracle.javatools.resourcebundle.SystemBundle']['NULL_VALUE_RESID']}"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="DeductionType"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="DeductionType"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="DeductionType"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_DeductionNameTrans"
+    ListVOName="DeductionNameVO1"
+    ListRangeSize="-1"
+    NullValueFlag="start"
+    NullValueId="${adfBundle['oracle.javatools.resourcebundle.SystemBundle']['NULL_VALUE_RESID']}"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="DeductionNameTrans"/>
+    </AttrArray>
+    <AttrArray Name="DerivedAttrNames">
+      <Item Value="DeductionName"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="DeductionName"/>
+      <Item Value="DeductionName"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="DeductionName"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <EntityUsage
+    Name="DedutionSetupEO"
+    Entity="com.fsa.model.eo.DedutionSetupEO"/>
+  <ViewAttribute
+    Name="ScId"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="ScId"
+    EntityUsage="DedutionSetupEO"
+    AliasName="SC_ID"/>
+  <ViewAttribute
+    Name="ScNum"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="ScNum"
+    EntityUsage="DedutionSetupEO"
+    AliasName="SC_NUM"/>
+  <ViewAttribute
+    Name="DeductionType"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="DeductionType"
+    EntityUsage="DedutionSetupEO"
+    AliasName="DEDUCTION_TYPE"
+    LOVName="LOV_DeductionType">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="DeductionName"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="DeductionName"
+    EntityUsage="DedutionSetupEO"
+    AliasName="DEDUCTION_NAME"/>
+  <ViewAttribute
+    Name="Uom"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="Uom"
+    EntityUsage="DedutionSetupEO"
+    AliasName="UOM">
+    <TransientExpression><![CDATA[DeductionName == "Other Deduction"? "Lump Sum":"Daily"]]></TransientExpression>
+    <Dependencies>
+      <Item
+        Value="DeductionName"/>
+    </Dependencies>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="UnitRate"
+    PrecisionRule="true"
+    EntityAttrName="UnitRate"
+    EntityUsage="DedutionSetupEO"
+    AliasName="UNIT_RATE"/>
+  <ViewAttribute
+    Name="Period"
+    PrecisionRule="true"
+    EntityAttrName="Period"
+    EntityUsage="DedutionSetupEO"
+    AliasName="PERIOD"/>
+  <ViewAttribute
+    Name="Month"
+    IsSelected="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="VIEW_ATTR"
+    SQLType="VARCHAR"
+    LOVName="LOV_Month">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="Year"
+    IsSelected="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="VIEW_ATTR"
+    SQLType="VARCHAR"
+    LOVName="LOV_Year">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="ContractNumber"
+    IsSelected="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="VIEW_ATTR"
+    SQLType="VARCHAR"
+    Precision="255"
+    Passivate="true"
+    LOVName="LOV_ContractNumber">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="DeductionNameTrans"
+    IsSelected="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="VIEW_ATTR"
+    SQLType="VARCHAR"
+    LOVName="LOV_DeductionNameTrans">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewCriteria
+    Name="DedutionSetupVOCriteria"
+    ViewObjectName="com.fsa.model.vo.DedutionSetupVO"
+    Conjunction="AND">
+    <Properties>
+      <CustomProperties>
+        <Property
+          Name="displayOperators"
+          Value="Never"/>
+        <Property
+          Name="autoExecute"
+          Value="true"/>
+        <Property
+          Name="allowConjunctionOverride"
+          Value="false"/>
+        <Property
+          Name="showInList"
+          Value="false"/>
+        <Property
+          Name="mode"
+          Value="Basic"/>
+      </CustomProperties>
+    </Properties>
+    <ViewCriteriaRow
+      Name="vcrow1"
+      UpperColumns="1">
+      <ViewCriteriaItem
+        Name="DeductionType"
+        ViewAttribute="DeductionType"
+        Operator="="
+        Conjunction="AND"
+        Value=":Bind_DeductionType"
+        IsBindVarValue="true"
+        Required="Optional">
+        <Properties>
+          <CustomProperties>
+            <Property
+              Name="renderedMode"
+              Value="Never"/>
+          </CustomProperties>
+        </Properties>
+      </ViewCriteriaItem>
+    </ViewCriteriaRow>
+  </ViewCriteria>
+</ViewObject>
