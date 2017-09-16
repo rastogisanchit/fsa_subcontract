@@ -1,2 +1,83 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1"></jsp:root>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1" xmlns:af="http://xmlns.oracle.com/adf/faces/rich" xmlns:f="http://java.sun.com/jsf/core">
+  <af:panelCollection id="pc1">
+  <af:table value="#{bindings.DeductionByTypeVO1.collectionModel}" var="row" rows="#{bindings.DeductionByTypeVO1.rangeSize}"
+            emptyText="#{bindings.DeductionByTypeVO1.viewable ? 'No data to display.' : 'Access Denied.'}" fetchSize="#{bindings.DeductionByTypeVO1.rangeSize}"
+            rowBandingInterval="0" filterModel="#{bindings.DeductionByTypeVO1Query.queryDescriptor}"
+            queryListener="#{bindings.DeductionByTypeVO1Query.processQuery}" filterVisible="true" varStatus="vs"
+            selectedRowKeys="#{bindings.DeductionByTypeVO1.collectionModel.selectedRow}"
+            selectionListener="#{bindings.DeductionByTypeVO1.collectionModel.makeCurrent}" rowSelection="single" id="t1">
+    <af:column sortProperty="#{bindings.DeductionByTypeVO1.hints.DeductionName.name}" filterable="true" sortable="true"
+               headerText="#{bindings.DeductionByTypeVO1.hints.DeductionName.label}" id="c7">
+      <af:inputText value="#{row.bindings.DeductionName.inputValue}" label="#{bindings.DeductionByTypeVO1.hints.DeductionName.label}"
+                    required="#{bindings.DeductionByTypeVO1.hints.DeductionName.mandatory}"
+                    columns="#{bindings.DeductionByTypeVO1.hints.DeductionName.displayWidth}"
+                    maximumLength="#{bindings.DeductionByTypeVO1.hints.DeductionName.precision}"
+                    shortDesc="#{bindings.DeductionByTypeVO1.hints.DeductionName.tooltip}" id="it7">
+        <f:validator binding="#{row.bindings.DeductionName.validator}"/>
+      </af:inputText>
+    </af:column>
+    <af:column sortProperty="#{bindings.DeductionByTypeVO1.hints.DeductionType.name}" filterable="true" sortable="true"
+               headerText="#{bindings.DeductionByTypeVO1.hints.DeductionType.label}" id="c4">
+      <af:inputText value="#{row.bindings.DeductionType.inputValue}" label="#{bindings.DeductionByTypeVO1.hints.DeductionType.label}"
+                    required="#{bindings.DeductionByTypeVO1.hints.DeductionType.mandatory}"
+                    columns="#{bindings.DeductionByTypeVO1.hints.DeductionType.displayWidth}"
+                    maximumLength="#{bindings.DeductionByTypeVO1.hints.DeductionType.precision}"
+                    shortDesc="#{bindings.DeductionByTypeVO1.hints.DeductionType.tooltip}" id="it5">
+        <f:validator binding="#{row.bindings.DeductionType.validator}"/>
+      </af:inputText>
+    </af:column>
+    <af:column sortProperty="#{bindings.DeductionByTypeVO1.hints.Period.name}" filterable="true" sortable="true"
+               headerText="#{bindings.DeductionByTypeVO1.hints.Period.label}" id="c1">
+      <af:inputText value="#{row.bindings.Period.inputValue}" label="#{bindings.DeductionByTypeVO1.hints.Period.label}"
+                    required="#{bindings.DeductionByTypeVO1.hints.Period.mandatory}" columns="#{bindings.DeductionByTypeVO1.hints.Period.displayWidth}"
+                    maximumLength="#{bindings.DeductionByTypeVO1.hints.Period.precision}" shortDesc="#{bindings.DeductionByTypeVO1.hints.Period.tooltip}"
+                    id="it3">
+        <f:validator binding="#{row.bindings.Period.validator}"/>
+      </af:inputText>
+    </af:column>
+    <af:column sortProperty="#{bindings.DeductionByTypeVO1.hints.ScId.name}" filterable="true" sortable="true"
+               headerText="#{bindings.DeductionByTypeVO1.hints.ScId.label}" id="c2">
+      <af:inputText value="#{row.bindings.ScId.inputValue}" label="#{bindings.DeductionByTypeVO1.hints.ScId.label}"
+                    required="#{bindings.DeductionByTypeVO1.hints.ScId.mandatory}" columns="#{bindings.DeductionByTypeVO1.hints.ScId.displayWidth}"
+                    maximumLength="#{bindings.DeductionByTypeVO1.hints.ScId.precision}" shortDesc="#{bindings.DeductionByTypeVO1.hints.ScId.tooltip}" id="it2">
+        <f:validator binding="#{row.bindings.ScId.validator}"/>
+        <af:convertNumber groupingUsed="false" pattern="#{bindings.DeductionByTypeVO1.hints.ScId.format}"/>
+      </af:inputText>
+    </af:column>
+    <af:column sortProperty="#{bindings.DeductionByTypeVO1.hints.ScNum.name}" filterable="true" sortable="true"
+               headerText="#{bindings.DeductionByTypeVO1.hints.ScNum.label}" id="c3">
+      <af:inputText value="#{row.bindings.ScNum.inputValue}" label="#{bindings.DeductionByTypeVO1.hints.ScNum.label}"
+                    required="#{bindings.DeductionByTypeVO1.hints.ScNum.mandatory}" columns="#{bindings.DeductionByTypeVO1.hints.ScNum.displayWidth}"
+                    maximumLength="#{bindings.DeductionByTypeVO1.hints.ScNum.precision}" shortDesc="#{bindings.DeductionByTypeVO1.hints.ScNum.tooltip}"
+                    id="it1">
+        <f:validator binding="#{row.bindings.ScNum.validator}"/>
+      </af:inputText>
+    </af:column>
+    <af:column sortProperty="#{bindings.DeductionByTypeVO1.hints.UnitRate.name}" filterable="true" sortable="true"
+               headerText="#{bindings.DeductionByTypeVO1.hints.UnitRate.label}" id="c6">
+      <af:inputText value="#{row.bindings.UnitRate.inputValue}" label="#{bindings.DeductionByTypeVO1.hints.UnitRate.label}"
+                    required="#{bindings.DeductionByTypeVO1.hints.UnitRate.mandatory}" columns="#{bindings.DeductionByTypeVO1.hints.UnitRate.displayWidth}"
+                    maximumLength="#{bindings.DeductionByTypeVO1.hints.UnitRate.precision}" shortDesc="#{bindings.DeductionByTypeVO1.hints.UnitRate.tooltip}"
+                    id="it4">
+        <f:validator binding="#{row.bindings.UnitRate.validator}"/>
+        <af:convertNumber groupingUsed="false" pattern="#{bindings.DeductionByTypeVO1.hints.UnitRate.format}"/>
+      </af:inputText>
+    </af:column>
+    <af:column sortProperty="#{bindings.DeductionByTypeVO1.hints.Uom.name}" filterable="true" sortable="true"
+               headerText="#{bindings.DeductionByTypeVO1.hints.Uom.label}" id="c5">
+      <af:inputText value="#{row.bindings.Uom.inputValue}" label="#{bindings.DeductionByTypeVO1.hints.Uom.label}"
+                    required="#{bindings.DeductionByTypeVO1.hints.Uom.mandatory}" columns="#{bindings.DeductionByTypeVO1.hints.Uom.displayWidth}"
+                    maximumLength="#{bindings.DeductionByTypeVO1.hints.Uom.precision}" shortDesc="#{bindings.DeductionByTypeVO1.hints.Uom.tooltip}" id="it6">
+        <f:validator binding="#{row.bindings.Uom.validator}"/>
+      </af:inputText>
+    </af:column>
+  </af:table>
+    <f:facet name="menus"/>
+    <f:facet name="toolbar">
+      <af:toolbar id="t2"/>
+    </f:facet>
+    <f:facet name="statusbar"/>
+  </af:panelCollection>
+  
+</jsp:root>

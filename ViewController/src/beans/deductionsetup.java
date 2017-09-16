@@ -34,6 +34,7 @@ import oracle.jbo.Row;
 import oracle.jbo.RowSetIterator;
 import oracle.jbo.server.ViewObjectImpl;
 
+import org.apache.myfaces.trinidad.event.DisclosureEvent;
 import org.apache.myfaces.trinidad.render.ExtendedRenderKitService;
 import org.apache.myfaces.trinidad.util.Service;
 
@@ -72,7 +73,7 @@ public class deductionsetup {
     private String contractype = "";
     private String version = "";
     private String PERIOD;
-    private String deductionenable="";
+    private String deductionenable = "";
 
     private RichInputText deductionnamebind;
     private RichInputText uombind;
@@ -666,6 +667,7 @@ public class deductionsetup {
     public String getDeductionenable() {
         return deductionenable;
     }
+
     public AppModuleImpl getAppModule() {
         AppModuleImpl am = (AppModuleImpl)resolvElDC("AppModuleDataControl");
         return am;
@@ -742,8 +744,9 @@ public class deductionsetup {
                     String.valueOf(ch_vo_iter.getRowAtRangeIndex(0).getAttribute("ContractType"));
             version =
                     String.valueOf(ch_vo_iter.getRowAtRangeIndex(0).getAttribute("Version"));
-             deductionenable=String.valueOf(ch_vo_iter.getRowAtRangeIndex(0).getAttribute("Deduction"));
-      System.out.println(" populated deductionenable" +deductionenable);
+            deductionenable =
+                    String.valueOf(ch_vo_iter.getRowAtRangeIndex(0).getAttribute("Deduction"));
+            System.out.println(" populated deductionenable" + deductionenable);
             ch_vo_iter.closeRowSetIterator();
 
             if (deductionenable.equalsIgnoreCase("Yes")) {
@@ -781,7 +784,7 @@ public class deductionsetup {
                 qualitydeductionlist.clear();
                 otherdeductionlist.clear();
 
-               
+
                 this.showPopup(this.getDeductionpopupbind(), true);
             }
         }
@@ -793,8 +796,7 @@ public class deductionsetup {
             PERIOD =
                     valueChangeEvent.getNewValue().toString() + "-" + YEARBINDVAR.getValue().toString();
             getAllDeductionDetials(contractnum, PERIOD);
-        }
-        else{
+        } else {
             labourdeductionlist.clear();
             equipmentdeductionlist.clear();
             qualitydeductionlist.clear();
@@ -808,8 +810,7 @@ public class deductionsetup {
             PERIOD =
                     MONTHBINDVAR.getValue().toString() + "-" + valueChangeEvent.getNewValue().toString();
             getAllDeductionDetials(contractnum, PERIOD);
-        }
-        else {
+        } else {
             labourdeductionlist.clear();
             equipmentdeductionlist.clear();
             qualitydeductionlist.clear();
@@ -888,9 +889,9 @@ public class deductionsetup {
                 }
                 AdfFacesContext.getCurrentInstance().addPartialTarget(LABORDEDUCTIONTABLEBIND);
                 AdfFacesContext.getCurrentInstance().addPartialTarget(EQUIPMENTDEDUCTIONTABLEBIND);
-                AdfFacesContext.getCurrentInstance().addPartialTarget(QUALITYDEDUCTIONTABLEBIND);  
-                AdfFacesContext.getCurrentInstance().addPartialTarget(OTHERDEDUCTIONTABLEBIND);  
-                
+                AdfFacesContext.getCurrentInstance().addPartialTarget(QUALITYDEDUCTIONTABLEBIND);
+                AdfFacesContext.getCurrentInstance().addPartialTarget(OTHERDEDUCTIONTABLEBIND);
+
             } else {
                 System.out.println("No data found.");
             }
@@ -901,7 +902,10 @@ public class deductionsetup {
 
     public void addNewRow(ActionEvent actionEvent) {
         System.out.println(CONTRACTNUMBERLOVBINDVAR.getValue());
-        if (CONTRACTNUMBERLOVBINDVAR.getValue() != null && MONTHBINDVAR.getValue()!=null && YEARBINDVAR.getValue()!=null && deductionenabledbind.getValue().toString().equals("Yes")) {
+        if (CONTRACTNUMBERLOVBINDVAR.getValue() != null &&
+            MONTHBINDVAR.getValue() != null &&
+            YEARBINDVAR.getValue() != null &&
+            deductionenabledbind.getValue().toString().equals("Yes")) {
             if (ldtabbind.isDisclosed()) {
                 showPopup(ADDLABOURDEDUCTIONPOPUPBINDVAR, true);
             }
@@ -948,14 +952,14 @@ public class deductionsetup {
 
                     insertRecord(record_json);
                     getAllDeductionDetials(contractnum, PERIOD);
-//                    labourdeductionlist.add(new deductionsetupPOJO(contractnum,
-//                                                                   contractype,
-//                                                                   version,
-//                                                                   "Labour Deduction",
-//                                                                   lddeductionname.getValue().toString(),
-//                                                                   lduomnbind.getValue().toString(),
-//                                                                   ldratebind.getValue().toString()));
-                  //  AdfFacesContext.getCurrentInstance().addPartialTarget(LABORDEDUCTIONTABLEBIND);
+                    //                    labourdeductionlist.add(new deductionsetupPOJO(contractnum,
+                    //                                                                   contractype,
+                    //                                                                   version,
+                    //                                                                   "Labour Deduction",
+                    //                                                                   lddeductionname.getValue().toString(),
+                    //                                                                   lduomnbind.getValue().toString(),
+                    //                                                                   ldratebind.getValue().toString()));
+                    //  AdfFacesContext.getCurrentInstance().addPartialTarget(LABORDEDUCTIONTABLEBIND);
                 } else {
                     this.showPopup(DEDUCTIONEXISTPOPUPBIND, true);
                 }
@@ -989,17 +993,18 @@ public class deductionsetup {
                             "\",\"UOM\":\"" + eduombind.getValue().toString() +
                             "\",\"UNIT_RATE\":\"" +
                             edratebind.getValue().toString() + "\"}";
-                        System.out.println("record_json for equipment" +record_json);
+                    System.out.println("record_json for equipment" +
+                                       record_json);
                     insertRecord(record_json);
                     getAllDeductionDetials(contractnum, PERIOD);
-//                    equipmentdeductionlist.add(new deductionsetupPOJO(contractnum,
-//                                                                      contractype,
-//                                                                      version,
-//                                                                      "Equipment Deduction",
-//                                                                      eddeductionname.getValue().toString(),
-//                                                                      eduombind.getValue().toString(),
-//                                                                      edratebind.getValue().toString()));
-//                    AdfFacesContext.getCurrentInstance().addPartialTarget(EQUIPMENTDEDUCTIONTABLEBIND);
+                    //                    equipmentdeductionlist.add(new deductionsetupPOJO(contractnum,
+                    //                                                                      contractype,
+                    //                                                                      version,
+                    //                                                                      "Equipment Deduction",
+                    //                                                                      eddeductionname.getValue().toString(),
+                    //                                                                      eduombind.getValue().toString(),
+                    //                                                                      edratebind.getValue().toString()));
+                    //                    AdfFacesContext.getCurrentInstance().addPartialTarget(EQUIPMENTDEDUCTIONTABLEBIND);
                 } else {
                     this.showPopup(DEDUCTIONEXISTPOPUPBIND, true);
                 }
@@ -1035,14 +1040,14 @@ public class deductionsetup {
 
                     insertRecord(record_json);
                     getAllDeductionDetials(contractnum, PERIOD);
-//                    qualitydeductionlist.add(new deductionsetupPOJO(contractnum,
-//                                                                    contractype,
-//                                                                    version,
-//                                                                    "Quality Deduction",
-//                                                                    qddeductionname.getValue().toString(),
-//                                                                    qduombind.getValue().toString(),
-//                                                                    qdratebind.getValue().toString()));
-//                    AdfFacesContext.getCurrentInstance().addPartialTarget(QUALITYDEDUCTIONTABLEBIND);
+                    //                    qualitydeductionlist.add(new deductionsetupPOJO(contractnum,
+                    //                                                                    contractype,
+                    //                                                                    version,
+                    //                                                                    "Quality Deduction",
+                    //                                                                    qddeductionname.getValue().toString(),
+                    //                                                                    qduombind.getValue().toString(),
+                    //                                                                    qdratebind.getValue().toString()));
+                    //                    AdfFacesContext.getCurrentInstance().addPartialTarget(QUALITYDEDUCTIONTABLEBIND);
                 } else {
                     this.showPopup(DEDUCTIONEXISTPOPUPBIND, true);
                 }
@@ -1077,14 +1082,14 @@ public class deductionsetup {
 
                     insertRecord(record_json);
                     getAllDeductionDetials(contractnum, PERIOD);
-//                    otherdeductionlist.add(new deductionsetupPOJO(contractnum,
-//                                                                  contractype,
-//                                                                  version,
-//                                                                  "Other Deduction",
-//                                                                  oddeductionname.getValue().toString(),
-//                                                                  oduombind.getValue().toString(),
-//                                                                  odratebind.getValue().toString()));
-//                    AdfFacesContext.getCurrentInstance().addPartialTarget(OTHERDEDUCTIONTABLEBIND);
+                    //                    otherdeductionlist.add(new deductionsetupPOJO(contractnum,
+                    //                                                                  contractype,
+                    //                                                                  version,
+                    //                                                                  "Other Deduction",
+                    //                                                                  oddeductionname.getValue().toString(),
+                    //                                                                  oduombind.getValue().toString(),
+                    //                                                                  odratebind.getValue().toString()));
+                    //                    AdfFacesContext.getCurrentInstance().addPartialTarget(OTHERDEDUCTIONTABLEBIND);
                 } else {
                     this.showPopup(DEDUCTIONEXISTPOPUPBIND, true);
                 }
@@ -1100,7 +1105,7 @@ public class deductionsetup {
 
     public void insertRecord(String json) {
         try {
-            System.out.println("json for deduction" +json);
+            System.out.println("json for deduction" + json);
             restclient rc = new restclient();
             rc.importCertificates();
             rc.RestPOSTOperation(new URL("https://apex-a423930.db.em2.oraclecloudapps.com/apex/fsa_sc_webservices/insert_deduction_setup_record/"),
@@ -1362,12 +1367,12 @@ otherdeductionlist.get(currentIndex).getSubcontract_num() + "-" + PERIOD +
     public void reset() {
         contractype = "";
         version = "";
-        deductionenable="";
+        deductionenable = "";
 
 
-//        CONTRACTNUMBERLOVBINDVAR.setValue("");
-//        CONTRACTNUMBERLOVBINDVAR.setValid(false);
-//        AdfFacesContext.getCurrentInstance().addPartialTarget(CONTRACTNUMBERLOVBINDVAR);
+        //        CONTRACTNUMBERLOVBINDVAR.setValue("");
+        //        CONTRACTNUMBERLOVBINDVAR.setValid(false);
+        //        AdfFacesContext.getCurrentInstance().addPartialTarget(CONTRACTNUMBERLOVBINDVAR);
 
         MONTHBINDVAR.resetValue();
         MONTHBINDVAR.setValid(false);
@@ -1383,7 +1388,12 @@ otherdeductionlist.get(currentIndex).getSubcontract_num() + "-" + PERIOD +
         otherdeductionlist.clear();
     }
 
-   public void refreshtable(DialogEvent dialogEvent) {
+    public void refreshtable(DialogEvent dialogEvent) {
         getAllDeductionDetials(contractnum, PERIOD);
+    }
+
+    public void deductionTypeDL(DisclosureEvent disclosureEvent) {
+        // Add event code here...
+        System.out.println("this is disclosureEvent");
     }
 }

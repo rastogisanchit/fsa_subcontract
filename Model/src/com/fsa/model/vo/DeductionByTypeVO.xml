@@ -14,7 +14,8 @@
        DedutionSetupEO.UNIT_RATE, 
        DedutionSetupEO.UOM"
   FromList="XXX_FSA_SC_DEDUCTION_SETUP DedutionSetupEO"
-  Where="DedutionSetupEO.DEDUCTION_TYPE=:Bind_DEDUCTION_TYPE"
+  Where="DedutionSetupEO.DEDUCTION_TYPE=
+nvl(:Bind_DEDUCTION_TYPE, DedutionSetupEO.DEDUCTION_TYPE)"
   BindingStyle="OracleName"
   CustomQuery="false"
   PageIterMode="Full"

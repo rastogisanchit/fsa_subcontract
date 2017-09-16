@@ -1,0 +1,69 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1" xmlns:af="http://xmlns.oracle.com/adf/faces/rich" xmlns:f="http://java.sun.com/jsf/core">
+  <af:table value="#{bindings.DedutionSetupVO1.collectionModel}" var="row" rows="#{bindings.DedutionSetupVO1.rangeSize}"
+            emptyText="#{bindings.DedutionSetupVO1.viewable ? 'No data to display.' : 'Access Denied.'}" fetchSize="#{bindings.DedutionSetupVO1.rangeSize}"
+            rowBandingInterval="0" selectedRowKeys="#{bindings.DedutionSetupVO1.collectionModel.selectedRow}"
+            selectionListener="#{bindings.DedutionSetupVO1.collectionModel.makeCurrent}" rowSelection="single" id="t1">
+    <af:column sortProperty="#{bindings.DedutionSetupVO1.hints.ScId.name}" sortable="false" headerText="#{bindings.DedutionSetupVO1.hints.ScId.label}" id="c7">
+      <af:inputText value="#{row.bindings.ScId.inputValue}" label="#{bindings.DedutionSetupVO1.hints.ScId.label}"
+                    required="#{bindings.DedutionSetupVO1.hints.ScId.mandatory}" columns="#{bindings.DedutionSetupVO1.hints.ScId.displayWidth}"
+                    maximumLength="#{bindings.DedutionSetupVO1.hints.ScId.precision}" shortDesc="#{bindings.DedutionSetupVO1.hints.ScId.tooltip}" id="it2">
+        <f:validator binding="#{row.bindings.ScId.validator}"/>
+        <af:convertNumber groupingUsed="false" pattern="#{bindings.DedutionSetupVO1.hints.ScId.format}"/>
+      </af:inputText>
+    </af:column>
+    <af:column sortProperty="#{bindings.DedutionSetupVO1.hints.ScNum.name}" sortable="false" headerText="#{bindings.DedutionSetupVO1.hints.ScNum.label}"
+               id="c3">
+      <af:inputText value="#{row.bindings.ScNum.inputValue}" label="#{bindings.DedutionSetupVO1.hints.ScNum.label}"
+                    required="#{bindings.DedutionSetupVO1.hints.ScNum.mandatory}" columns="#{bindings.DedutionSetupVO1.hints.ScNum.displayWidth}"
+                    maximumLength="#{bindings.DedutionSetupVO1.hints.ScNum.precision}" shortDesc="#{bindings.DedutionSetupVO1.hints.ScNum.tooltip}" id="it3">
+        <f:validator binding="#{row.bindings.ScNum.validator}"/>
+      </af:inputText>
+    </af:column>
+    <af:column sortProperty="#{bindings.DedutionSetupVO1.hints.DeductionType.name}" sortable="false"
+               headerText="#{bindings.DedutionSetupVO1.hints.DeductionType.label}" id="c2">
+      <af:inputText value="#{row.bindings.DeductionType.inputValue}" label="#{bindings.DedutionSetupVO1.hints.DeductionType.label}"
+                    required="#{bindings.DedutionSetupVO1.hints.DeductionType.mandatory}"
+                    columns="#{bindings.DedutionSetupVO1.hints.DeductionType.displayWidth}"
+                    maximumLength="#{bindings.DedutionSetupVO1.hints.DeductionType.precision}"
+                    shortDesc="#{bindings.DedutionSetupVO1.hints.DeductionType.tooltip}" id="it5">
+        <f:validator binding="#{row.bindings.DeductionType.validator}"/>
+      </af:inputText>
+    </af:column>
+    <af:column sortProperty="#{bindings.DedutionSetupVO1.hints.DeductionName.name}" sortable="false"
+               headerText="#{bindings.DedutionSetupVO1.hints.DeductionName.label}" id="c4">
+      <af:inputText value="#{row.bindings.DeductionName.inputValue}" label="#{bindings.DedutionSetupVO1.hints.DeductionName.label}"
+                    required="#{bindings.DedutionSetupVO1.hints.DeductionName.mandatory}"
+                    columns="#{bindings.DedutionSetupVO1.hints.DeductionName.displayWidth}"
+                    maximumLength="#{bindings.DedutionSetupVO1.hints.DeductionName.precision}"
+                    shortDesc="#{bindings.DedutionSetupVO1.hints.DeductionName.tooltip}" id="it7">
+        <f:validator binding="#{row.bindings.DeductionName.validator}"/>
+      </af:inputText>
+    </af:column>
+    <af:column sortProperty="#{bindings.DedutionSetupVO1.hints.Uom.name}" sortable="false" headerText="#{bindings.DedutionSetupVO1.hints.Uom.label}" id="c5">
+      <af:inputText value="#{row.bindings.Uom.inputValue}" label="#{bindings.DedutionSetupVO1.hints.Uom.label}"
+                    required="#{bindings.DedutionSetupVO1.hints.Uom.mandatory}" columns="#{bindings.DedutionSetupVO1.hints.Uom.displayWidth}"
+                    maximumLength="#{bindings.DedutionSetupVO1.hints.Uom.precision}" shortDesc="#{bindings.DedutionSetupVO1.hints.Uom.tooltip}" id="it4">
+        <f:validator binding="#{row.bindings.Uom.validator}"/>
+      </af:inputText>
+    </af:column>
+    <af:column sortProperty="#{bindings.DedutionSetupVO1.hints.UnitRate.name}" sortable="false" headerText="#{bindings.DedutionSetupVO1.hints.UnitRate.label}"
+               id="c1">
+      <af:inputText value="#{row.bindings.UnitRate.inputValue}" label="#{bindings.DedutionSetupVO1.hints.UnitRate.label}"
+                    required="#{bindings.DedutionSetupVO1.hints.UnitRate.mandatory}" columns="#{bindings.DedutionSetupVO1.hints.UnitRate.displayWidth}"
+                    maximumLength="#{bindings.DedutionSetupVO1.hints.UnitRate.precision}" shortDesc="#{bindings.DedutionSetupVO1.hints.UnitRate.tooltip}"
+                    id="it1">
+        <f:validator binding="#{row.bindings.UnitRate.validator}"/>
+        <af:convertNumber groupingUsed="false" pattern="#{bindings.DedutionSetupVO1.hints.UnitRate.format}"/>
+      </af:inputText>
+    </af:column>
+    <af:column sortProperty="#{bindings.DedutionSetupVO1.hints.Period.name}" sortable="false" headerText="#{bindings.DedutionSetupVO1.hints.Period.label}"
+               id="c6">
+      <af:inputText value="#{row.bindings.Period.inputValue}" label="#{bindings.DedutionSetupVO1.hints.Period.label}"
+                    required="#{bindings.DedutionSetupVO1.hints.Period.mandatory}" columns="#{bindings.DedutionSetupVO1.hints.Period.displayWidth}"
+                    maximumLength="#{bindings.DedutionSetupVO1.hints.Period.precision}" shortDesc="#{bindings.DedutionSetupVO1.hints.Period.tooltip}" id="it6">
+        <f:validator binding="#{row.bindings.Period.validator}"/>
+      </af:inputText>
+    </af:column>
+  </af:table>
+</jsp:root>

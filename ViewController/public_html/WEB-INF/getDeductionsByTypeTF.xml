@@ -1,10 +1,32 @@
 <?xml version="1.0" encoding="windows-1252" ?>
 <adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
   <task-flow-definition id="getDeductionsByTypeTF">
-    <default-activity id="__1">getDeductionsByType</default-activity>
+    <default-activity id="__3">ExecuteWithParams</default-activity>
+    <input-parameter-definition id="__9">
+      <name id="__1">deductionType</name>
+      <value>#{pageFlowScope.deductionType}</value>
+      <class>java.lang.String</class>
+    </input-parameter-definition>
     <view id="getDeductionsByType">
       <page>/fragments/getDeductionsByType.jsff</page>
+      <input-page-parameter>
+        <from-value>deductionType</from-value>
+        <to-value>#{pageFlowScope.deductionType}</to-value>
+      </input-page-parameter>
     </view>
+    <method-call id="ExecuteWithParams">
+      <method>#{bindings.ExecuteWithParams.execute}</method>
+      <outcome id="__2">
+        <fixed-outcome>ExecuteWithParams</fixed-outcome>
+      </outcome>
+    </method-call>
+    <control-flow-rule id="__4">
+      <from-activity-id id="__5">ExecuteWithParams</from-activity-id>
+      <control-flow-case id="__7">
+        <from-outcome id="__6">ExecuteWithParams</from-outcome>
+        <to-activity-id id="__8">getDeductionsByType</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
     <use-page-fragments/>
   </task-flow-definition>
 </adfc-config>

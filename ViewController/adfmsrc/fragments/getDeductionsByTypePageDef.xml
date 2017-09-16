@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="11.1.1.66.73" id="getDeductionsByTypePageDef" Package="fragments">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="DeductionByTypeVO1" RangeSize="25" DataControl="AppModuleDataControl" id="DeductionByTypeVO1Iterator"/>
+    <searchRegion Binds="DeductionByTypeVO1Iterator" Criteria="" Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" id="DeductionByTypeVO1Query"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="DeductionByTypeVO1Iterator" id="DeductionByTypeVO1">
+      <nodeDefinition DefName="com.fsa.model.vo.DeductionByTypeVO" Name="DeductionByTypeVO10">
+        <AttrNames>
+          <Item Value="DeductionName"/>
+          <Item Value="DeductionType"/>
+          <Item Value="Period"/>
+          <Item Value="ScId"/>
+          <Item Value="ScNum"/>
+          <Item Value="UnitRate"/>
+          <Item Value="Uom"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+  </bindings>
+</pageDefinition>
