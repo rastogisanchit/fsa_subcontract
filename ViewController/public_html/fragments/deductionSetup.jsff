@@ -1,75 +1,53 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1" xmlns:af="http://xmlns.oracle.com/adf/faces/rich" xmlns:f="http://java.sun.com/jsf/core">
-  <af:panelGroupLayout id="pgl1" layout="vertical">
-    <af:panelGroupLayout layout="vertical" id="pgl2">
-      <af:panelGroupLayout layout="vertical" id="pgl3">
-        <af:panelHeader text="DedutionSetupEO" id="ph1">
-          <af:query id="qryId1" headerText="Search" disclosed="true" value="#{bindings.DedutionSetupVOCriteriaQuery2.queryDescriptor}"
-                    model="#{bindings.DedutionSetupVOCriteriaQuery2.queryModel}" queryListener="#{bindings.DedutionSetupVOCriteriaQuery2.processQuery}"
-                    queryOperationListener="#{bindings.DedutionSetupVOCriteriaQuery2.processQueryOperation}" resultComponentId="::pc1:resId1"/>
-        </af:panelHeader>
-        <af:panelCollection id="pc1" styleClass="AFStretchWidth">
-          <f:facet name="menus"/>
-          <f:facet name="toolbar"/>
-          <f:facet name="statusbar"/>
-          <af:table value="#{bindings.DedutionSetupVO11.collectionModel}" var="row" rows="#{bindings.DedutionSetupVO11.rangeSize}"
-                    emptyText="#{bindings.DedutionSetupVO11.viewable ? 'No data to display.' : 'Access Denied.'}"
-                    fetchSize="#{bindings.DedutionSetupVO11.rangeSize}" rowBandingInterval="0"
-                    filterModel="#{bindings.DedutionSetupVOCriteriaQuery2.queryDescriptor}"
-                    queryListener="#{bindings.DedutionSetupVOCriteriaQuery2.processQuery}" filterVisible="true" varStatus="vs"
-                    selectedRowKeys="#{bindings.DedutionSetupVO11.collectionModel.selectedRow}"
-                    selectionListener="#{bindings.DedutionSetupVO11.collectionModel.makeCurrent}" rowSelection="single" id="resId1">
-            <af:column sortProperty="#{bindings.DedutionSetupVO11.hints.ScId.name}" filterable="true" sortable="true"
-                       headerText="#{bindings.DedutionSetupVO11.hints.ScId.label}" id="resId1c1">
-              <af:outputText value="#{row.ScId}" id="ot3">
-                <af:convertNumber groupingUsed="false" pattern="#{bindings.DedutionSetupVO11.hints.ScId.format}"/>
-              </af:outputText>
-            </af:column>
-            <af:column sortProperty="#{bindings.DedutionSetupVO11.hints.ScNum.name}" filterable="true" sortable="true"
-                       headerText="#{bindings.DedutionSetupVO11.hints.ScNum.label}" id="resId1c2">
-              <af:outputText value="#{row.ScNum}" id="ot9"/>
-            </af:column>
-            <af:column sortProperty="#{bindings.DedutionSetupVO11.hints.DeductionType.name}" filterable="true" sortable="true"
-                       headerText="#{bindings.DedutionSetupVO11.hints.DeductionType.label}" id="resId1c3">
-              <af:outputText value="#{row.DeductionType}" id="ot5"/>
-            </af:column>
-            <af:column sortProperty="#{bindings.DedutionSetupVO11.hints.DeductionName.name}" filterable="true" sortable="true"
-                       headerText="#{bindings.DedutionSetupVO11.hints.DeductionName.label}" id="resId1c4">
-              <af:outputText value="#{row.DeductionName}" id="ot4"/>
-            </af:column>
-            <af:column sortProperty="#{bindings.DedutionSetupVO11.hints.Uom.name}" filterable="true" sortable="true"
-                       headerText="#{bindings.DedutionSetupVO11.hints.Uom.label}" id="resId1c5">
-              <af:outputText value="#{row.Uom}" id="ot11"/>
-            </af:column>
-            <af:column sortProperty="#{bindings.DedutionSetupVO11.hints.UnitRate.name}" filterable="true" sortable="true"
-                       headerText="#{bindings.DedutionSetupVO11.hints.UnitRate.label}" id="resId1c6">
-              <af:outputText value="#{row.UnitRate}" id="ot2">
-                <af:convertNumber groupingUsed="false" pattern="#{bindings.DedutionSetupVO11.hints.UnitRate.format}"/>
-              </af:outputText>
-            </af:column>
-            <af:column sortProperty="#{bindings.DedutionSetupVO11.hints.Period.name}" filterable="true" sortable="true"
-                       headerText="#{bindings.DedutionSetupVO11.hints.Period.label}" id="resId1c7">
-              <af:outputText value="#{row.Period}" id="ot8"/>
-            </af:column>
-            <af:column sortProperty="#{bindings.DedutionSetupVO11.hints.Month.name}" filterable="true" sortable="true"
-                       headerText="#{bindings.DedutionSetupVO11.hints.Month.label}" id="resId1c8">
-              <af:outputText value="#{row.Month}" id="ot10"/>
-            </af:column>
-            <af:column sortProperty="#{bindings.DedutionSetupVO11.hints.Year.name}" filterable="true" sortable="true"
-                       headerText="#{bindings.DedutionSetupVO11.hints.Year.label}" id="resId1c9">
-              <af:outputText value="#{row.Year}" id="ot1"/>
-            </af:column>
-            <af:column sortProperty="#{bindings.DedutionSetupVO11.hints.ContractNumber.name}" filterable="true" sortable="true"
-                       headerText="#{bindings.DedutionSetupVO11.hints.ContractNumber.label}" id="resId1c10">
-              <af:outputText value="#{row.ContractNumber}" id="ot7"/>
-            </af:column>
-            <af:column sortProperty="#{bindings.DedutionSetupVO11.hints.DeductionNameTrans.name}" filterable="true" sortable="true"
-                       headerText="#{bindings.DedutionSetupVO11.hints.DeductionNameTrans.label}" id="resId1c11">
-              <af:outputText value="#{row.DeductionNameTrans}" id="ot6"/>
-            </af:column>
-          </af:table>
-        </af:panelCollection>
-      </af:panelGroupLayout>
-    </af:panelGroupLayout>
+  <af:panelGroupLayout layout="vertical" id="pgl1">
+    <af:panelHeader text="DedutionSetupEO" id="ph1">
+      <af:query id="qryId1" headerText="Search" disclosed="true" value="#{bindings.DeductionSetupVOCriteriaQuery.queryDescriptor}"
+                model="#{bindings.DeductionSetupVOCriteriaQuery.queryModel}" queryListener="#{bindings.DeductionSetupVOCriteriaQuery.processQuery}"
+                queryOperationListener="#{bindings.DeductionSetupVOCriteriaQuery.processQueryOperation}" resultComponentId="::resId1"/>
+    </af:panelHeader>
+    <af:table value="#{bindings.DeductionSetupVO1.collectionModel}" var="row" rows="#{bindings.DeductionSetupVO1.rangeSize}"
+              emptyText="#{bindings.DeductionSetupVO1.viewable ? 'No data to display.' : 'Access Denied.'}" fetchSize="#{bindings.DeductionSetupVO1.rangeSize}"
+              rowBandingInterval="0" filterModel="#{bindings.DeductionSetupVOCriteriaQuery.queryDescriptor}"
+              queryListener="#{bindings.DeductionSetupVOCriteriaQuery.processQuery}" filterVisible="true" varStatus="vs"
+              selectedRowKeys="#{bindings.DeductionSetupVO1.collectionModel.selectedRow}"
+              selectionListener="#{bindings.DeductionSetupVO1.collectionModel.makeCurrent}" rowSelection="single" id="resId1">
+      <af:column sortProperty="#{bindings.DeductionSetupVO1.hints.ScId.name}" filterable="true" sortable="true"
+                 headerText="#{bindings.DeductionSetupVO1.hints.ScId.label}" id="resId1c1">
+        <af:outputText value="#{row.ScId}" id="ot2">
+          <af:convertNumber groupingUsed="false" pattern="#{bindings.DeductionSetupVO1.hints.ScId.format}"/>
+        </af:outputText>
+      </af:column>
+      <af:column sortProperty="#{bindings.DeductionSetupVO1.hints.ScNum.name}" filterable="true" sortable="true"
+                 headerText="#{bindings.DeductionSetupVO1.hints.ScNum.label}" id="resId1c2">
+        <af:outputText value="#{row.ScNum}" id="ot3"/>
+      </af:column>
+      <af:column sortProperty="#{bindings.DeductionSetupVO1.hints.DeductionType.name}" filterable="true" sortable="true"
+                 headerText="#{bindings.DeductionSetupVO1.hints.DeductionType.label}" id="resId1c3">
+        <af:outputText value="#{row.DeductionType}" id="ot1"/>
+      </af:column>
+      <af:column sortProperty="#{bindings.DeductionSetupVO1.hints.DeductionName.name}" filterable="true" sortable="true"
+                 headerText="#{bindings.DeductionSetupVO1.hints.DeductionName.label}" id="resId1c4">
+        <af:outputText value="#{row.DeductionName}" id="ot4"/>
+      </af:column>
+      <af:column sortProperty="#{bindings.DeductionSetupVO1.hints.Uom.name}" filterable="true" sortable="true"
+                 headerText="#{bindings.DeductionSetupVO1.hints.Uom.label}" id="resId1c5">
+        <af:outputText value="#{row.Uom}" id="ot8"/>
+      </af:column>
+      <af:column sortProperty="#{bindings.DeductionSetupVO1.hints.UnitRate.name}" filterable="true" sortable="true"
+                 headerText="#{bindings.DeductionSetupVO1.hints.UnitRate.label}" id="resId1c6">
+        <af:outputText value="#{row.UnitRate}" id="ot7">
+          <af:convertNumber groupingUsed="false" pattern="#{bindings.DeductionSetupVO1.hints.UnitRate.format}"/>
+        </af:outputText>
+      </af:column>
+      <af:column sortProperty="#{bindings.DeductionSetupVO1.hints.Period.name}" filterable="true" sortable="true"
+                 headerText="#{bindings.DeductionSetupVO1.hints.Period.label}" id="resId1c7">
+        <af:outputText value="#{row.Period}" id="ot5"/>
+      </af:column>
+      <af:column sortProperty="#{bindings.DeductionSetupVO1.hints.ContactNumberTrans.name}" filterable="true" sortable="true"
+                 headerText="#{bindings.DeductionSetupVO1.hints.ContactNumberTrans.label}" id="resId1c8">
+        <af:outputText value="#{row.ContactNumberTrans}" id="ot6"/>
+      </af:column>
+    </af:table>
   </af:panelGroupLayout>
 </jsp:root>

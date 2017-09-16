@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="DeductionSetupVO"
+  Version="11.1.1.66.73"
+  InheritPersonalization="merge"
+  SelectList="DedutionSetupEO.SC_ID, 
+       DedutionSetupEO.SC_NUM, 
+       DedutionSetupEO.DEDUCTION_TYPE, 
+       DedutionSetupEO.DEDUCTION_NAME, 
+       DedutionSetupEO.UOM, 
+       DedutionSetupEO.UNIT_RATE, 
+       DedutionSetupEO.PERIOD"
+  FromList="XXX_FSA_SC_DEDUCTION_SETUP DedutionSetupEO"
+  BindingStyle="OracleName"
+  CustomQuery="false"
+  PageIterMode="Full"
+  UseGlueCode="false">
+  <Properties>
+    <SchemaBasedProperties>
+      <LABEL
+        ResId="com.fsa.model.vo.DeductionSetupVO_LABEL"/>
+    </SchemaBasedProperties>
+  </Properties>
+  <ViewAccessor
+    Name="ContractNumberVO1"
+    ViewObjectName="model.VO.ContractNumberVO"
+    RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="ContractNumberLovRVO1"
+    ViewObjectName="model.VO.ContractNumberLovRVO"
+    RowLevelBinds="true"/>
+  <ListBinding
+    Name="LOV_ContactNumberTrans"
+    ListVOName="ContractNumberVO1"
+    ListRangeSize="10"
+    NullValueFlag="start"
+    NullValueId="${adfBundle['oracle.javatools.resourcebundle.SystemBundle']['NULL_VALUE_RESID']}"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="ContactNumberTrans"/>
+    </AttrArray>
+    <AttrArray Name="DerivedAttrNames">
+      <Item Value="ScNum"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="ContractNumber"/>
+      <Item Value="ContractId"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="ContractNumber"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_ScNum"
+    ListVOName="ContractNumberLovRVO1"
+    ListRangeSize="10"
+    NullValueFlag="none"
+    NullValueId="LOV_ScNum_LOVUIHints_NullValueId"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="ScNum"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="ContractNumber"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="ContractNumber"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <EntityUsage
+    Name="DedutionSetupEO"
+    Entity="com.fsa.model.eo.DedutionSetupEO"/>
+  <ViewAttribute
+    Name="ScId"
+    PrecisionRule="true"
+    EntityAttrName="ScId"
+    EntityUsage="DedutionSetupEO"
+    AliasName="SC_ID"/>
+  <ViewAttribute
+    Name="ScNum"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="ScNum"
+    EntityUsage="DedutionSetupEO"
+    AliasName="SC_NUM"
+    LOVName="LOV_ScNum">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="combo_lov"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="DeductionType"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="DeductionType"
+    EntityUsage="DedutionSetupEO"
+    AliasName="DEDUCTION_TYPE"/>
+  <ViewAttribute
+    Name="DeductionName"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="DeductionName"
+    EntityUsage="DedutionSetupEO"
+    AliasName="DEDUCTION_NAME"/>
+  <ViewAttribute
+    Name="Uom"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="Uom"
+    EntityUsage="DedutionSetupEO"
+    AliasName="UOM"/>
+  <ViewAttribute
+    Name="UnitRate"
+    PrecisionRule="true"
+    EntityAttrName="UnitRate"
+    EntityUsage="DedutionSetupEO"
+    AliasName="UNIT_RATE"/>
+  <ViewAttribute
+    Name="Period"
+    PrecisionRule="true"
+    EntityAttrName="Period"
+    EntityUsage="DedutionSetupEO"
+    AliasName="PERIOD"/>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="model.ModelBundle"/>
+  </ResourceBundle>
+  <ViewAttribute
+    Name="ContactNumberTrans"
+    IsSelected="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="VIEW_ATTR"
+    SQLType="VARCHAR"
+    Passivate="true"
+    LOVName="LOV_ContactNumberTrans">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="combo_lov"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewCriteria
+    Name="DeductionSetupVOCriteria"
+    ViewObjectName="com.fsa.model.vo.DeductionSetupVO"
+    Conjunction="AND">
+    <Properties>
+      <CustomProperties>
+        <Property
+          Name="displayOperators"
+          Value="InAdvancedMode"/>
+        <Property
+          Name="autoExecute"
+          Value="false"/>
+        <Property
+          Name="allowConjunctionOverride"
+          Value="false"/>
+        <Property
+          Name="showInList"
+          Value="true"/>
+        <Property
+          Name="mode"
+          Value="Basic"/>
+      </CustomProperties>
+    </Properties>
+    <ViewCriteriaRow
+      Name="vcrow66"
+      UpperColumns="1">
+      <ViewCriteriaItem
+        Name="ScNum"
+        ViewAttribute="ScNum"
+        Operator="STARTSWITH"
+        Conjunction="AND"
+        Required="Optional"/>
+      <ViewCriteriaItem
+        Name="DeductionSetupVOCriteria_vcrow66_ContactNumberTrans"
+        ViewAttribute="ContactNumberTrans"
+        Operator="STARTSWITH"
+        Conjunction="AND"
+        Required="Optional"/>
+    </ViewCriteriaRow>
+  </ViewCriteria>
+</ViewObject>

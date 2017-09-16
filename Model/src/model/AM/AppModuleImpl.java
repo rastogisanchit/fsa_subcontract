@@ -99,13 +99,6 @@ public class AppModuleImpl extends ApplicationModuleImpl {
         return (NonLaborResourcePVOImpl)findViewObject("NonLaborResourcePVO1");
     }
 
-    /**
-     * Container's getter for DedutionSetupVO1.
-     * @return DedutionSetupVO1
-     */
-    public ViewObjectImpl getDedutionSetupVO1() {
-        return (ViewObjectImpl)findViewObject("DedutionSetupVO1");
-    }
 
     /**
      * Container's getter for IPCDeductionVO1.
@@ -129,5 +122,21 @@ public class AppModuleImpl extends ApplicationModuleImpl {
      */
     public ViewObjectImpl getDeductionByTypeVO1() {
         return (ViewObjectImpl)findViewObject("DeductionByTypeVO1");
+    }
+
+    /**
+     * Container's getter for DeductionSetupVO1.
+     * @return DeductionSetupVO1
+     */
+    public ViewObjectImpl getDeductionSetupVO1() {
+        return (ViewObjectImpl)findViewObject("DeductionSetupVO1");
+    }
+
+    /**
+     * Container's getter for DeductionSetupVO2.
+     * @return DeductionSetupVO2
+     */
+    public ViewObjectImpl getDeductionSetupVO2() {
+        return (ViewObjectImpl)findViewObject("DeductionSetupVO2");
     }
 }

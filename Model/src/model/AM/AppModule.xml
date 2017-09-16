@@ -46,9 +46,6 @@
     Name="NonLaborResourcePVO1"
     ViewObjectName="model.VO.NonLaborResourcePVO"/>
   <ViewUsage
-    Name="DedutionSetupVO1"
-    ViewObjectName="com.fsa.model.vo.DedutionSetupVO"/>
-  <ViewUsage
     Name="IPCDeductionVO1"
     ViewObjectName="com.fsa.model.vo.IPCDeductionVO"/>
   <ViewUsage
@@ -57,6 +54,12 @@
   <ViewUsage
     Name="DeductionByTypeVO1"
     ViewObjectName="com.fsa.model.vo.DeductionByTypeVO"/>
+  <ViewUsage
+    Name="DeductionSetupVO1"
+    ViewObjectName="com.fsa.model.vo.DeductionSetupVO"/>
+  <ViewUsage
+    Name="DeductionSetupVO2"
+    ViewObjectName="com.fsa.model.vo.DeductionSetupVO"/>
   <ResourceBundle>
     <PropertiesBundle
       PropertiesFile="model.ModelBundle"/>
