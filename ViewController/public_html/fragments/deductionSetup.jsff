@@ -1,11 +1,25 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1" xmlns:af="http://xmlns.oracle.com/adf/faces/rich" xmlns:f="http://java.sun.com/jsf/core">
   <af:panelGroupLayout layout="vertical" id="pgl1">
-    <af:panelHeader text="DedutionSetupEO" id="ph1">
+    <!--<af:panelHeader text="DedutionSetupEO" id="ph1">
       <af:query id="qryId1" headerText="Search" disclosed="true" value="#{bindings.DeductionSetupVOCriteriaQuery.queryDescriptor}"
                 model="#{bindings.DeductionSetupVOCriteriaQuery.queryModel}" queryListener="#{bindings.DeductionSetupVOCriteriaQuery.processQuery}"
                 queryOperationListener="#{bindings.DeductionSetupVOCriteriaQuery.processQueryOperation}" resultComponentId="::resId1"/>
-    </af:panelHeader>
+    </af:panelHeader>-->
+    <af:panelGroupLayout layout="vertical" id="pgl2">
+      <af:panelHeader text="DedutionSetupEO" id="ph1">
+        <af:query id="qryId1" headerText="Search" disclosed="true" value="#{bindings.ImplicitViewCriteriaQuery.queryDescriptor}"
+                  model="#{bindings.ImplicitViewCriteriaQuery.queryModel}" queryListener="#{bindings.ImplicitViewCriteriaQuery.processQuery}"
+                  queryOperationListener="#{bindings.ImplicitViewCriteriaQuery.processQueryOperation}"/>
+      </af:panelHeader>
+    </af:panelGroupLayout>
+    <af:panelGroupLayout layout="vertical" id="pgl3">
+      <af:panelHeader text="DedutionSetupEO" id="ph2">
+        <af:query id="qryId2" headerText="Search" disclosed="true" value="#{bindings.DeductionSetupVOCriteriaQuery2.queryDescriptor}"
+                  model="#{bindings.DeductionSetupVOCriteriaQuery2.queryModel}" queryListener="#{bindings.DeductionSetupVOCriteriaQuery2.processQuery}"
+                  queryOperationListener="#{bindings.DeductionSetupVOCriteriaQuery2.processQueryOperation}"/>
+      </af:panelHeader>
+    </af:panelGroupLayout>
     <af:table value="#{bindings.DeductionSetupVO1.collectionModel}" var="row" rows="#{bindings.DeductionSetupVO1.rangeSize}"
               emptyText="#{bindings.DeductionSetupVO1.viewable ? 'No data to display.' : 'Access Denied.'}" fetchSize="#{bindings.DeductionSetupVO1.rangeSize}"
               rowBandingInterval="0" filterModel="#{bindings.DeductionSetupVOCriteriaQuery.queryDescriptor}"

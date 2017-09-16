@@ -17,7 +17,9 @@
   BindingStyle="OracleName"
   CustomQuery="false"
   PageIterMode="Full"
-  UseGlueCode="false">
+  UseGlueCode="false"
+  FetchMode="FETCH_AS_NEEDED"
+  FetchSize="25">
   <Properties>
     <SchemaBasedProperties>
       <LABEL
@@ -56,8 +58,8 @@
   </ListBinding>
   <ListBinding
     Name="LOV_ScNum"
-    ListVOName="ContractNumberLovRVO1"
-    ListRangeSize="10"
+    ListVOName="ContractNumberVO1"
+    ListRangeSize="-1"
     NullValueFlag="none"
     NullValueId="LOV_ScNum_LOVUIHints_NullValueId"
     MRUCount="0">
@@ -80,7 +82,8 @@
     PrecisionRule="true"
     EntityAttrName="ScId"
     EntityUsage="DedutionSetupEO"
-    AliasName="SC_ID"/>
+    AliasName="SC_ID"
+    IsUpdateable="while_insert"/>
   <ViewAttribute
     Name="ScNum"
     IsNotNull="true"
@@ -89,6 +92,24 @@
     EntityUsage="DedutionSetupEO"
     AliasName="SC_NUM"
     LOVName="LOV_ScNum">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="ContactNumberTrans"
+    IsSelected="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="VIEW_ATTR"
+    SQLType="VARCHAR"
+    Passivate="true"
+    LOVName="LOV_ContactNumberTrans">
     <Properties>
       <SchemaBasedProperties>
         <CONTROLTYPE
@@ -133,28 +154,11 @@
     <PropertiesBundle
       PropertiesFile="model.ModelBundle"/>
   </ResourceBundle>
-  <ViewAttribute
-    Name="ContactNumberTrans"
-    IsSelected="false"
-    IsPersistent="false"
-    PrecisionRule="true"
-    Type="java.lang.String"
-    ColumnType="VARCHAR2"
-    AliasName="VIEW_ATTR"
-    SQLType="VARCHAR"
-    Passivate="true"
-    LOVName="LOV_ContactNumberTrans">
-    <Properties>
-      <SchemaBasedProperties>
-        <CONTROLTYPE
-          Value="combo_lov"/>
-      </SchemaBasedProperties>
-    </Properties>
-  </ViewAttribute>
   <ViewCriteria
     Name="DeductionSetupVOCriteria"
     ViewObjectName="com.fsa.model.vo.DeductionSetupVO"
-    Conjunction="AND">
+    Conjunction="AND"
+    Mode="2">
     <Properties>
       <CustomProperties>
         <Property
@@ -180,13 +184,14 @@
       <ViewCriteriaItem
         Name="ScNum"
         ViewAttribute="ScNum"
-        Operator="STARTSWITH"
+        Operator="="
         Conjunction="AND"
-        Required="Optional"/>
+        Required="Optional"
+        UpperColumns="1"/>
       <ViewCriteriaItem
         Name="DeductionSetupVOCriteria_vcrow66_ContactNumberTrans"
         ViewAttribute="ContactNumberTrans"
-        Operator="STARTSWITH"
+        Operator="="
         Conjunction="AND"
         Required="Optional"/>
     </ViewCriteriaRow>
