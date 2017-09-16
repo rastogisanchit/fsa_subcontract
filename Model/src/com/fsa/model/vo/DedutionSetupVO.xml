@@ -189,7 +189,7 @@
     EntityAttrName="Uom"
     EntityUsage="DedutionSetupEO"
     AliasName="UOM">
-    <TransientExpression><![CDATA[DeductionName == "Other Deduction"? "Lump Sum":"Daily"]]></TransientExpression>
+    <TransientExpression><![CDATA[DeductionName =='Other Deduction'? 'Lump Sum':'Daily']]></TransientExpression>
     <Dependencies>
       <Item
         Value="DeductionName"/>
