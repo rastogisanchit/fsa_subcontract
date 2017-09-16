@@ -57,9 +57,6 @@
   <ViewUsage
     Name="DeductionSetupVO1"
     ViewObjectName="com.fsa.model.vo.DeductionSetupVO"/>
-  <ViewUsage
-    Name="DeductionSetupVO2"
-    ViewObjectName="com.fsa.model.vo.DeductionSetupVO"/>
   <ResourceBundle>
     <PropertiesBundle
       PropertiesFile="model.ModelBundle"/>

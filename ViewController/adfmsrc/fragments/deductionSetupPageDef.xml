@@ -6,12 +6,6 @@
     <iterator Binds="DeductionSetupVO1" RangeSize="25" DataControl="AppModuleDataControl" id="DeductionSetupVO1Iterator"/>
     <searchRegion Criteria="DeductionSetupVOCriteria" Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" Binds="DeductionSetupVO1Iterator"
                   id="DeductionSetupVOCriteriaQuery"/>
-    <searchRegion Criteria="__ImplicitViewCriteria__" Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" Binds="DeductionSetupVO1Iterator"
-                  id="ImplicitViewCriteriaQuery"/>
-    <searchRegion Criteria="DeductionSetupVOCriteria" Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" Binds="DeductionSetupVO1Iterator"
-                  id="DeductionSetupVOCriteriaQuery1"/>
-    <searchRegion Criteria="DeductionSetupVOCriteria" Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" Binds="DeductionSetupVO1Iterator"
-                  id="DeductionSetupVOCriteriaQuery2"/>
   </executables>
   <bindings>
     <tree IterBinding="DeductionSetupVO1Iterator" id="DeductionSetupVO1">
@@ -19,12 +13,12 @@
         <AttrNames>
           <Item Value="ScId"/>
           <Item Value="ScNum"/>
+          <Item Value="ContactNumberTrans"/>
           <Item Value="DeductionType"/>
           <Item Value="DeductionName"/>
           <Item Value="Uom"/>
           <Item Value="UnitRate"/>
           <Item Value="Period"/>
-          <Item Value="ContactNumberTrans"/>
         </AttrNames>
       </nodeDefinition>
     </tree>
