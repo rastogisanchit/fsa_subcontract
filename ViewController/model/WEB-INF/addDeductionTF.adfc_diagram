@@ -1,0 +1,49 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<SDM>
+   <OverallProperties
+      id="OverallProperties1"/>
+   <View
+      id="View2">
+      <property
+         name="activityId">addDeduction</property>
+      <property
+         name="page">/fragments/addDeduction.jsff</property>
+      <property
+         name="start">false</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>addDeduction&lt;/b>&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
+      <property
+         name="exceptionHandler">false</property>
+      <property
+         name="y">190.74707</property>
+      <property
+         name="x">354.02832</property>
+      <property
+         name="pageFragment">true</property>
+   </View>
+   <MethodCall
+      id="MethodCall3">
+      <property
+         name="activityId">CreateInsert</property>
+      <property
+         name="start">true</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>CreateInsert&lt;/b> (Default Activity)&lt;/p>&lt;p>Activity Type:  Method Call&lt;/p></property>
+      <property
+         name="exceptionHandler">false</property>
+      <property
+         name="y">191.64355</property>
+      <property
+         name="x">132.01465</property>
+   </MethodCall>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase4"
+      from="MethodCall3"
+      to="View2">
+      <property
+         name="fromOutcome">CreateInsert</property>
+      <property
+         name="sdm:polyPoints">R50,173.01465,191.29297,313.02832,190.39648,L50</property>
+   </ControlFlowCase>
+</SDM>

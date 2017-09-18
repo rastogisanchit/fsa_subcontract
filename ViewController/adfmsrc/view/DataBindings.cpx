@@ -33,6 +33,10 @@
           usageId="view_getDeductionsByTypeTF_getDeductionsByTypeTF_ExecuteWithParamsPageDef"/>
     <page path="/fragments/deductionSetup.jsff" usageId="view_deductionSetupPageDef"/>
     <page path="/pages/deduction/setup.jspx" usageId="view_setupPageDef"/>
+    <page path="/fragments/ipc.jsff" usageId="view_ipcPageDef"/>
+    <page path="/pages/deduction/ipc.jspx" usageId="view_ipcPageDef1"/>
+    <page path="/WEB-INF/addDeductionTF.xml#addDeductionTF@CreateInsert" usageId="view_addDeductionTF_addDeductionTF_CreateInsertPageDef"/>
+    <page path="/fragments/addDeduction.jsff" usageId="view_addDeductionPageDef"/>
   </pageMap>
   <pageDefinitionUsages>
     <page id="view_deductionsetupPageDef"
@@ -58,6 +62,10 @@
           path="view.pageDefs.getDeductionsByTypeTF_getDeductionsByTypeTF_ExecuteWithParamsPageDef"/>
     <page id="view_deductionSetupPageDef" path="fragments.deductionSetupPageDef"/>
     <page id="view_setupPageDef" path="pages.deduction.setupPageDef"/>
+    <page id="view_ipcPageDef" path="fragments.ipcPageDef"/>
+    <page id="view_ipcPageDef1" path="pages.deduction.ipcPageDef"/>
+    <page id="view_addDeductionTF_addDeductionTF_CreateInsertPageDef" path="view.pageDefs.addDeductionTF_addDeductionTF_CreateInsertPageDef"/>
+    <page id="view_addDeductionPageDef" path="fragments.addDeductionPageDef"/>
   </pageDefinitionUsages>
   <dataControlUsages>
     <BC4JDataControl id="AppModuleDataControl" Package="model.AM"

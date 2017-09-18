@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
+  <task-flow-definition id="ipcTF">
+    <default-activity id="__5">ipc</default-activity>
+    <managed-bean id="__2">
+      <managed-bean-name id="__1">IpcBean</managed-bean-name>
+      <managed-bean-class id="__3">com.fsa.view.bean.IpcBean</managed-bean-class>
+      <managed-bean-scope id="__4">backingBean</managed-bean-scope>
+    </managed-bean>
+    <view id="ipc">
+      <page>/fragments/ipc.jsff</page>
+    </view>
+    <use-page-fragments/>
+  </task-flow-definition>
+</adfc-config>

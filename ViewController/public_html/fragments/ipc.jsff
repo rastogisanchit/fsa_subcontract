@@ -1,0 +1,85 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1" xmlns:af="http://xmlns.oracle.com/adf/faces/rich" xmlns:f="http://java.sun.com/jsf/core">
+  <af:panelGroupLayout layout="vertical" id="pgl1">
+    <af:panelHeader text="IPCDeductionEO" id="ph1">
+      <af:query id="qryId1" headerText="Search" disclosed="true" value="#{bindings.IPCDeductionVOCriteriaQuery.queryDescriptor}"
+                model="#{bindings.IPCDeductionVOCriteriaQuery.queryModel}" queryListener="#{bindings.IPCDeductionVOCriteriaQuery.processQuery}"
+                queryOperationListener="#{bindings.IPCDeductionVOCriteriaQuery.processQueryOperation}" resultComponentId="::pc1:resId1" rows="2"
+                maxColumns="2" fieldWidth="100" labelWidth="100"/>
+    </af:panelHeader>
+    <af:panelCollection id="pc1" styleClass="AFStretchWidth">
+      <f:facet name="menus"/>
+      <f:facet name="toolbar"/>
+      <f:facet name="statusbar"/>
+      <af:table value="#{bindings.IPCDeductionVO1.collectionModel}" var="row" rows="#{bindings.IPCDeductionVO1.rangeSize}"
+                emptyText="#{bindings.IPCDeductionVO1.viewable ? 'No data to display.' : 'Access Denied.'}" fetchSize="#{bindings.IPCDeductionVO1.rangeSize}"
+                rowBandingInterval="0" selectedRowKeys="#{bindings.IPCDeductionVO1.collectionModel.selectedRow}"
+                selectionListener="#{bindings.IPCDeductionVO1.collectionModel.makeCurrent}" rowSelection="single" id="resId1">
+        <af:column sortProperty="#{bindings.IPCDeductionVO1.hints.IpcDeductionId.name}" sortable="false"
+                   headerText="#{bindings.IPCDeductionVO1.hints.IpcDeductionId.label}" id="resId1c1" rendered="false">
+          <af:outputText value="#{row.IpcDeductionId}" id="ot7">
+            <af:convertNumber groupingUsed="false" pattern="#{bindings.IPCDeductionVO1.hints.IpcDeductionId.format}"/>
+          </af:outputText>
+        </af:column>
+        <af:column sortProperty="#{bindings.IPCDeductionVO1.hints.ScNumber.name}" sortable="false" headerText="#{bindings.IPCDeductionVO1.hints.ScNumber.label}"
+                   id="resId1c2" rendered="false">
+          <af:outputText value="#{row.ScNumber}" id="ot8"/>
+        </af:column>
+        <af:column sortProperty="#{bindings.IPCDeductionVO1.hints.Period.name}" sortable="false" headerText="#{bindings.IPCDeductionVO1.hints.Period.label}"
+                   id="resId1c3" rendered="false">
+          <af:outputText value="#{row.Period}" id="ot13"/>
+        </af:column>
+        <af:column sortProperty="#{bindings.IPCDeductionVO1.hints.DeductionType.name}" sortable="false"
+                   headerText="#{bindings.IPCDeductionVO1.hints.DeductionType.label}" id="resId1c4" rendered="false">
+          <af:outputText value="#{row.DeductionType}" id="ot10"/>
+        </af:column>
+        <af:column sortProperty="#{bindings.IPCDeductionVO1.hints.DeductionName.name}" sortable="false"
+                   headerText="#{bindings.IPCDeductionVO1.hints.DeductionName.label}" id="resId1c5">
+          <af:outputText value="#{row.DeductionName}" id="ot11"/>
+        </af:column>
+        <af:column sortProperty="#{bindings.IPCDeductionVO1.hints.UnitRate.name}" sortable="false" headerText="#{bindings.IPCDeductionVO1.hints.UnitRate.label}"
+                   id="resId1c6">
+          <af:outputText value="#{row.UnitRate}" id="ot5">
+            <af:convertNumber groupingUsed="false" pattern="#{bindings.IPCDeductionVO1.hints.UnitRate.format}"/>
+          </af:outputText>
+        </af:column>
+        <af:column sortProperty="#{bindings.IPCDeductionVO1.hints.Quantity.name}" sortable="false" headerText="#{bindings.IPCDeductionVO1.hints.Quantity.label}"
+                   id="resId1c7" rendered="true">
+          <af:outputText value="#{row.Quantity}" id="ot2">
+            <af:convertNumber groupingUsed="false" pattern="#{bindings.IPCDeductionVO1.hints.Quantity.format}"/>
+          </af:outputText>
+        </af:column>
+        <af:column sortProperty="#{bindings.IPCDeductionVO1.hints.DeductionAmount.name}" sortable="false"
+                   headerText="#{bindings.IPCDeductionVO1.hints.DeductionAmount.label}" id="resId1c8">
+          <af:outputText value="#{row.DeductionAmount}" id="ot1">
+            <af:convertNumber groupingUsed="false" pattern="#{bindings.IPCDeductionVO1.hints.DeductionAmount.format}"/>
+          </af:outputText>
+        </af:column>
+        <af:column sortProperty="#{bindings.IPCDeductionVO1.hints.DebitMemo.name}" sortable="false"
+                   headerText="#{bindings.IPCDeductionVO1.hints.DebitMemo.label}" id="resId1c9" rendered="false">
+          <af:outputText value="#{row.DebitMemo}" id="ot6"/>
+        </af:column>
+        <af:column sortProperty="#{bindings.IPCDeductionVO1.hints.DebitMemoStatus.name}" sortable="false"
+                   headerText="#{bindings.IPCDeductionVO1.hints.DebitMemoStatus.label}" id="resId1c10" rendered="false">
+          <af:outputText value="#{row.DebitMemoStatus}" id="ot4"/>
+        </af:column>
+        <af:column sortProperty="#{bindings.IPCDeductionVO1.hints.ContractNumber.name}" sortable="false"
+                   headerText="#{bindings.IPCDeductionVO1.hints.ContractNumber.label}" id="resId1c11" rendered="false">
+          <af:outputText value="#{row.ContractNumber}" id="ot9"/>
+        </af:column>
+        <af:column sortProperty="#{bindings.IPCDeductionVO1.hints.MonthTrans.name}" sortable="false"
+                   headerText="#{bindings.IPCDeductionVO1.hints.MonthTrans.label}" id="resId1c12" rendered="false">
+          <af:outputText value="#{row.MonthTrans}" id="ot3"/>
+        </af:column>
+        <af:column sortProperty="#{bindings.IPCDeductionVO1.hints.YearTrans.name}" sortable="false"
+                   headerText="#{bindings.IPCDeductionVO1.hints.YearTrans.label}" id="resId1c13" rendered="false">
+          <af:outputText value="#{row.YearTrans}" id="ot12"/>
+        </af:column>
+        <af:column sortProperty="#{bindings.IPCDeductionVO1.hints.DeductionNameTrans.name}" sortable="false"
+                   headerText="#{bindings.IPCDeductionVO1.hints.DeductionNameTrans.label}" id="resId1c14" rendered="false">
+          <af:outputText value="#{row.DeductionNameTrans}" id="ot14"/>
+        </af:column>
+      </af:table>
+    </af:panelCollection>
+  </af:panelGroupLayout>
+</jsp:root>

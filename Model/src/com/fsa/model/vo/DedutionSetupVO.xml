@@ -3,31 +3,28 @@
 <!---->
 <ViewObject
   xmlns="http://xmlns.oracle.com/bc4j"
-  Name="IPCDeductionVO"
-  Version="11.1.1.66.73"
-  InheritPersonalization="merge"
-  SelectList="IPCDeductionEO.IPC_DEDUCTION_ID, 
-       IPCDeductionEO.SC_NUMBER, 
-       IPCDeductionEO.PERIOD, 
-       IPCDeductionEO.DEDUCTION_TYPE, 
-       IPCDeductionEO.DEDUCTION_NAME, 
-       IPCDeductionEO.UNIT_RATE, 
-       IPCDeductionEO.QUANTITY, 
-       IPCDeductionEO.DEDUCTION_AMOUNT, 
-       IPCDeductionEO.DEBIT_MEMO, 
-       IPCDeductionEO.DEBIT_MEMO_STATUS"
-  FromList="XXX_FSA_SC_IPC_DEDUCTION IPCDeductionEO"
+  Name="DedutionSetupVO"
+  Version="11.1.1.65.57"
+  SelectList="DedutionSetupEO.SC_ID, 
+       DedutionSetupEO.SC_NUM, 
+       DedutionSetupEO.DEDUCTION_TYPE, 
+       DedutionSetupEO.DEDUCTION_NAME, 
+       DedutionSetupEO.UOM, 
+       DedutionSetupEO.UNIT_RATE, 
+       DedutionSetupEO.PERIOD"
+  FromList="XXX_FSA_SC_DEDUCTION_SETUP DedutionSetupEO"
   BindingStyle="OracleName"
   CustomQuery="false"
+  ComponentClass="com.fsa.model.vo.DedutionSetupVOImpl"
   PageIterMode="Full"
   UseGlueCode="false">
   <DesignTime>
-    <Attr Name="_codeGenFlag2" Value="VarAccess"/>
+    <Attr Name="_codeGenFlag2" Value="Coll|VarAccess"/>
   </DesignTime>
-  <ViewAccessor
-    Name="ContractNumberVO1"
-    ViewObjectName="model.VO.ContractNumberVO"
-    RowLevelBinds="true"/>
+  <Variable
+    Name="Bind_DeductionType"
+    Kind="viewcriteria"
+    Type="java.lang.String"/>
   <ViewAccessor
     Name="MonthsLOV1"
     ViewObjectName="com.fsa.model.vo.MonthsLOV"
@@ -37,31 +34,17 @@
     ViewObjectName="com.fsa.model.vo.YearsLOV"
     RowLevelBinds="true"/>
   <ViewAccessor
+    Name="ContractNumberVO1"
+    ViewObjectName="model.VO.ContractNumberVO"
+    RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="DeductionTypeLOV1"
+    ViewObjectName="com.fsa.model.vo.DeductionTypeLOV"
+    RowLevelBinds="true"/>
+  <ViewAccessor
     Name="DeductionNameVO1"
     ViewObjectName="model.VO.DeductionNameVO"
     RowLevelBinds="true"/>
-  <ListBinding
-    Name="LOV_ContractNumber"
-    ListVOName="ContractNumberVO1"
-    ListRangeSize="-1"
-    NullValueFlag="start"
-    NullValueId="${adfBundle['oracle.javatools.resourcebundle.SystemBundle']['NULL_VALUE_RESID']}"
-    MRUCount="0">
-    <AttrArray Name="AttrNames">
-      <Item Value="ContractNumber"/>
-    </AttrArray>
-    <AttrArray Name="DerivedAttrNames">
-      <Item Value="ScNumber"/>
-    </AttrArray>
-    <AttrArray Name="ListAttrNames">
-      <Item Value="ContractNumber"/>
-      <Item Value="ContractNumber"/>
-    </AttrArray>
-    <AttrArray Name="ListDisplayAttrNames">
-      <Item Value="ContractNumber"/>
-    </AttrArray>
-    <DisplayCriteria/>
-  </ListBinding>
   <ListBinding
     Name="LOV_Month"
     ListVOName="MonthsLOV1"
@@ -70,7 +53,7 @@
     NullValueId="${adfBundle['oracle.javatools.resourcebundle.SystemBundle']['NULL_VALUE_RESID']}"
     MRUCount="0">
     <AttrArray Name="AttrNames">
-      <Item Value="MonthTrans"/>
+      <Item Value="Month"/>
     </AttrArray>
     <AttrArray Name="ListAttrNames">
       <Item Value="Month"/>
@@ -88,13 +71,53 @@
     NullValueId="${adfBundle['oracle.javatools.resourcebundle.SystemBundle']['NULL_VALUE_RESID']}"
     MRUCount="0">
     <AttrArray Name="AttrNames">
-      <Item Value="YearTrans"/>
+      <Item Value="Year"/>
     </AttrArray>
     <AttrArray Name="ListAttrNames">
       <Item Value="Year"/>
     </AttrArray>
     <AttrArray Name="ListDisplayAttrNames">
       <Item Value="Year"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_ContractNumber"
+    ListVOName="ContractNumberVO1"
+    ListRangeSize="-1"
+    NullValueFlag="start"
+    NullValueId="${adfBundle['oracle.javatools.resourcebundle.SystemBundle']['NULL_VALUE_RESID']}"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="ContractNumber"/>
+    </AttrArray>
+    <AttrArray Name="DerivedAttrNames">
+      <Item Value="ScNum"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="ContractNumber"/>
+      <Item Value="ContractNumber"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="ContractNumber"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_DeductionType"
+    ListVOName="DeductionTypeLOV1"
+    ListRangeSize="-1"
+    NullValueFlag="start"
+    NullValueId="${adfBundle['oracle.javatools.resourcebundle.SystemBundle']['NULL_VALUE_RESID']}"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="DeductionType"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="DeductionType"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="DeductionType"/>
     </AttrArray>
     <DisplayCriteria/>
   </ListBinding>
@@ -120,133 +143,117 @@
     </AttrArray>
     <DisplayCriteria/>
   </ListBinding>
-  <ListBinding
-    Name="LOV_YearTrans"
-    ListVOName="YearsLOV1"
-    ListRangeSize="-1"
-    NullValueFlag="start"
-    NullValueId="${adfBundle['oracle.javatools.resourcebundle.SystemBundle']['NULL_VALUE_RESID']}"
-    MRUCount="0">
-    <AttrArray Name="AttrNames">
-      <Item Value="YearTrans"/>
-    </AttrArray>
-    <AttrArray Name="ListAttrNames">
-      <Item Value="Year"/>
-    </AttrArray>
-    <DisplayCriteria/>
-  </ListBinding>
   <EntityUsage
-    Name="IPCDeductionEO"
-    Entity="com.fsa.model.eo.IPCDeductionEO"/>
+    Name="DedutionSetupEO"
+    Entity="com.fsa.model.eo.DedutionSetupEO"/>
   <ViewAttribute
-    Name="IpcDeductionId"
+    Name="ScId"
+    IsUpdateable="while_insert"
     IsNotNull="true"
     PrecisionRule="true"
-    EntityAttrName="IpcDeductionId"
-    EntityUsage="IPCDeductionEO"
-    AliasName="IPC_DEDUCTION_ID"
-    IsUpdateable="while_insert"/>
+    EntityAttrName="ScId"
+    EntityUsage="DedutionSetupEO"
+    AliasName="SC_ID"/>
   <ViewAttribute
-    Name="ScNumber"
+    Name="ScNum"
+    IsNotNull="true"
     PrecisionRule="true"
-    EntityAttrName="ScNumber"
-    EntityUsage="IPCDeductionEO"
-    AliasName="SC_NUMBER"/>
-  <ViewAttribute
-    Name="Period"
-    PrecisionRule="true"
-    EntityAttrName="Period"
-    EntityUsage="IPCDeductionEO"
-    AliasName="PERIOD"/>
+    EntityAttrName="ScNum"
+    EntityUsage="DedutionSetupEO"
+    AliasName="SC_NUM"/>
   <ViewAttribute
     Name="DeductionType"
+    LOVName="LOV_DeductionType"
+    IsNotNull="true"
     PrecisionRule="true"
     EntityAttrName="DeductionType"
-    EntityUsage="IPCDeductionEO"
-    AliasName="DEDUCTION_TYPE"/>
+    EntityUsage="DedutionSetupEO"
+    AliasName="DEDUCTION_TYPE">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="DeductionName"
+    IsNotNull="true"
     PrecisionRule="true"
     EntityAttrName="DeductionName"
-    EntityUsage="IPCDeductionEO"
+    EntityUsage="DedutionSetupEO"
     AliasName="DEDUCTION_NAME"/>
+  <ViewAttribute
+    Name="Uom"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="Uom"
+    EntityUsage="DedutionSetupEO"
+    AliasName="UOM">
+    <TransientExpression><![CDATA[DeductionName == "Other Deduction"? "Lump Sum":"Daily"]]></TransientExpression>
+    <Dependencies>
+      <Item
+        Value="DeductionName"/>
+    </Dependencies>
+  </ViewAttribute>
   <ViewAttribute
     Name="UnitRate"
     PrecisionRule="true"
     EntityAttrName="UnitRate"
-    EntityUsage="IPCDeductionEO"
+    EntityUsage="DedutionSetupEO"
     AliasName="UNIT_RATE"/>
   <ViewAttribute
-    Name="Quantity"
+    Name="Period"
     PrecisionRule="true"
-    EntityAttrName="Quantity"
-    EntityUsage="IPCDeductionEO"
-    AliasName="QUANTITY"/>
+    EntityAttrName="Period"
+    EntityUsage="DedutionSetupEO"
+    AliasName="PERIOD"/>
   <ViewAttribute
-    Name="DeductionAmount"
+    Name="Month"
+    LOVName="LOV_Month"
+    IsSelected="false"
+    IsPersistent="false"
     PrecisionRule="true"
-    EntityAttrName="DeductionAmount"
-    EntityUsage="IPCDeductionEO"
-    AliasName="DEDUCTION_AMOUNT"/>
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="VIEW_ATTR"
+    SQLType="VARCHAR">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
-    Name="DebitMemo"
+    Name="Year"
+    LOVName="LOV_Year"
+    IsSelected="false"
+    IsPersistent="false"
     PrecisionRule="true"
-    EntityAttrName="DebitMemo"
-    EntityUsage="IPCDeductionEO"
-    AliasName="DEBIT_MEMO"/>
-  <ViewAttribute
-    Name="DebitMemoStatus"
-    PrecisionRule="true"
-    EntityAttrName="DebitMemoStatus"
-    EntityUsage="IPCDeductionEO"
-    AliasName="DEBIT_MEMO_STATUS"/>
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="VIEW_ATTR"
+    SQLType="VARCHAR">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="ContractNumber"
+    LOVName="LOV_ContractNumber"
     IsSelected="false"
     IsPersistent="false"
     PrecisionRule="true"
+    Precision="255"
     Type="java.lang.String"
     ColumnType="VARCHAR2"
     AliasName="VIEW_ATTR"
-    SQLType="VARCHAR"
     Passivate="true"
-    SDOHidden="true"
-    LOVName="LOV_ContractNumber">
-    <Properties>
-      <SchemaBasedProperties>
-        <CONTROLTYPE
-          Value="choice"/>
-      </SchemaBasedProperties>
-    </Properties>
-  </ViewAttribute>
-  <ViewAttribute
-    Name="MonthTrans"
-    IsSelected="false"
-    IsPersistent="false"
-    PrecisionRule="true"
-    Type="java.lang.String"
-    ColumnType="VARCHAR2"
-    AliasName="VIEW_ATTR"
-    SQLType="VARCHAR"
-    LOVName="LOV_Month">
-    <Properties>
-      <SchemaBasedProperties>
-        <CONTROLTYPE
-          Value="choice"/>
-      </SchemaBasedProperties>
-    </Properties>
-  </ViewAttribute>
-  <ViewAttribute
-    Name="YearTrans"
-    IsSelected="false"
-    IsPersistent="false"
-    PrecisionRule="true"
-    Type="java.lang.String"
-    ColumnType="VARCHAR2"
-    AliasName="VIEW_ATTR"
-    SQLType="VARCHAR"
-    Passivate="true"
-    LOVName="LOV_YearTrans">
+    SQLType="VARCHAR">
     <Properties>
       <SchemaBasedProperties>
         <CONTROLTYPE
@@ -256,14 +263,14 @@
   </ViewAttribute>
   <ViewAttribute
     Name="DeductionNameTrans"
+    LOVName="LOV_DeductionNameTrans"
     IsSelected="false"
     IsPersistent="false"
     PrecisionRule="true"
     Type="java.lang.String"
     ColumnType="VARCHAR2"
     AliasName="VIEW_ATTR"
-    SQLType="VARCHAR"
-    LOVName="LOV_DeductionNameTrans">
+    SQLType="VARCHAR">
     <Properties>
       <SchemaBasedProperties>
         <CONTROLTYPE
@@ -272,8 +279,8 @@
     </Properties>
   </ViewAttribute>
   <ViewCriteria
-    Name="IPCDeductionVOCriteria"
-    ViewObjectName="com.fsa.model.vo.IPCDeductionVO"
+    Name="DedutionSetupVOCriteria"
+    ViewObjectName="com.fsa.model.vo.DedutionSetupVO"
     Conjunction="AND">
     <Properties>
       <CustomProperties>
@@ -284,10 +291,10 @@
           Name="autoExecute"
           Value="true"/>
         <Property
-          Name="allowConjunctionOverride"
+          Name="showInList"
           Value="false"/>
         <Property
-          Name="showInList"
+          Name="allowConjunctionOverride"
           Value="false"/>
         <Property
           Name="mode"
@@ -295,32 +302,24 @@
       </CustomProperties>
     </Properties>
     <ViewCriteriaRow
-      Name="vcrow68"
+      Name="vcrow1"
       UpperColumns="1">
       <ViewCriteriaItem
-        Name="IPCDeductionVOCriteria_vcrow68_ContractNumber"
-        ViewAttribute="ContractNumber"
+        Name="DeductionType"
+        ViewAttribute="DeductionType"
         Operator="="
         Conjunction="AND"
-        Required="Optional"/>
-      <ViewCriteriaItem
-        Name="MonthTrans"
-        ViewAttribute="MonthTrans"
-        Operator="="
-        Conjunction="AND"
-        Required="Optional"/>
-      <ViewCriteriaItem
-        Name="YearTrans"
-        ViewAttribute="YearTrans"
-        Operator="="
-        Conjunction="AND"
-        Required="Optional"/>
-      <ViewCriteriaItem
-        Name="DeductionNameTrans"
-        ViewAttribute="DeductionNameTrans"
-        Operator="="
-        Conjunction="AND"
-        Required="Optional"/>
+        Value=":Bind_DeductionType"
+        IsBindVarValue="true"
+        Required="Optional">
+        <Properties>
+          <CustomProperties>
+            <Property
+              Name="renderedMode"
+              Value="Never"/>
+          </CustomProperties>
+        </Properties>
+      </ViewCriteriaItem>
     </ViewCriteriaRow>
   </ViewCriteria>
 </ViewObject>

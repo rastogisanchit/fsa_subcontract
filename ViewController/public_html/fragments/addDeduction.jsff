@@ -1,0 +1,57 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1" xmlns:af="http://xmlns.oracle.com/adf/faces/rich" xmlns:f="http://java.sun.com/jsf/core">
+  <af:panelFormLayout id="pfl1" maxColumns="5" rows="2">
+    <af:inputText value="#{bindings.ScId.inputValue}" label="#{bindings.ScId.hints.label}" required="#{bindings.ScId.hints.mandatory}"
+                  columns="#{bindings.ScId.hints.displayWidth}" maximumLength="#{bindings.ScId.hints.precision}" shortDesc="#{bindings.ScId.hints.tooltip}"
+                  id="it4">
+      <f:validator binding="#{bindings.ScId.validator}"/>
+      <af:convertNumber groupingUsed="false" pattern="#{bindings.ScId.format}"/>
+    </af:inputText>
+    <af:inputText value="#{bindings.ScNum.inputValue}" label="#{bindings.ScNum.hints.label}" required="#{bindings.ScNum.hints.mandatory}"
+                  columns="#{bindings.ScNum.hints.displayWidth}" maximumLength="#{bindings.ScNum.hints.precision}" shortDesc="#{bindings.ScNum.hints.tooltip}"
+                  id="it1">
+      <f:validator binding="#{bindings.ScNum.validator}"/>
+    </af:inputText>
+    <af:selectOneChoice value="#{bindings.DeductionType.inputValue}" label="#{bindings.DeductionType.label}"
+                        required="#{bindings.DeductionType.hints.mandatory}" shortDesc="#{bindings.DeductionType.hints.tooltip}" id="soc4">
+      <f:selectItems value="#{bindings.DeductionType.items}" id="si3"/>
+    </af:selectOneChoice>
+    <af:inputText value="#{bindings.DeductionName.inputValue}" label="#{bindings.DeductionName.hints.label}"
+                  required="#{bindings.DeductionName.hints.mandatory}" columns="#{bindings.DeductionName.hints.displayWidth}"
+                  maximumLength="#{bindings.DeductionName.hints.precision}" shortDesc="#{bindings.DeductionName.hints.tooltip}" id="it6">
+      <f:validator binding="#{bindings.DeductionName.validator}"/>
+    </af:inputText>
+    <af:inputText value="#{bindings.Uom.inputValue}" label="#{bindings.Uom.hints.label}" required="#{bindings.Uom.hints.mandatory}"
+                  columns="#{bindings.Uom.hints.displayWidth}" maximumLength="#{bindings.Uom.hints.precision}" shortDesc="#{bindings.Uom.hints.tooltip}"
+                  id="it2">
+      <f:validator binding="#{bindings.Uom.validator}"/>
+    </af:inputText>
+    <af:inputText value="#{bindings.UnitRate.inputValue}" label="#{bindings.UnitRate.hints.label}" required="#{bindings.UnitRate.hints.mandatory}"
+                  columns="#{bindings.UnitRate.hints.displayWidth}" maximumLength="#{bindings.UnitRate.hints.precision}"
+                  shortDesc="#{bindings.UnitRate.hints.tooltip}" id="it3">
+      <f:validator binding="#{bindings.UnitRate.validator}"/>
+      <af:convertNumber groupingUsed="false" pattern="#{bindings.UnitRate.format}"/>
+    </af:inputText>
+    <af:inputText value="#{bindings.Period.inputValue}" label="#{bindings.Period.hints.label}" required="#{bindings.Period.hints.mandatory}"
+                  columns="#{bindings.Period.hints.displayWidth}" maximumLength="#{bindings.Period.hints.precision}"
+                  shortDesc="#{bindings.Period.hints.tooltip}" id="it5">
+      <f:validator binding="#{bindings.Period.validator}"/>
+    </af:inputText>
+    <af:selectOneChoice value="#{bindings.Month.inputValue}" label="#{bindings.Month.label}" required="#{bindings.Month.hints.mandatory}"
+                        shortDesc="#{bindings.Month.hints.tooltip}" id="soc3">
+      <f:selectItems value="#{bindings.Month.items}" id="si4"/>
+    </af:selectOneChoice>
+    <af:selectOneChoice value="#{bindings.Year.inputValue}" label="#{bindings.Year.label}" required="#{bindings.Year.hints.mandatory}"
+                        shortDesc="#{bindings.Year.hints.tooltip}" id="soc2">
+      <f:selectItems value="#{bindings.Year.items}" id="si5"/>
+    </af:selectOneChoice>
+    <af:selectOneChoice value="#{bindings.ContractNumber.inputValue}" label="#{bindings.ContractNumber.label}"
+                        required="#{bindings.ContractNumber.hints.mandatory}" shortDesc="#{bindings.ContractNumber.hints.tooltip}" id="soc5">
+      <f:selectItems value="#{bindings.ContractNumber.items}" id="si2"/>
+    </af:selectOneChoice>
+    <af:selectOneChoice value="#{bindings.DeductionNameTrans.inputValue}" label="#{bindings.DeductionNameTrans.label}"
+                        required="#{bindings.DeductionNameTrans.hints.mandatory}" shortDesc="#{bindings.DeductionNameTrans.hints.tooltip}" id="soc1">
+      <f:selectItems value="#{bindings.DeductionNameTrans.items}" id="si1"/>
+    </af:selectOneChoice>
+  </af:panelFormLayout>
+</jsp:root>

@@ -10,6 +10,19 @@
     <view id="deductionSetup">
       <page>/fragments/deductionSetup.jsff</page>
     </view>
+    <task-flow-call id="addDeductionTF">
+      <task-flow-reference>
+        <document>/WEB-INF/addDeductionTF.xml</document>
+        <id>addDeductionTF</id>
+      </task-flow-reference>
+    </task-flow-call>
+    <control-flow-rule id="__6">
+      <from-activity-id id="__7">deductionSetup</from-activity-id>
+      <control-flow-case id="__8">
+        <from-outcome id="__10">add</from-outcome>
+        <to-activity-id id="__9">addDeductionTF</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
     <use-page-fragments/>
   </task-flow-definition>
 </adfc-config>

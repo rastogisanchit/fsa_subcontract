@@ -1,12 +1,13 @@
 <?xml version = '1.0' encoding = 'UTF-8'?>
 <BC4JConfig version="11.1" xmlns="http://xmlns.oracle.com/bc4j/configuration">
    <AppModuleConfigBag ApplicationName="model.AM.AppModule">
-      <AppModuleConfig DeployPlatform="LOCAL" jbo.project="model.Model" name="AppModuleLocal" ApplicationName="model.AM.AppModule">
+      <AppModuleConfig DeployPlatform="LOCAL" JDBCName="hr" jbo.project="model.Model" name="AppModuleLocal" ApplicationName="model.AM.AppModule">
+         <Database jbo.locking.mode="optimistic"/>
          <Security AppModuleJndiName="model.AM.AppModule"/>
-         <Custom JDBCDataSource="java:comp/env/jdbc/hrDS"/>
       </AppModuleConfig>
       <AppModuleConfig DeployPlatform="LOCAL" JDBCName="hr" jbo.project="model.Model" name="AppModuleShared" ApplicationName="model.AM.AppModule">
          <AM-Pooling jbo.ampool.dynamicjdbccredentials="false" jbo.ampool.isuseexclusive="false" jbo.ampool.maxpoolsize="1" jbo.ampool.resetnontransactionalstate="false"/>
+         <Database jbo.locking.mode="optimistic"/>
          <Security AppModuleJndiName="model.AM.AppModule"/>
       </AppModuleConfig>
    </AppModuleConfigBag>

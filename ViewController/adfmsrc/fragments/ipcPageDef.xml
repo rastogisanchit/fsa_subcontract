@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="11.1.1.66.73" id="ipcPageDef" Package="fragments">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="IPCDeductionVO1" RangeSize="25" DataControl="AppModuleDataControl" id="IPCDeductionVO1Iterator"/>
+    <searchRegion Criteria="IPCDeductionVOCriteria" Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" Binds="IPCDeductionVO1Iterator"
+                  id="IPCDeductionVOCriteriaQuery"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="IPCDeductionVO1Iterator" id="IPCDeductionVO1">
+      <nodeDefinition DefName="com.fsa.model.vo.IPCDeductionVO" Name="IPCDeductionVO10">
+        <AttrNames>
+          <Item Value="IpcDeductionId"/>
+          <Item Value="ScNumber"/>
+          <Item Value="Period"/>
+          <Item Value="DeductionType"/>
+          <Item Value="DeductionName"/>
+          <Item Value="UnitRate"/>
+          <Item Value="Quantity"/>
+          <Item Value="DeductionAmount"/>
+          <Item Value="DebitMemo"/>
+          <Item Value="DebitMemoStatus"/>
+          <Item Value="ContractNumber"/>
+          <Item Value="MonthTrans"/>
+          <Item Value="YearTrans"/>
+          <Item Value="DeductionNameTrans"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+  </bindings>
+</pageDefinition>

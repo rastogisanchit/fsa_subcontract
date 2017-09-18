@@ -15,10 +15,37 @@
       <property
          name="exceptionHandler">false</property>
       <property
-         name="y">200.79883</property>
+         name="y">177.09766</property>
+      <property
+         name="x">103.70117</property>
       <property
          name="pageFragment">true</property>
-      <property
-         name="x">539.7012</property>
    </View>
+   <TaskFlowCall
+      id="TaskFlowCall3">
+      <property
+         name="taskFlowId">addDeductionTF</property>
+      <property
+         name="activityId">addDeductionTF</property>
+      <property
+         name="documentReference">/WEB-INF/addDeductionTF.xml</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>addDeductionTF&lt;/b>&lt;/p>&lt;p>Activity Type:  Task Flow Call&lt;/p></property>
+      <property
+         name="exceptionHandler">false</property>
+      <property
+         name="y">158.09766</property>
+      <property
+         name="x">403.3584</property>
+   </TaskFlowCall>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase4"
+      from="View2"
+      to="TaskFlowCall3">
+      <property
+         name="fromOutcome">add</property>
+      <property
+         name="sdm:polyPoints">R50,144.70117,176.74707,362.3584,157.74707,L50</property>
+   </ControlFlowCase>
 </SDM>

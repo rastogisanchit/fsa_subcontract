@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="11.1.1.66.73" id="addDeductionPageDef" Package="fragments">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="DedutionSetupVO1" RangeSize="25" DataControl="AppModuleDataControl" id="DedutionSetupVO1Iterator"/>
+  </executables>
+  <bindings>
+    <attributeValues IterBinding="DedutionSetupVO1Iterator" id="ScId">
+      <AttrNames>
+        <Item Value="ScId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="DedutionSetupVO1Iterator" id="ScNum">
+      <AttrNames>
+        <Item Value="ScNum"/>
+      </AttrNames>
+    </attributeValues>
+    <list IterBinding="DedutionSetupVO1Iterator" StaticList="false" Uses="LOV_DeductionType" id="DeductionType" DTSupportsMRU="false"
+          SelectItemValueMode="ListObject"/>
+    <attributeValues IterBinding="DedutionSetupVO1Iterator" id="DeductionName">
+      <AttrNames>
+        <Item Value="DeductionName"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="DedutionSetupVO1Iterator" id="Uom">
+      <AttrNames>
+        <Item Value="Uom"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="DedutionSetupVO1Iterator" id="UnitRate">
+      <AttrNames>
+        <Item Value="UnitRate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="DedutionSetupVO1Iterator" id="Period">
+      <AttrNames>
+        <Item Value="Period"/>
+      </AttrNames>
+    </attributeValues>
+    <list IterBinding="DedutionSetupVO1Iterator" StaticList="false" Uses="LOV_Month" id="Month" DTSupportsMRU="false" SelectItemValueMode="ListObject"/>
+    <list IterBinding="DedutionSetupVO1Iterator" StaticList="false" Uses="LOV_Year" id="Year" DTSupportsMRU="false" SelectItemValueMode="ListObject"/>
+    <list IterBinding="DedutionSetupVO1Iterator" StaticList="false" Uses="LOV_ContractNumber" id="ContractNumber" DTSupportsMRU="false"
+          SelectItemValueMode="ListObject"/>
+    <list IterBinding="DedutionSetupVO1Iterator" StaticList="false" Uses="LOV_DeductionNameTrans" id="DeductionNameTrans" DTSupportsMRU="false"
+          SelectItemValueMode="ListObject"/>
+  </bindings>
+</pageDefinition>

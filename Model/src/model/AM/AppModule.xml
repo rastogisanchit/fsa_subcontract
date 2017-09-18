@@ -4,8 +4,7 @@
 <AppModule
   xmlns="http://xmlns.oracle.com/bc4j"
   Name="AppModule"
-  Version="11.1.1.66.73"
-  InheritPersonalization="merge"
+  Version="11.1.1.65.57"
   ClearCacheOnRollback="true"
   ComponentClass="model.AM.AppModuleImpl">
   <DesignTime>
@@ -55,8 +54,8 @@
     Name="DeductionByTypeVO1"
     ViewObjectName="com.fsa.model.vo.DeductionByTypeVO"/>
   <ViewUsage
-    Name="DeductionSetupVO1"
-    ViewObjectName="com.fsa.model.vo.DeductionSetupVO"/>
+    Name="DedutionSetupVO1"
+    ViewObjectName="com.fsa.model.vo.DedutionSetupVO"/>
   <ResourceBundle>
     <PropertiesBundle
       PropertiesFile="model.ModelBundle"/>
